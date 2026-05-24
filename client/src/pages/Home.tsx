@@ -211,14 +211,11 @@ export default function Home() {
             {/* Text */}
             <FadeSection>
               <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "var(--orange-pale)", border: "1.5px solid var(--orange-light)", borderRadius: "999px", padding: "6px 16px", marginBottom: "16px", fontSize: "0.82rem", fontWeight: 700, color: "var(--orange)" }}>
-                🙋 ホームページの一日助っ人、参上！
+                Webまわりの困りごと、一緒に整理して解決します
               </div>
-              <h1 style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)", color: "var(--text-main)", marginBottom: "8px", fontWeight: 900, lineHeight: 1.45 }}>
+              <h1 style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)", color: "var(--text-main)", marginBottom: "16px", fontWeight: 900, lineHeight: 1.45 }}>
                 事業のホームページに関する<span style={{ color: "var(--orange)" }}>お悩み</span>なんでも相談ください
               </h1>
-              <p style={{ fontSize: "clamp(0.95rem, 2.8vw, 1.05rem)", color: "var(--text-sub)", fontWeight: 600, marginBottom: "16px", lineHeight: 1.6 }}>
-                Webまわりの困りごと、一緒に整理して解決します
-              </p>
               <p style={{ fontSize: "clamp(0.88rem, 2.5vw, 0.95rem)", color: "var(--text-sub)", lineHeight: "2", marginBottom: "28px" }}>
                 Web業界35年の経験を持つMARORIRI（マロリリ）が、ホームページの更新・リニューアルから、AI活用、思考整理まで、あなたの事業に寄り添ってお手伝いします。
               </p>
