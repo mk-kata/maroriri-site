@@ -110,7 +110,7 @@ export default function Home() {
     setFormState('sending');
     const data = new FormData(e.currentTarget);
     try {
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const res = await fetch('https://formspree.io/f/xdajdjyb', {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' },
