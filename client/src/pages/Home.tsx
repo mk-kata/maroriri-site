@@ -455,11 +455,11 @@ export default function Home() {
               <blockquote style={{ fontSize: "0.92rem", color: "var(--text-main)", lineHeight: "2.1", marginBottom: "24px" }}>
                 技術者、教育者、経営者。これら全ての視点が備わった総称が「助っ人」だということです。ホームページは、事業そのものを映し出す鏡のようなもの。だからこそ、ホームページでお困りな方がいましたら、私は迷わずマロリリさんを推薦します。ぜひ一度相談されてみてください！
               </blockquote>
-              <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-                <img src={IMG.comment} alt="山家誠司様" style={{ width: "52px", height: "52px", borderRadius: "50%", objectFit: "cover" }} />
+              <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
+                <img src={IMG.comment} alt="山家誠司様" style={{ width: "88px", height: "88px", borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
                 <div>
-                  <p style={{ fontWeight: 700, fontSize: "0.92rem", color: "var(--text-main)" }}>山家 誠司 様</p>
-                  <p style={{ fontSize: "0.78rem", color: "var(--text-sub)" }}>経営コンサルタント</p>
+                  <p style={{ fontWeight: 700, fontSize: "0.95rem", color: "var(--text-main)" }}>山家 誠司 様</p>
+                  <p style={{ fontSize: "0.8rem", color: "var(--text-sub)" }}>経営コンサルタント</p>
                 </div>
               </div>
             </div>
