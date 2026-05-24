@@ -210,13 +210,8 @@ export default function Home() {
           <div className="hero-grid">
             {/* Text */}
             <FadeSection>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "var(--orange-pale)", color: "var(--orange)", fontSize: "0.78rem", fontWeight: 700, padding: "6px 14px", borderRadius: "20px", marginBottom: "20px", border: "1px solid rgba(255,91,61,0.2)" }}>
-                🙋 ホームページの一日助っ人、参上！
-              </div>
               <h1 style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)", color: "var(--text-main)", marginBottom: "16px", fontWeight: 900, lineHeight: 1.45 }}>
-                事業のホームページに<br />
-                関する<span style={{ color: "var(--orange)" }}>お悩み</span><br />
-                なんでも相談ください
+                事業のホームページに関する<span style={{ color: "var(--orange)" }}>お悩み</span>なんでも相談ください
               </h1>
               <p style={{ fontSize: "clamp(0.88rem, 2.5vw, 0.95rem)", color: "var(--text-sub)", lineHeight: "2", marginBottom: "28px" }}>
                 Web業界35年の経験を持つMARORIRI（マロリリ）が、ホームページの更新・リニューアルから、AI活用、思考整理まで、あなたの事業に寄り添ってお手伝いします。
@@ -243,7 +238,7 @@ export default function Home() {
               {/* 実績バッジ */}
               <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", marginTop: "24px", paddingTop: "20px", borderTop: "1px solid var(--border-color)" }}>
                 {[
-                  { num: "35年+", label: "Web業界経験" },
+                  { num: "35年以上", label: "Web業界経験" },
                   { num: "全国対応", label: "オンライン（Zoom等）" },
                   { num: "¥5,000〜", label: "60分単発相談から" },
                 ].map(({ num, label }) => (
