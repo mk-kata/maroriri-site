@@ -30,8 +30,8 @@ const IMG = {
   feat3: "/assets/img/feature__image3.webp",
 };
 
-function FadeSection({ children, className = "", delay = 0 }: {
-  children: React.ReactNode; className?: string; delay?: number;
+function FadeSection({ children, className = "", delay = 0, style }: {
+  children: React.ReactNode; className?: string; delay?: number; style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -46,7 +46,7 @@ function FadeSection({ children, className = "", delay = 0 }: {
     obs.observe(el);
     return () => obs.disconnect();
   }, [delay]);
-  return <div ref={ref} className={`fade-up ${className}`}>{children}</div>;
+  return <div ref={ref} className={`fade-up ${className}`} style={style}>{children}</div>;
 }
 
 // Town skyline SVG
@@ -346,21 +346,21 @@ export default function Home() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px", marginBottom: "32px" }}>
             {[
-              { img: IMG.svc1, title: "制作会社に言われるがまま、なんとなく契約してしまいそう", body: "見積もりの内容が本当に必要なものか、第三者の目で一緒に確認します。「断れない空気」から守ります。" },
-              { img: IMG.svc2, title: "ホームページを作ったのに、問い合わせが一件も来ない", body: "何が原因かを診断し、今すぐできる改善策を具体的にお伝えします。" },
-              { img: IMG.svc3, title: "担当者が辞めて、ホームページのパスワードも更新方法も分からない", body: "引き継ぎが不完全な状態でも大丈夫。現状を整理して、次の一手を一緒に考えます。" },
-              { img: IMG.svc4, title: "AIやSNSを使いたいけど、何から始めればいいか分からない", body: "流行に乗るためではなく、あなたの事業に本当に役立つ使い方だけを一緒に探します。" },
-              { img: IMG.svc5, title: "補助金でホームページを作りたいが、業者の言っていることが信用できない", body: "補助金申請に関わる業者の見極め方や、適正な費用感をアドバイスします。" },
-              { img: IMG.svc6, title: "ホームページのことで相談できる人が社内にいない", body: "「こんなこと聞いていいの？」という小さな疑問から、大きな判断まで。気軽に話せる専門家として伴走します。" },
+              { img: IMG.svc1, title: "制作会社に言われるがまま、\nなんとなく契約してしまいそう", body: "見積もりの内容が本当に必要なものか、第三者の目で一緒に確認します。「断れない空気」から守ります。" },
+              { img: IMG.svc2, title: "ホームページを作ったのに、\n問い合わせが一件も来ない", body: "何が原因かを診断し、今すぐできる改善策を具体的にお伝えします。" },
+              { img: IMG.svc3, title: "担当者が辞めて、\nパスワードも更新方法も分からない", body: "引き継ぎが不完全な状態でも大丈夫。現状を整理して、次の一手を一緒に考えます。" },
+              { img: IMG.svc4, title: "AIやSNSを使いたいけど、\n何から始めればいいか分からない", body: "流行に乗るためではなく、あなたの事業に本当に役立つ使い方だけを一緒に探します。" },
+              { img: IMG.svc5, title: "補助金で作りたいが、\n業者の言うことが信用できない", body: "補助金申請に関わる業者の見極め方や、適正な費用感をアドバイスします。" },
+              { img: IMG.svc6, title: "ホームページのことで\n相談できる人が社内にいない", body: "「こんなこと聞いていいの？」という小さな疑問から、大きな判断まで。気軽に話せる専門家として伴走します。" },
             ].map((s, i) => (
-              <FadeSection key={i} delay={i * 50}>
-                <div style={{ background: "var(--warm-white)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "24px 18px", textAlign: "center", height: "100%", transition: "all 0.25s" }}
+              <FadeSection key={i} delay={i * 50} style={{ height: "100%" }}>
+                <div style={{ background: "var(--warm-white)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "24px 18px", height: "100%", transition: "all 0.25s", boxSizing: "border-box" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 20px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLDivElement).style.borderColor = "var(--orange-light)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border-color)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
                 >
-                  <img src={s.img} alt={s.title} style={{ height: "72px", width: "auto", margin: "0 auto 14px" }} />
-                  <h3 style={{ fontSize: "0.88rem", fontWeight: 700, color: "var(--green-dark)", marginBottom: "8px", lineHeight: 1.5 }}>{s.title}</h3>
-                  <p style={{ fontSize: "0.8rem", color: "var(--text-sub)", lineHeight: 1.8 }}>{s.body}</p>
+                  <img src={s.img} alt="" style={{ height: "72px", width: "auto", display: "block", margin: "0 auto 16px" }} />
+                  <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "var(--green-dark)", marginBottom: "10px", lineHeight: 1.6, whiteSpace: "pre-line" }}>{s.title}</h3>
+                  <p style={{ fontSize: "0.82rem", color: "var(--text-sub)", lineHeight: 1.85, textAlign: "left" }}>{s.body}</p>
                 </div>
               </FadeSection>
             ))}
@@ -419,15 +419,12 @@ export default function Home() {
                   { img: IMG.feat2, tag: "教育者として", title: "インストラクター経験", body: "有名専門学校でのWEB・DTPインストラクター経験。難しいことをかみ砕いて伝えることを大切にしています。" },
                   { img: IMG.feat3, tag: "経営者として", title: "新規事業立ち上げ経験", body: "経営者の悩みを自分事として理解。補助金申請の業者選びや、Webを営業にどう使うかまで相談できます。" },
                 ].map((f, i) => (
-                  <div key={i} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
-                    <img src={f.img} alt={f.tag} style={{ width: "52px", height: "52px", objectFit: "contain", flexShrink: 0 }} />
-                    <div>
-                      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-                        <span style={{ background: "var(--orange)", color: "#fff", fontSize: "0.68rem", fontWeight: 700, padding: "2px 10px", borderRadius: "12px" }}>{f.tag}</span>
-                        <h4 style={{ fontSize: "0.88rem", fontWeight: 700, color: "var(--text-main)" }}>{f.title}</h4>
-                      </div>
-                      <p style={{ fontSize: "0.82rem", color: "var(--text-sub)", lineHeight: 1.85 }}>{f.body}</p>
+                  <div key={i} style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <span style={{ background: "var(--orange)", color: "#fff", fontSize: "0.8rem", fontWeight: 700, padding: "5px 16px", borderRadius: "20px", flexShrink: 0 }}>{f.tag}</span>
+                      <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--text-main)" }}>{f.title}</h4>
                     </div>
+                    <p style={{ fontSize: "0.82rem", color: "var(--text-sub)", lineHeight: 1.85, paddingLeft: "4px" }}>{f.body}</p>
                   </div>
                 ))}
               </div>
@@ -463,7 +460,6 @@ export default function Home() {
           </FadeSection>
           <FadeSection delay={80}>
             <div style={{ background: "var(--warm-white)", border: "1px solid var(--border-color)", borderRadius: "16px", padding: "32px 28px" }}>
-              <div style={{ fontSize: "3.5rem", color: "var(--orange)", lineHeight: 1, marginBottom: "4px", fontFamily: "Georgia, serif", opacity: 0.4 }}>"</div>
               <blockquote style={{ fontSize: "0.92rem", color: "var(--text-main)", lineHeight: "2.1", marginBottom: "24px" }}>
                 技術者、教育者、経営者。これら全ての視点が備わった総称が「助っ人」だということです。ホームページは、事業そのものを映し出す鏡のようなもの。だからこそ、ホームページでお困りな方がいましたら、私は迷わずマロリリさんを推薦します。ぜひ一度相談されてみてください！
               </blockquote>
@@ -494,20 +490,22 @@ export default function Home() {
               { num: "2", title: "日程調整", body: "2営業日以内にご返信します。オンライン（Zoom等）またはオフライン（関西圏）でのお話しの日程を調整します。" },
               { num: "3", title: "お話をする", body: "現状の課題を一緒に整理し、あなたにとって最適な次の一手をご提案します。" },
             ].map((step, i) => (
-              <FadeSection key={i} delay={i * 100}>
-                <div style={{ textAlign: "center", padding: "24px 16px", background: "#fff", borderRadius: "12px", border: "1px solid var(--border-color)" }}>
-                  <div style={{ width: "52px", height: "52px", background: "var(--orange)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px", color: "#fff", fontSize: "1.3rem", fontWeight: 900, boxShadow: "0 4px 12px rgba(255,91,61,0.3)" }}>{step.num}</div>
-                  <h4 style={{ fontWeight: 700, fontSize: "0.95rem", color: "var(--text-main)", marginBottom: "10px" }}>{step.title}</h4>
-                  <p style={{ fontSize: "0.82rem", color: "var(--text-sub)", lineHeight: "1.9" }}>{step.body}</p>
+              <FadeSection key={i} delay={i * 100} style={{ height: "100%" }}>
+                <div style={{ padding: "28px 20px", background: "#fff", borderRadius: "12px", border: "1px solid var(--border-color)", height: "100%", boxSizing: "border-box" }}>
+                  <div style={{ width: "52px", height: "52px", background: "var(--orange)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", color: "#fff", fontSize: "1.3rem", fontWeight: 900, boxShadow: "0 4px 12px rgba(255,91,61,0.3)" }}>{step.num}</div>
+                  <h4 style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--text-main)", marginBottom: "10px", textAlign: "left" }}>{step.title}</h4>
+                  <p style={{ fontSize: "0.82rem", color: "var(--text-sub)", lineHeight: "1.9", textAlign: "left" }}>{step.body}</p>
                 </div>
               </FadeSection>
             ))}
           </div>
 
           <FadeSection delay={200}>
-            <div style={{ textAlign: "center", padding: "20px", background: "#fff", borderRadius: "12px", border: "2px solid var(--orange)" }}>
-              <p style={{ fontSize: "1rem", fontWeight: 700, color: "var(--text-main)" }}>60分 <span style={{ color: "var(--orange)", fontSize: "1.4rem" }}>¥5,000</span>（税込）</p>
-              <p style={{ fontSize: "0.82rem", color: "var(--text-sub)", marginTop: "4px" }}>オンライン（Zoom等）またはオフライン（関西圏のみ）</p>
+            <div style={{ maxWidth: "400px", margin: "0 auto", background: "linear-gradient(135deg, #fff5f3 0%, #fff 100%)", border: "2px solid var(--orange)", borderRadius: "16px", padding: "28px 36px", textAlign: "center", boxShadow: "0 6px 24px rgba(255,91,61,0.1)" }}>
+              <p style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--orange)", letterSpacing: "0.12em", marginBottom: "10px" }}>まず一度、話してみませんか</p>
+              <p style={{ fontSize: "0.88rem", fontWeight: 700, color: "var(--text-main)", marginBottom: "6px" }}>単発相談（60分）</p>
+              <p style={{ fontSize: "2.2rem", fontWeight: 900, color: "var(--orange)", lineHeight: 1.1, margin: "0 0 10px" }}>¥5,000<span style={{ fontSize: "1rem", fontWeight: 700 }}> 税込</span></p>
+              <p style={{ fontSize: "0.78rem", color: "var(--text-sub)", lineHeight: 1.8 }}>オンライン（Zoom等）<br />または関西圏オフライン</p>
             </div>
           </FadeSection>
         </div>
@@ -532,13 +530,13 @@ export default function Home() {
                 <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "var(--text-main)", marginBottom: "20px" }}>こんなご相談が多いです</h3>
                 <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", marginBottom: "28px" }}>
                   {[
-                    "ホームページを作ったのに、問い合わせが来ない",
-                    "制作会社に言われるがまま契約してしまいそう",
-                    "AIを使いたいけど何から始めればいいか分からない",
-                    "担当者が辞めてパスワードも更新方法も分からない",
-                    "まとまっていないけど、まず話を聞いてほしい",
+                    "ホームページを作ったのに、\n問い合わせが来ない",
+                    "制作会社に言われるがまま\n契約してしまいそう",
+                    "AIを使いたいけど\n何から始めればいいか分からない",
+                    "担当者が辞めてパスワードも\n更新方法も分からない",
+                    "まとまっていないけど、\nまず話を聞いてほしい",
                   ].map((item, i) => (
-                    <li key={i} style={{ display: "flex", gap: "10px", fontSize: "0.85rem", color: "var(--text-sub)", lineHeight: 1.7 }}>
+                    <li key={i} style={{ display: "flex", gap: "10px", fontSize: "0.85rem", color: "var(--text-sub)", lineHeight: 1.7, whiteSpace: "pre-line" }}>
                       <span style={{ color: "var(--orange)", fontWeight: 700, flexShrink: 0 }}>✓</span>
                       {item}
                     </li>
