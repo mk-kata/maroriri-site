@@ -294,12 +294,12 @@ export default function Home() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", marginBottom: "40px" }}>
             {[
-              { img: IMG.trouble1, case: "CASE 01", problem: "制作会社に頼んだら、言っていたことと全然違うものが出来上がってきた。修正を頼んでも「仕様です」と言われる。", solution: "制作会社との交渉に同席。あなたの意図を正確に伝えます。" },
-              { img: IMG.trouble2, case: "CASE 02", problem: "ホームページはあるのに、お客さんが来ない。広告も出したけど効果がない。何が問題なのか誰も教えてくれない。", solution: "原因を一緒に診断し、今日からできる改善策を提案します。" },
-              { img: IMG.trouble1, case: "CASE 03", problem: "業者に更新を頼むたびに費用がかかる。自分で更新したいが、やり方が分からなくて放置してしまっている。", solution: "更新方法を丁寧にレクチャー。自分で動かせるホームページへ変えます。" },
-              { img: IMG.trouble2, case: "CASE 04", problem: "複数の業者から見積もりをもらったが、比較のしかたが分からない。どれが適正価格か判断できない。", solution: "見積書の読み方から適正価格の判断まで、中立な立場で一緒に整理します。" },
-              { img: IMG.trouble1, case: "CASE 05", problem: "ホームページを新しく作りたいが、要件が整理できていない。業者に相談しても何を決めればいいか分からない。", solution: "要件整理から業者選定まで、第三者の立場でサポートします。" },
-              { img: IMG.trouble2, case: "CASE 06", problem: "ホームページが古くなってきた。リニューアルしたいが費用感も進め方も分からず、何年も先延ばしにしている。", solution: "現状整理から優先度づけまで、リニューアルの第一歩をサポートします。" },
+              { img: "/assets/img/case01.png", case: "CASE 01", problem: "制作会社に頼んだら、言っていたことと全然違うものが出来上がってきた。修正を頼んでも「仕様です」と言われる。", solution: "制作会社との交渉に同席。あなたの意図を正確に伝えます。" },
+              { img: "/assets/img/case02.png", case: "CASE 02", problem: "ホームページはあるのに、お客さんが来ない。広告も出したけど効果がない。何が問題なのか誰も教えてくれない。", solution: "原因を一緒に診断し、今日からできる改善策を提案します。" },
+              { img: "/assets/img/case03.png", case: "CASE 03", problem: "業者に更新を頼むたびに費用がかかる。自分で更新したいが、やり方が分からなくて放置してしまっている。", solution: "更新方法を丁寧にレクチャー。自分で動かせるホームページへ変えます。" },
+              { img: "/assets/img/case04.png", case: "CASE 04", problem: "複数の業者から見積もりをもらったが、比較のしかたが分からない。どれが適正価格か判断できない。", solution: "見積書の読み方から適正価格の判断まで、中立な立場で一緒に整理します。" },
+              { img: "/assets/img/case05.png", case: "CASE 05", problem: "ホームページを新しく作りたいが、要件が整理できていない。業者に相談しても何を決めればいいか分からない。", solution: "要件整理から業者選定まで、第三者の立場でサポートします。" },
+              { img: "/assets/img/case06.png", case: "CASE 06", problem: "ホームページが古くなってきた。リニューアルしたいが費用感も進め方も分からず、何年も先延ばしにしている。", solution: "現状整理から優先度づけまで、リニューアルの第一歩をサポートします。" },
             ].map((c, i) => (
               <FadeSection key={i} delay={i * 80}>
                 <div style={{ background: "#fff", border: "1px solid var(--border-color)", borderRadius: "12px", overflow: "hidden" }}>
