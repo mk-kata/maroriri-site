@@ -512,7 +512,7 @@ export default function Home() {
             </h2>
             <div className="section-accent-line" />
             <p style={{ textAlign: "center", fontSize: "0.88rem", color: "var(--text-sub)", marginBottom: "36px", lineHeight: "2" }}>
-              「相談内容が整理できていない」「どのメニューを選べばいいか分からない」という状態でも大丈夫です。まとまっていない言葉のままで、お気軽にどうぞ。
+              「相談内容が整理できていない」「どのメニューを選べばいいか分からない」という状態でも大丈夫です。<br />まとまっていない言葉のままで、お気軽にどうぞ。
             </p>
           </FadeSection>
 
