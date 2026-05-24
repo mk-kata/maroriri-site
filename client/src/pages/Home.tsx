@@ -632,21 +632,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Marquee ─── */}
-      <div style={{ overflow: "hidden", background: "var(--orange)", padding: "18px 0" }}>
-        <div className="marquee-track">
-          {[...Array(2)].map((_, gi) => (
-            <div key={gi} style={{ display: "flex", alignItems: "center", gap: "0" }}>
-              {["MARORIRI", "マロリリ", "Webの困りごと、一緒にほどく", "MARORIRI", "マロリリ", "ホームページ相談", "MARORIRI", "マロリリ", "片山まゆみ"].map((text, i) => (
-                <span key={i} style={{ fontSize: "1rem", fontWeight: 900, color: "#fff", letterSpacing: "0.06em", padding: "0 32px", borderRight: "1px solid rgba(255,255,255,0.3)" }}>
-                  {text}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ─── Footer ─── */}
       <footer style={{ background: "var(--green-dark)", padding: "40px 20px 28px" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
