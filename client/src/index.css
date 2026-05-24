@@ -170,4 +170,40 @@
     overflow: hidden;
     line-height: 0;
   }
+
+  /* Hero 2-column on desktop */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Section accent line */
+  .section-accent-line {
+    width: 48px;
+    height: 3px;
+    background: var(--orange);
+    border-radius: 2px;
+    margin: 10px auto 18px;
+  }
+
+  /* Contact 2-column on desktop */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 8px;
+  }
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1.5fr;
+    }
+  }
 }

@@ -7,27 +7,27 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Image URLs from uploaded assets
+// Image URLs — local assets
 const IMG = {
-  mvLogo: "/manus-storage/mv__logo_eccdea6f.webp",
-  mvImage: "/manus-storage/mv__image_506f33d3.webp",
-  mvSub1: "/manus-storage/mv__subimage1_417b48b4.webp",
-  mvSub2: "/manus-storage/mv__subimage2_d8d2146e.webp",
-  mvSub3: "/manus-storage/mv__subimage3_d34ef723.webp",
-  visitImage: "/manus-storage/visit__image_29afea6b.webp",
-  trouble1: "/manus-storage/trouble-card__image1_84700b41.webp",
-  trouble2: "/manus-storage/trouble-card__image2_34e41775.webp",
-  about: "/manus-storage/about__image_f2ccce34.webp",
-  comment: "/manus-storage/comment__image_76e357ec.webp",
-  svc1: "/manus-storage/service__image1_3f16ddbc.webp",
-  svc2: "/manus-storage/service__image2_46cfd167.webp",
-  svc3: "/manus-storage/service__image3_f0030385.webp",
-  svc4: "/manus-storage/service__image4_f0ba94a5.webp",
-  svc5: "/manus-storage/service__image5_5973e58d.webp",
-  svc6: "/manus-storage/service__image6_c88a8c2f.webp",
-  feat1: "/manus-storage/feature__image1_3098ed9d.webp",
-  feat2: "/manus-storage/feature__image2_d7405d05.webp",
-  feat3: "/manus-storage/feature__image3_613a1ee6.webp",
+  mvLogo: "/assets/img/mv__logo.webp",
+  mvImage: "/assets/img/mv__image.webp",
+  mvSub1: "/assets/img/mv__subimage1.webp",
+  mvSub2: "/assets/img/mv__subimage2.webp",
+  mvSub3: "/assets/img/mv__subimage3.webp",
+  visitImage: "/assets/img/visit__image.webp",
+  trouble1: "/assets/img/trouble-card__image1.webp",
+  trouble2: "/assets/img/trouble-card__image2.webp",
+  about: "/assets/img/about__image.webp",
+  comment: "/assets/img/comment__image.webp",
+  svc1: "/assets/img/service__image1.webp",
+  svc2: "/assets/img/service__image2.webp",
+  svc3: "/assets/img/service__image3.webp",
+  svc4: "/assets/img/service__image4.webp",
+  svc5: "/assets/img/service__image5.webp",
+  svc6: "/assets/img/service__image6.webp",
+  feat1: "/assets/img/feature__image1.webp",
+  feat2: "/assets/img/feature__image2.webp",
+  feat3: "/assets/img/feature__image3.webp",
 };
 
 function FadeSection({ children, className = "", delay = 0 }: {
@@ -207,7 +207,7 @@ export default function Home() {
       <section style={{ paddingTop: "60px", background: "var(--warm-white)", position: "relative" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto", padding: "48px 20px 0" }}>
           {/* Mobile: stack vertically; Desktop: 2 columns */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "32px", alignItems: "center" }}>
+          <div className="hero-grid">
             {/* Text */}
             <FadeSection>
               <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "var(--orange-pale)", color: "var(--orange)", fontSize: "0.78rem", fontWeight: 700, padding: "6px 14px", borderRadius: "20px", marginBottom: "20px", border: "1px solid rgba(255,91,61,0.2)" }}>
@@ -238,6 +238,20 @@ export default function Home() {
                   onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "var(--green-light)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
                 >サービスを見る</a>
+              </div>
+
+              {/* 実績バッジ */}
+              <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", marginTop: "24px", paddingTop: "20px", borderTop: "1px solid var(--border-color)" }}>
+                {[
+                  { num: "35年+", label: "Web業界経験" },
+                  { num: "全国対応", label: "オンライン（Zoom等）" },
+                  { num: "¥5,000〜", label: "60分単発相談から" },
+                ].map(({ num, label }) => (
+                  <div key={label}>
+                    <p style={{ fontSize: "1.2rem", fontWeight: 900, color: "var(--orange)", margin: 0, lineHeight: 1.2 }}>{num}</p>
+                    <p style={{ fontSize: "0.72rem", color: "var(--text-sub)", margin: 0 }}>{label}</p>
+                  </div>
+                ))}
               </div>
             </FadeSection>
 
@@ -274,6 +288,7 @@ export default function Home() {
             <h2 style={{ textAlign: "center", fontSize: "clamp(1.2rem, 4vw, 1.8rem)", color: "var(--text-main)", marginBottom: "8px", fontWeight: 900 }}>
               こんな<span style={{ color: "var(--orange)" }}>お悩み</span>、ありませんか？
             </h2>
+            <div className="section-accent-line" />
             <p style={{ textAlign: "center", fontSize: "0.88rem", color: "var(--text-sub)", marginBottom: "40px" }}>
               中小企業・個人事業主の方から、こんな声をよく聞きます。
             </p>
@@ -325,6 +340,7 @@ export default function Home() {
             <h2 style={{ textAlign: "center", fontSize: "clamp(1.2rem, 4vw, 1.8rem)", color: "var(--text-main)", marginBottom: "8px", fontWeight: 900 }}>
               「MARORIRI」は<span style={{ color: "var(--orange)" }}>こんなとき</span>に活用できます
             </h2>
+            <div className="section-accent-line" />
             <p style={{ textAlign: "center", fontSize: "0.88rem", color: "var(--text-sub)", marginBottom: "40px" }}>
               「ちょっと聞きたい」から「継続的に伴走してほしい」まで、あなたの状況に合わせてお選びいただけます。
             </p>
@@ -380,6 +396,7 @@ export default function Home() {
             <h2 style={{ textAlign: "center", fontSize: "clamp(1.2rem, 4vw, 1.8rem)", color: "var(--text-main)", marginBottom: "40px", fontWeight: 900 }}>
               はじめまして！<span style={{ color: "var(--orange)" }}>MARORIRI</span>と申します
             </h2>
+            <div className="section-accent-line" />
           </FadeSection>
 
           {/* Stack on mobile, 2col on desktop */}
@@ -443,7 +460,8 @@ export default function Home() {
       <section style={{ padding: "72px 20px", background: "#fff" }}>
         <div style={{ maxWidth: "680px", margin: "0 auto" }}>
           <FadeSection>
-            <h2 style={{ textAlign: "center", fontSize: "clamp(1.2rem, 4vw, 1.8rem)", color: "var(--text-main)", marginBottom: "32px", fontWeight: 900 }}>推薦の言葉</h2>
+            <h2 style={{ textAlign: "center", fontSize: "clamp(1.2rem, 4vw, 1.8rem)", color: "var(--text-main)", marginBottom: "8px", fontWeight: 900 }}>推薦の言葉</h2>
+            <div className="section-accent-line" style={{ marginBottom: "28px" }} />
           </FadeSection>
           <FadeSection delay={80}>
             <div style={{ background: "var(--warm-white)", border: "1px solid var(--border-color)", borderRadius: "16px", padding: "32px 28px" }}>
@@ -468,6 +486,7 @@ export default function Home() {
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <FadeSection>
             <h2 style={{ textAlign: "center", fontSize: "clamp(1.2rem, 4vw, 1.8rem)", color: "var(--text-main)", marginBottom: "8px", fontWeight: 900 }}>ご利用の流れ</h2>
+            <div className="section-accent-line" />
             <p style={{ textAlign: "center", fontSize: "0.88rem", color: "var(--text-sub)", marginBottom: "40px" }}>まとまっていない言葉のままで構いません。まずは現状をお知らせください。</p>
           </FadeSection>
 
@@ -498,15 +517,42 @@ export default function Home() {
 
       {/* ─── Contact ─── */}
       <section id="contact" style={{ padding: "72px 20px", background: "#fff" }}>
-        <div style={{ maxWidth: "580px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <FadeSection>
             <h2 style={{ textAlign: "center", fontSize: "clamp(1.2rem, 4vw, 1.8rem)", color: "var(--text-main)", marginBottom: "8px", fontWeight: 900 }}>
               まずはお話しして<span style={{ color: "var(--orange)" }}>みませんか</span>
             </h2>
+            <div className="section-accent-line" />
             <p style={{ textAlign: "center", fontSize: "0.88rem", color: "var(--text-sub)", marginBottom: "36px", lineHeight: "2" }}>
               「相談内容が整理できていない」「どのメニューを選べばいいか分からない」という状態でも大丈夫です。まとまっていない言葉のままで、お気軽にどうぞ。
             </p>
           </FadeSection>
+
+          <div className="contact-grid">
+            <FadeSection>
+              <div style={{ background: "var(--warm-white)", border: "1px solid var(--border-color)", borderRadius: "16px", padding: "32px 28px" }}>
+                <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "var(--text-main)", marginBottom: "20px" }}>こんなご相談が多いです</h3>
+                <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", marginBottom: "28px" }}>
+                  {[
+                    "ホームページを作ったのに、問い合わせが来ない",
+                    "制作会社に言われるがまま契約してしまいそう",
+                    "AIを使いたいけど何から始めればいいか分からない",
+                    "担当者が辞めてパスワードも更新方法も分からない",
+                    "まとまっていないけど、まず話を聞いてほしい",
+                  ].map((item, i) => (
+                    <li key={i} style={{ display: "flex", gap: "10px", fontSize: "0.85rem", color: "var(--text-sub)", lineHeight: 1.7 }}>
+                      <span style={{ color: "var(--orange)", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div style={{ background: "#fff", border: "2px solid var(--orange)", borderRadius: "12px", padding: "20px", textAlign: "center" }}>
+                  <p style={{ fontSize: "0.78rem", color: "var(--text-sub)", marginBottom: "4px" }}>単発相談</p>
+                  <p style={{ fontSize: "1.4rem", fontWeight: 900, color: "var(--orange)", margin: "0 0 4px" }}>60分 ¥5,000</p>
+                  <p style={{ fontSize: "0.75rem", color: "var(--text-sub)" }}>オンライン（Zoom等）／関西圏オフライン</p>
+                </div>
+              </div>
+            </FadeSection>
 
           <FadeSection delay={80}>
             <form onSubmit={handleSubmit}>
@@ -594,6 +640,7 @@ export default function Home() {
               )}
             </form>
           </FadeSection>
+          </div>
         </div>
       </section>
 
