@@ -149,7 +149,7 @@ export default function Home() {
         transition: "all 0.3s ease",
       }}>
         <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}>
-          <img src={IMG.mvLogo} alt="MARORIRI" style={{ height: "36px", width: "auto" }} />
+          <img src={IMG.mvLogo} alt="MARORIRI" style={{ height: "56px", width: "auto" }} />
         </a>
 
         {/* Desktop nav */}
@@ -647,7 +647,7 @@ export default function Home() {
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "28px", marginBottom: "24px" }}>
             <div>
-              <img src={IMG.mvLogo} alt="MARORIRI" style={{ height: "32px", width: "auto", marginBottom: "10px", filter: "brightness(0) invert(1)", opacity: 0.85 }} />
+              <img src={IMG.mvLogo} alt="MARORIRI" style={{ height: "52px", width: "auto", marginBottom: "10px", filter: "brightness(0) invert(1)", opacity: 0.85 }} />
               <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", lineHeight: "1.8" }}>Webの困りごとを一緒に解決しましょう。<br />中小企業・個人事業主のWebの助っ人。</p>
             </div>
             <nav style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
