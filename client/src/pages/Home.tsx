@@ -296,6 +296,8 @@ export default function Home() {
             {[
               { img: IMG.trouble1, case: "CASE 01", problem: "制作会社に頼んだら、言っていたことと全然違うものが出来上がってきた。修正を頼んでも「仕様です」と言われる。", solution: "制作会社との交渉に同席。あなたの意図を正確に伝えます。" },
               { img: IMG.trouble2, case: "CASE 02", problem: "ホームページはあるのに、お客さんが来ない。広告も出したけど効果がない。何が問題なのか誰も教えてくれない。", solution: "原因を一緒に診断し、今日からできる改善策を提案します。" },
+              { img: IMG.trouble1, case: "CASE 03", problem: "業者に更新を頼むたびに費用がかかる。自分で更新したいが、やり方が分からなくて放置してしまっている。", solution: "更新方法を丁寧にレクチャー。自分で動かせるホームページへ変えます。" },
+              { img: IMG.trouble2, case: "CASE 04", problem: "ホームページを新しく作りたいが、どの業者を選べばいいか分からない。高額な見積もりが来ても適正か判断できない。", solution: "要件整理から業者選定まで、中立な立場でサポートします。" },
             ].map((c, i) => (
               <FadeSection key={i} delay={i * 80}>
                 <div style={{ background: "#fff", border: "1px solid var(--border-color)", borderRadius: "12px", overflow: "hidden" }}>
@@ -316,18 +318,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Visit image + keywords */}
-          <FadeSection>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", padding: "32px 20px", background: "#fff", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
-              <img src={IMG.visitImage} alt="ホームページの一日助っ人" style={{ height: "80px", width: "auto" }} />
-              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
-                {["使いやすい", "わかりやすい", "管理しやすい"].map(k => (
-                  <span key={k} style={{ border: "2px solid var(--green-dark)", color: "var(--green-dark)", padding: "6px 16px", borderRadius: "20px", fontSize: "0.85rem", fontWeight: 700 }}>{k}</span>
-                ))}
-              </div>
-              <p style={{ fontWeight: 900, fontSize: "clamp(1.1rem, 3vw, 1.5rem)", color: "var(--text-main)", textAlign: "center" }}>よりよいホームページへと導きます。</p>
-            </div>
-          </FadeSection>
         </div>
       </section>
 
@@ -359,7 +349,7 @@ export default function Home() {
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border-color)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
                 >
                   <img src={s.img} alt="" style={{ height: "72px", width: "auto", display: "block", margin: "0 auto 16px" }} />
-                  <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "var(--green-dark)", marginBottom: "10px", lineHeight: 1.6, whiteSpace: "pre-line" }}>{s.title}</h3>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "var(--green-dark)", marginBottom: "10px", lineHeight: 1.6, whiteSpace: "pre-line", textAlign: "center" }}>{s.title}</h3>
                   <p style={{ fontSize: "0.82rem", color: "var(--text-sub)", lineHeight: 1.85, textAlign: "left" }}>{s.body}</p>
                 </div>
               </FadeSection>
@@ -493,7 +483,7 @@ export default function Home() {
               <FadeSection key={i} delay={i * 100} style={{ height: "100%" }}>
                 <div style={{ padding: "28px 20px", background: "#fff", borderRadius: "12px", border: "1px solid var(--border-color)", height: "100%", boxSizing: "border-box" }}>
                   <div style={{ width: "52px", height: "52px", background: "var(--orange)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", color: "#fff", fontSize: "1.3rem", fontWeight: 900, boxShadow: "0 4px 12px rgba(255,91,61,0.3)" }}>{step.num}</div>
-                  <h4 style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--text-main)", marginBottom: "10px", textAlign: "left" }}>{step.title}</h4>
+                  <h4 style={{ fontWeight: 700, fontSize: "1.15rem", color: "var(--text-main)", marginBottom: "10px", textAlign: "center" }}>{step.title}</h4>
                   <p style={{ fontSize: "0.82rem", color: "var(--text-sub)", lineHeight: "1.9", textAlign: "left" }}>{step.body}</p>
                 </div>
               </FadeSection>
@@ -639,6 +629,21 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ─── Marquee ─── */}
+      <div style={{ overflow: "hidden", background: "var(--orange)", padding: "18px 0" }}>
+        <div className="marquee-track">
+          {[...Array(2)].map((_, gi) => (
+            <div key={gi} style={{ display: "flex", alignItems: "center", gap: "0" }}>
+              {["MARORIRI", "マロリリ", "Webの困りごと、一緒にほどく", "MARORIRI", "マロリリ", "ホームページ相談", "MARORIRI", "マロリリ", "片山まゆみ"].map((text, i) => (
+                <span key={i} style={{ fontSize: "1rem", fontWeight: 900, color: "#fff", letterSpacing: "0.06em", padding: "0 32px", borderRight: "1px solid rgba(255,255,255,0.3)" }}>
+                  {text}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ─── Footer ─── */}
       <footer style={{ background: "var(--green-dark)", padding: "40px 20px 28px" }}>
