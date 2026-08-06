@@ -77,14 +77,6 @@ const icons: Record<string, string> = {
 	apply: '<path d="M12 3.5v10.5"/><path d="m7.5 10 4.5 4.5L16.5 10"/><path d="M4.5 18.5h15"/>',
 };
 
-const experience = [
-	{ num: "01", en: "PRINT", ja: "印刷" },
-	{ num: "02", en: "DTP", ja: "誌面・販促物制作" },
-	{ num: "03", en: "WEB", ja: "Web制作・運用" },
-	{ num: "04", en: "DIRECTION", ja: "進行・品質管理" },
-	{ num: "05", en: "CREATOR SUPPORT", ja: "制作者の育成・支援" },
-];
-
 const faqs = [
 	{
 		q: "コーディング経験が浅くても参加できますか？",
@@ -437,21 +429,6 @@ const faqs = [
 						<li>CREATOR SUPPORT</li>
 					</ul>
 				</div>
-			</div>
-
-			<div class="profile__experience">
-				<p class="eyebrow">EXPERIENCE</p>
-				<ol class="profile__experience-list">
-					{
-						experience.map((e) => (
-							<li>
-								<span class="num-mono profile__experience-num">{e.num}</span>
-								<span class="profile__experience-en">{e.en}</span>
-								<span class="profile__experience-ja">{e.ja}</span>
-							</li>
-						))
-					}
-				</ol>
 			</div>
 		</div>
 	</section>
@@ -1042,46 +1019,6 @@ const faqs = [
 		opacity: 0.75;
 	}
 
-	/* ---------- Experience ---------- */
-	.profile__experience {
-		margin-top: 96px;
-	}
-
-	.profile__experience-list {
-		margin-top: 32px;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.profile__experience-list li {
-		padding-block: 20px;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.profile__experience-list li:last-child {
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.profile__experience-num {
-		color: var(--color-accent);
-		font-size: 0.85rem;
-	}
-
-	.profile__experience-en {
-		display: block;
-		margin-top: 6px;
-		font-family: var(--font-en);
-		font-weight: 700;
-		font-size: 1.2rem;
-	}
-
-	.profile__experience-ja {
-		display: block;
-		margin-top: 4px;
-		font-size: 0.85rem;
-		opacity: 0.65;
-	}
-
 	/* ---------- FAQ ---------- */
 	.faq__grid {
 		display: flex;
@@ -1260,40 +1197,6 @@ const faqs = [
 			border-top: none;
 			border-left: 1px solid var(--color-border);
 			padding-left: 48px;
-		}
-
-		.profile__experience-list {
-			flex-direction: row;
-			position: relative;
-		}
-
-		.profile__experience-list::before {
-			content: "";
-			position: absolute;
-			top: 6px;
-			left: 0;
-			right: 0;
-			height: 1px;
-			background: var(--color-border);
-		}
-
-		.profile__experience-list li {
-			position: relative;
-			flex: 1;
-			padding: 0 20px 0 0;
-			border-top: none;
-		}
-
-		.profile__experience-list li:last-child {
-			border-bottom: none;
-			padding-right: 0;
-		}
-
-		.profile__experience-num {
-			position: relative;
-			display: inline-block;
-			padding-right: 10px;
-			background: var(--color-bg-white);
 		}
 
 		.faq__grid {
