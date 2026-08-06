@@ -1,0 +1,84 @@
+---
+interface Props {
+	question: string;
+}
+
+const { question } = Astro.props;
+---
+
+<details class="faq-item">
+	<summary class="faq-item__question">
+		<span>{question}</span>
+		<span class="faq-item__icon" aria-hidden="true"></span>
+	</summary>
+	<div class="faq-item__answer">
+		<slot />
+	</div>
+</details>
+
+<style>
+	.faq-item {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.faq-item__question {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		padding-block: 24px;
+		font-size: clamp(1rem, 0.9rem + 0.3vw, 1.1rem);
+		cursor: pointer;
+		list-style: none;
+		min-height: 44px;
+	}
+
+	.faq-item__question::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-item__icon {
+		position: relative;
+		flex-shrink: 0;
+		width: 16px;
+		height: 16px;
+	}
+
+	.faq-item__icon::before,
+	.faq-item__icon::after {
+		content: "";
+		position: absolute;
+		background: var(--color-text);
+		top: 50%;
+		left: 50%;
+	}
+
+	.faq-item__icon::before {
+		width: 16px;
+		height: 1px;
+		transform: translate(-50%, -50%);
+	}
+
+	.faq-item__icon::after {
+		width: 1px;
+		height: 16px;
+		transform: translate(-50%, -50%);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.faq-item__icon::after {
+			transition: transform 0.2s ease;
+		}
+	}
+
+	.faq-item[open] .faq-item__icon::after {
+		transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
+	}
+
+	.faq-item__answer {
+		padding-bottom: 24px;
+		padding-right: 40px;
+		font-size: 0.95rem;
+		opacity: 0.85;
+	}
+</style>

@@ -1,0 +1,299 @@
+---
+const navItems = [
+	{ label: "ABOUT", href: "/about/" },
+	{ label: "CODER CLUB", href: "/coder-club/" },
+	{ label: "CASE CHECK", href: "/case-check/" },
+	{ label: "CONSULTING", href: "/consulting/" },
+	{ label: "PROFILE", href: "/profile/" },
+];
+
+const mobileNavItems = [
+	{ num: "01", ja: "MARORIRIとは", en: "ABOUT", href: "/about/" },
+	{ num: "02", ja: "マロリリコーダー部", en: "CODER CLUB", href: "/coder-club/" },
+	{ num: "03", ja: "案件チェック", en: "CASE CHECK", href: "/case-check/" },
+	{ num: "04", ja: "単発個別相談", en: "CONSULTING", href: "/consulting/" },
+	{ num: "05", ja: "運営者紹介", en: "PROFILE", href: "/profile/" },
+	{ num: "06", ja: "よくある質問", en: "FAQ", href: "/faq/" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+	<div class="site-header__inner container">
+		<a href="/" class="site-header__logo">MARORIRI</a>
+
+		<nav class="site-header__nav" aria-label="メインナビゲーション">
+			<ul>
+				{
+					navItems.map((item) => (
+						<li>
+							<a
+								href={item.href}
+								aria-current={currentPath === item.href ? "page" : undefined}
+							>
+								{item.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+
+		<a href="/contact/" class="site-header__cta btn btn--primary">相談・申込み</a>
+
+		<button
+			type="button"
+			class="site-header__menu-btn"
+			id="menu-toggle"
+			aria-expanded="false"
+			aria-controls="mobile-nav"
+		>
+			<span class="site-header__menu-icon" aria-hidden="true">
+				<span></span><span></span>
+			</span>
+			<span class="site-header__menu-label">MENU</span>
+		</button>
+	</div>
+
+	<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+		<nav aria-label="モバイルナビゲーション">
+			<ul>
+				{
+					mobileNavItems.map((item) => (
+						<li>
+							<a href={item.href}>
+								<span class="mobile-nav__num num-mono" aria-hidden="true">
+									{item.num}
+								</span>
+								<span class="mobile-nav__text">
+									<span class="mobile-nav__ja">{item.ja}</span>
+									<span class="mobile-nav__en num-mono">{item.en}</span>
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+			<a href="/contact/" class="mobile-nav__cta btn btn--primary">相談・申込み</a>
+		</nav>
+	</div>
+</header>
+
+<script>
+	const toggle = document.getElementById("menu-toggle");
+	const nav = document.getElementById("mobile-nav");
+
+	if (toggle && nav) {
+		const links = nav.querySelectorAll("a");
+
+		const openMenu = () => {
+			toggle.setAttribute("aria-expanded", "true");
+			nav.setAttribute("aria-hidden", "false");
+			document.body.classList.add("nav-open");
+			const first = nav.querySelector("a");
+			if (first instanceof HTMLElement) first.focus();
+		};
+
+		const closeMenu = (returnFocus = true) => {
+			toggle.setAttribute("aria-expanded", "false");
+			nav.setAttribute("aria-hidden", "true");
+			document.body.classList.remove("nav-open");
+			if (returnFocus) toggle.focus();
+		};
+
+		toggle.addEventListener("click", () => {
+			const isOpen = toggle.getAttribute("aria-expanded") === "true";
+			if (isOpen) {
+				closeMenu();
+			} else {
+				openMenu();
+			}
+		});
+
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+				closeMenu();
+			}
+		});
+
+		links.forEach((link) => {
+			link.addEventListener("click", () => closeMenu(false));
+		});
+	}
+</script>
+
+<style>
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.site-header__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		min-height: 72px;
+	}
+
+	.site-header__logo {
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: 1.15rem;
+		letter-spacing: 0.02em;
+	}
+
+	.site-header__nav {
+		display: none;
+	}
+
+	.site-header__nav ul {
+		display: flex;
+		gap: 32px;
+	}
+
+	.site-header__nav a {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		letter-spacing: 0.03em;
+		padding-block: 4px;
+		border-bottom: 1px solid transparent;
+	}
+
+	.site-header__nav a:hover,
+	.site-header__nav a[aria-current="page"] {
+		border-bottom-color: var(--color-accent);
+	}
+
+	.site-header__cta {
+		display: none;
+		font-size: 0.85rem;
+		padding: 0.7em 1.3em;
+		min-height: 40px;
+	}
+
+	.site-header__menu-btn {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		min-height: 44px;
+	}
+
+	.site-header__menu-icon {
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 5px;
+		width: 22px;
+	}
+
+	.site-header__menu-icon span {
+		display: block;
+		height: 1px;
+		background: var(--color-text);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.site-header__menu-icon span {
+			transition: transform 0.2s ease, opacity 0.2s ease;
+		}
+	}
+
+	.site-header__menu-btn[aria-expanded="true"] .site-header__menu-icon span:first-child {
+		transform: translateY(3px) rotate(45deg);
+	}
+
+	.site-header__menu-btn[aria-expanded="true"] .site-header__menu-icon span:last-child {
+		transform: translateY(-3px) rotate(-45deg);
+	}
+
+	.site-header__menu-label {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.05em;
+	}
+
+	.mobile-nav {
+		position: fixed;
+		inset: 72px 0 0 0;
+		background: var(--color-bg-white);
+		overflow-y: auto;
+		transform: translateX(100%);
+		visibility: hidden;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.mobile-nav {
+			transition: transform 0.25s ease, visibility 0.25s ease;
+		}
+	}
+
+	.mobile-nav[aria-hidden="false"] {
+		transform: translateX(0);
+		visibility: visible;
+	}
+
+	.mobile-nav nav {
+		padding: 8px var(--gutter) 48px;
+	}
+
+	.mobile-nav li {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.mobile-nav a {
+		display: flex;
+		align-items: baseline;
+		gap: 16px;
+		padding-block: 20px;
+		min-height: 44px;
+	}
+
+	.mobile-nav__num {
+		font-size: 0.8rem;
+		color: var(--color-accent);
+	}
+
+	.mobile-nav__text {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.mobile-nav__ja {
+		font-size: 1.05rem;
+	}
+
+	.mobile-nav__en {
+		font-size: 0.75rem;
+		letter-spacing: 0.04em;
+		opacity: 0.55;
+	}
+
+	.mobile-nav__cta {
+		margin-top: 24px;
+		width: 100%;
+	}
+
+	@media (min-width: 1024px) {
+		.site-header__nav {
+			display: block;
+		}
+
+		.site-header__cta {
+			display: inline-flex;
+		}
+
+		.site-header__menu-btn {
+			display: none;
+		}
+
+		.mobile-nav {
+			display: none;
+		}
+	}
+</style>

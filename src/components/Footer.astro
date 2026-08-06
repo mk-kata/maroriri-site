@@ -1,0 +1,102 @@
+---
+const navItems = [
+	{ label: "MARORIRIとは", href: "/about/" },
+	{ label: "マロリリコーダー部", href: "/coder-club/" },
+	{ label: "案件チェック", href: "/case-check/" },
+	{ label: "単発個別相談", href: "/consulting/" },
+	{ label: "運営者紹介", href: "/profile/" },
+	{ label: "よくある質問", href: "/faq/" },
+	{ label: "相談・申込み", href: "/contact/" },
+];
+
+const legalItems = [
+	{ label: "利用規約", href: "/terms/" },
+	{ label: "特定商取引法に基づく表記", href: "/tokushoho/" },
+	{ label: "プライバシーポリシー", href: "/privacy/" },
+];
+---
+
+<footer class="site-footer">
+	<div class="container site-footer__inner">
+		<div class="site-footer__brand">
+			<p class="site-footer__logo">MARORIRI</p>
+			<p class="site-footer__tagline">制作者として考え、判断する力を育てる場所。</p>
+		</div>
+
+		<nav class="site-footer__nav" aria-label="フッターナビゲーション">
+			<ul>
+				{navItems.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+			</ul>
+		</nav>
+
+		<nav class="site-footer__legal" aria-label="法務情報">
+			<ul>
+				{legalItems.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+			</ul>
+		</nav>
+	</div>
+
+	<div class="container site-footer__bottom">
+		<p>© MARORIRI</p>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		background: var(--color-bg-dark);
+		color: var(--color-text-inverse);
+	}
+
+	.site-footer__inner {
+		display: grid;
+		gap: 48px;
+		padding-block: 64px 40px;
+	}
+
+	.site-footer__logo {
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: 1.3rem;
+	}
+
+	.site-footer__tagline {
+		margin-top: 12px;
+		font-size: 0.9rem;
+		opacity: 0.7;
+		max-width: 26em;
+	}
+
+	.site-footer__nav ul,
+	.site-footer__legal ul {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.site-footer__nav a,
+	.site-footer__legal a {
+		font-size: 0.9rem;
+		opacity: 0.8;
+	}
+
+	.site-footer__nav a:hover,
+	.site-footer__legal a:hover {
+		opacity: 1;
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
+
+	.site-footer__bottom {
+		padding-block: 24px;
+		border-top: 1px solid var(--color-border-dark);
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		opacity: 0.6;
+	}
+
+	@media (min-width: 1024px) {
+		.site-footer__inner {
+			grid-template-columns: 1.4fr 1fr 1fr;
+		}
+	}
+</style>

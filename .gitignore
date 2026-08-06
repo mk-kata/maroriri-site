@@ -105,6 +105,9 @@ temp/
 *.sqlite
 *.sqlite3
 
+# Astro generated types
+.astro/
+
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
 
