@@ -324,69 +324,69 @@ const faqs = [
 
 			<div class="services__grid">
 				<article class="services__card services__card--main">
-					<span class="icon-badge">
-						<svg
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-							set:html={icons.clipboard}
-						/>
-					</span>
-					<span class="eyebrow">CASE CHECK</span>
-					<h3>案件チェック</h3>
-					<p class="services__body">
-						制作した案件を、HTMLの構造、デザインの再現、表示、操作性などの視点から確認します。
-					</p>
-					<p class="services__body">
-						単に間違いを指摘するのではなく、なぜ直したほうがよいのか、次の案件でどう考えればよいのかまでお伝えします。
-					</p>
-					<div class="services__footer">
+					<div class="services__main">
+						<span class="icon-badge">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								set:html={icons.clipboard}
+							/>
+						</span>
+						<span class="eyebrow">CASE CHECK</span>
+						<h3>案件チェック</h3>
+						<p class="services__body">
+							制作した案件を、HTMLの構造、デザインの再現、表示、操作性などの視点から確認します。
+						</p>
+						<p class="services__body">
+							単に間違いを指摘するのではなく、なぜ直したほうがよいのか、次の案件でどう考えればよいのかまでお伝えします。
+						</p>
 						<ArrowLink href="/case-check/">案件チェックについて見る</ArrowLink>
-						<dl class="services__price">
-							<div>
-								<dt>一般価格</dt>
-								<dd>10,000円（税込）</dd>
-							</div>
-							<div>
-								<dt>コーダー部会員価格</dt>
-								<dd>5,000円（税込）</dd>
-							</div>
-						</dl>
 					</div>
+					<dl class="services__price">
+						<div>
+							<dt>一般価格</dt>
+							<dd>10,000円（税込）</dd>
+						</div>
+						<div>
+							<dt>コーダー部会員価格</dt>
+							<dd>5,000円（税込）</dd>
+						</div>
+					</dl>
 				</article>
 
 				<article class="services__card services__card--sub">
-					<span class="icon-badge">
-						<svg
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-							set:html={icons.chat}
-						/>
-					</span>
-					<span class="eyebrow">1ON1 CONSULTING</span>
-					<h3>単発個別相談</h3>
-					<p class="services__body">
-						案件の進め方、工数、納期、修正、クライアントとの関係、仕事の獲得、キャリアなどについて相談できます。
-					</p>
-					<p class="services__note">コーダー部会員は、月1回60分の個別相談を月会費に含みます。</p>
-					<div class="services__footer">
+					<div class="services__main">
+						<span class="icon-badge">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								set:html={icons.chat}
+							/>
+						</span>
+						<span class="eyebrow">1ON1 CONSULTING</span>
+						<h3>単発個別相談</h3>
+						<p class="services__body">
+							案件の進め方、工数、納期、修正、クライアントとの関係、仕事の獲得、キャリアなどについて相談できます。
+						</p>
+						<p class="services__note">コーダー部会員は、月1回60分の個別相談を月会費に含みます。</p>
 						<ArrowLink href="/consulting/">個別相談について見る</ArrowLink>
-						<dl class="services__price">
-							<div>
-								<dt>60分</dt>
-								<dd>5,000円（税込）</dd>
-							</div>
-						</dl>
 					</div>
+					<dl class="services__price">
+						<div>
+							<dt>60分</dt>
+							<dd>5,000円（税込）</dd>
+						</div>
+					</dl>
 				</article>
 			</div>
 		</div>
@@ -906,6 +906,9 @@ const faqs = [
 	}
 
 	.services__card {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-md);
 		padding: 32px 24px;
@@ -920,12 +923,12 @@ const faqs = [
 		font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
 	}
 
-	.services__card .eyebrow {
+	.services__main .eyebrow {
 		display: block;
 		margin-top: 16px;
 	}
 
-	.services__card h3 {
+	.services__main h3 {
 		margin-top: 12px;
 		font-size: clamp(1.3rem, 1.1rem + 1vw, 1.8rem);
 	}
@@ -935,23 +938,17 @@ const faqs = [
 		max-width: 38em;
 	}
 
-	.services__footer {
-		margin-top: 28px;
-		padding-top: 20px;
-		border-top: 1px solid var(--color-border);
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-end;
-		justify-content: space-between;
-		gap: 16px 24px;
+	.services__main :global(.arrow-link) {
+		margin-top: 24px;
 	}
 
 	.services__price {
+		flex-shrink: 0;
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-end;
-		gap: 8px 32px;
-		text-align: right;
+		flex-direction: column;
+		gap: 16px;
+		padding-top: 24px;
+		border-top: 1px solid var(--color-border);
 	}
 
 	.services__price dt {
@@ -1135,6 +1132,25 @@ const faqs = [
 			margin-left: 4%;
 		}
 
+		.services__card {
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 40px;
+		}
+
+		.services__main {
+			flex: 1;
+		}
+
+		.services__price {
+			padding-top: 0;
+			padding-left: 32px;
+			border-top: none;
+			border-left: 1px solid var(--color-border);
+			text-align: right;
+			align-items: flex-end;
+		}
 	}
 
 	@media (min-width: 1024px) {
