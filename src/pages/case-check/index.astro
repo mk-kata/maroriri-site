@@ -1,0 +1,357 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import PriceBlock from "../../components/PriceBlock.astro";
+import ServiceFlow from "../../components/ServiceFlow.astro";
+import FaqAccordion from "../../components/FaqAccordion.astro";
+import ArrowLink from "../../components/ArrowLink.astro";
+import CTASection from "../../components/CTASection.astro";
+import { caseCheck } from "../../data/services";
+import { faqCategories } from "../../data/faq";
+
+const checkItems = [
+	"HTMLの構造",
+	"見出し階層",
+	"セマンティックな要素の選択",
+	"デザインの再現",
+	"PC、タブレット、スマートフォン表示",
+	"基本的な操作性",
+	"リンクやボタンの状態",
+	"コードの読みやすさ",
+	"保守しやすい構成",
+	"案件の目的に合った実装になっているか",
+];
+
+const returnItems = [
+	"修正した方がよい箇所",
+	"問題となる理由",
+	"修正の方向性",
+	"次の案件でも使える考え方",
+];
+
+const targetIn = [
+	"HTML、CSSによるWebページ",
+	"ランディングページ",
+	"コーポレートサイト",
+	"WordPressなどのテーマ実装",
+	"実案件または公開前の制作物",
+	"仕事として制作している案件",
+];
+
+const targetOut = [
+	"大規模システムのコードレビュー",
+	"セキュリティ監査",
+	"法的な適合性の保証",
+	"検索順位の保証",
+	"全面的な修正作業",
+	"デザイン制作そのもの",
+	"不具合の原因調査だけを目的とした依頼",
+];
+
+const flowSteps = [
+	{ num: "01", title: "公式LINEを友だち追加" },
+	{ num: "02", title: "「案件チェック」と送信" },
+	{ num: "03", title: "対象案件と確認希望内容を共有" },
+	{ num: "04", title: "確認範囲と料金の案内" },
+	{ num: "05", title: "案件チェック" },
+	{ num: "06", title: "確認結果の返却" },
+];
+
+const notes = [
+	"クライアント情報は許可なく公開しない",
+	"必要に応じて名称を伏せて共有してもらう",
+	"修正作業は料金に含まれない",
+	"結果、売上、検索順位を保証しない",
+	"第三者が制作したコードは権利関係を確認してもらう",
+	"機密情報の共有方法は事前に確認する",
+];
+
+const faqItems = faqCategories.find((c) => c.id === "case-check")!.items;
+---
+
+<BaseLayout title="案件チェック｜MARORIRI" description="制作した案件を、HTML構造、デザインの再現、レスポンシブ表示、操作性などの視点から確認します。間違いを指摘するだけではなく、なぜ修正した方がよいのかまでお伝えします。">
+	<PageHero eyebrow="CASE CHECK" crumbLabel="案件チェック">
+		完成したコードだけでなく、<br />そこに至る判断まで確認する。
+		<Fragment slot="lede">
+			<p>
+				制作した案件を、HTML構造、デザインの再現、<br />
+				レスポンシブ表示、操作性などの視点から確認します。
+			</p>
+			<p>
+				間違いを指摘するだけではなく、<br />
+				なぜ修正した方がよいのか、次の案件でどう考えればよいのかまでお伝えします。
+			</p>
+		</Fragment>
+	</PageHero>
+
+	<section class="section section--white cc-check">
+		<div class="container">
+			<SectionHeading eyebrow="WHAT WE CHECK">確認する内容</SectionHeading>
+			<p class="cc-check__note">案件の内容に応じて、確認項目を調整します。</p>
+			<ol class="cc-check__list">
+				{
+					checkItems.map((t, i) => (
+						<li>
+							<span class="num-mono">{String(i + 1).padStart(2, "0")}</span>
+							<span>{t}</span>
+						</li>
+					))
+				}
+			</ol>
+		</div>
+	</section>
+
+	<section class="section cc-return">
+		<div class="container">
+			<SectionHeading eyebrow="WHAT YOU GET BACK">指摘だけで終わらせず、<br />次の判断につながる形でお返しします。</SectionHeading>
+			<ul class="list-plain cc-return__list">
+				{returnItems.map((t) => <li>{t}</li>)}
+			</ul>
+			<p class="cc-return__format">
+				確認結果は、内容に合った方法でお伝えします。正式な返却方法は申込み時にご案内します。
+			</p>
+		</div>
+	</section>
+
+	<section class="section section--white cc-target">
+		<div class="container cc-target__grid">
+			<div>
+				<p class="eyebrow reveal-heading">TARGET</p>
+				<h2 class="cc-target__heading reveal-heading">対象になる案件</h2>
+				<ul class="list-plain cc-target__list">
+					{targetIn.map((t) => <li>{t}</li>)}
+				</ul>
+			</div>
+			<div>
+				<p class="eyebrow reveal-heading">NOT INCLUDED</p>
+				<h2 class="cc-target__heading reveal-heading">対象外</h2>
+				<ul class="list-plain cc-target__list cc-target__list--muted">
+					{targetOut.map((t) => <li>{t}</li>)}
+				</ul>
+				<p class="cc-target__note">実作業や修正対応が必要な場合は、別途お見積りとなります。</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section cc-price">
+		<div class="container">
+			<p class="eyebrow reveal-heading">PRICE</p>
+			<h2 class="cc-price__heading reveal-heading">料金</h2>
+			<div class="cc-price__wrap">
+				<PriceBlock
+					items={[
+						{ label: "一般価格（1案件）", value: caseCheck.priceGeneral },
+						{ label: "コーダー部会員価格（1案件）", value: caseCheck.priceMember },
+					]}
+				/>
+			</div>
+			<p class="cc-price__note">
+				案件の規模や確認範囲によっては、事前に内容を確認したうえで別途ご案内する場合があります。
+			</p>
+		</div>
+	</section>
+
+	<section class="section section--white cc-flow">
+		<div class="container">
+			<p class="eyebrow reveal-heading">HOW IT WORKS</p>
+			<h2 class="cc-flow__heading reveal-heading">ご利用の流れ</h2>
+			<div class="cc-flow__wrap">
+				<ServiceFlow steps={flowSteps} />
+			</div>
+			<p class="cc-flow__note">
+				最初に案件の概要を確認し、必要な共有方法は個別にご案内します。クライアントの秘密情報を最初からすべてLINEへ送る必要はありません。
+			</p>
+		</div>
+	</section>
+
+	<section class="section cc-notes">
+		<div class="container">
+			<p class="eyebrow reveal-heading">NOTES</p>
+			<h2 class="cc-notes__heading reveal-heading">注意事項</h2>
+			<ul class="list-plain cc-notes__list">
+				{notes.map((t) => <li>{t}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section section--white cc-faq">
+		<div class="container cc-faq__grid">
+			<div class="cc-faq__head">
+				<p class="eyebrow reveal-heading">FAQ</p>
+				<h2 class="reveal-heading">案件チェックに<br />よくいただく質問。</h2>
+				<ArrowLink href="/faq/">よくある質問をすべて見る</ArrowLink>
+			</div>
+			<div class="cc-faq__list">
+				<FaqAccordion items={faqItems} />
+			</div>
+		</div>
+	</section>
+
+	<CTASection primaryLabel="公式LINEで案件チェックを相談する" primaryHref="/contact/#case-check">
+		目の前の案件を確認し、<br />次の案件で迷わないための基準へ。
+	</CTASection>
+</BaseLayout>
+
+<style>
+	.cc-check__note {
+		margin-top: 24px;
+		opacity: 0.7;
+		max-width: 34em;
+	}
+
+	.cc-check__list {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cc-check__list li {
+		display: flex;
+		align-items: baseline;
+		gap: 20px;
+		padding-block: 16px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.cc-check__list li:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.cc-check__list .num-mono {
+		color: var(--color-accent);
+		font-size: 0.85rem;
+	}
+
+	.cc-return__list {
+		margin-top: 32px;
+	}
+
+	.cc-return__format {
+		margin-top: 32px;
+		padding-top: 24px;
+		border-top: 1px solid var(--color-border);
+		font-size: 0.9rem;
+		opacity: 0.7;
+		max-width: 34em;
+	}
+
+	.cc-target__grid {
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+	}
+
+	.cc-target__heading {
+		margin-top: 16px;
+		font-size: clamp(1.3rem, 1.1rem + 1.2vw, 1.7rem);
+	}
+
+	.cc-target__list {
+		margin-top: 28px;
+	}
+
+	.cc-target__list--muted li {
+		opacity: 0.55;
+	}
+
+	.cc-target__note {
+		margin-top: 20px;
+		font-size: 0.85rem;
+		opacity: 0.6;
+	}
+
+	.cc-price__heading {
+		margin-top: 16px;
+		font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem);
+	}
+
+	.cc-price__wrap {
+		margin-top: 32px;
+		max-width: 34em;
+	}
+
+	.cc-price__note {
+		margin-top: 24px;
+		font-size: 0.85rem;
+		opacity: 0.65;
+		max-width: 34em;
+	}
+
+	.cc-flow__heading {
+		margin-top: 16px;
+		font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem);
+	}
+
+	.cc-flow__wrap {
+		margin-top: 40px;
+	}
+
+	.cc-flow__note {
+		margin-top: 32px;
+		font-size: 0.85rem;
+		opacity: 0.65;
+		max-width: 36em;
+	}
+
+	.cc-notes__heading {
+		margin-top: 16px;
+		font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem);
+	}
+
+	.cc-notes__list {
+		margin-top: 32px;
+	}
+
+	.cc-faq__grid {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+
+	.cc-faq__head h2 {
+		margin-top: 16px;
+		font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem);
+	}
+
+	.cc-faq__head :global(.arrow-link) {
+		margin-top: 24px;
+	}
+
+	@media (min-width: 768px) {
+		.cc-check__list {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.cc-check__list li {
+			flex: 0 0 50%;
+			padding-right: 20px;
+		}
+
+		.cc-target__grid {
+			flex-direction: row;
+			gap: 64px;
+		}
+
+		.cc-target__grid > div {
+			flex: 1;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.cc-faq__grid {
+			flex-direction: row;
+			gap: 80px;
+		}
+
+		.cc-faq__head {
+			flex: 0 0 320px;
+		}
+
+		.cc-faq__list {
+			flex: 1;
+			max-width: 720px;
+		}
+	}
+</style>

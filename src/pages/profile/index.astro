@@ -1,0 +1,215 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import CareerTimeline from "../../components/CareerTimeline.astro";
+import CTASection from "../../components/CTASection.astro";
+import { site } from "../../data/site";
+
+const career = [
+	{
+		num: "01",
+		en: "BANK",
+		ja: "銀行勤務",
+		lines: ["正確さと確認が求められる環境で、", "業務の基本となる姿勢を身につける。"],
+	},
+	{
+		num: "02",
+		en: "PRINTING / SALES SUPPORT",
+		ja: "凸版印刷｜営業事務",
+		lines: ["営業担当者と制作現場をつなぐ立場で、", "印刷物が完成するまでの進行や連携に携わる。"],
+	},
+	{
+		num: "03",
+		en: "DTP",
+		ja: "大阪の印刷会社｜DTP制作",
+		lines: [
+			"Illustrator、Photoshopなどを使用し、",
+			"印刷物の制作や入稿データ作成を担当。",
+			"情報を整理し、紙面へ落とし込む力を培う。",
+		],
+	},
+	{
+		num: "04",
+		en: "WEB PRODUCTION",
+		ja: "Web制作・サイト運用",
+		lines: [
+			"Webデザイン、HTML・CSSコーディング、",
+			"WordPress、Movable Typeの構築・運用、",
+			"サーバー、ドメイン関連の対応まで幅広く経験。",
+		],
+	},
+	{
+		num: "05",
+		en: "DIRECTION",
+		ja: "Webディレクション",
+		lines: [
+			"クライアントへのヒアリング、情報整理、",
+			"ページ構成、制作指示、進行管理、品質確認などを担当。",
+			"制作側とクライアント側をつなぎ、案件を前へ進める役割を担う。",
+		],
+	},
+	{
+		num: "06",
+		en: "CREATOR SUPPORT",
+		ja: "制作者の育成・実務支援",
+		lines: [
+			"コーダーやWeb制作者の案件確認、",
+			"仕事の進め方やクライアント対応の相談、",
+			"制作現場で判断するための考え方を伝えている。",
+		],
+	},
+];
+
+const values = [
+	"何を作るのかだけでなく、なぜ作るのかを確認する",
+	"デザインを見た目ではなく情報構造として読む",
+	"制作側とクライアント側の認識をそろえる",
+	"曖昧な内容を整理して言葉にする",
+	"次の人が判断しやすい状態をつくる",
+];
+
+const domains = [
+	"印刷物制作",
+	"DTP",
+	"Webデザイン",
+	"HTML、CSSコーディング",
+	"WordPress",
+	"Movable Type",
+	"Webサイト運用",
+	"サーバー、ドメイン対応",
+	"Webディレクション",
+	"制作進行",
+	"品質確認",
+	"制作者の育成、実務支援",
+];
+---
+
+<BaseLayout title="運営者紹介｜MARORIRI" description="紙の制作からWeb制作、サイト運用、ディレクション、制作者の育成まで。立場を変えながら制作現場に携わってきた経験をもとに、MARORIRIを運営しています。">
+	<PageHero eyebrow="PROFILE" crumbLabel="運営者紹介">
+		制作現場で積み重ねてきた判断を、<br />次の制作者へ。
+		<Fragment slot="lede">
+			<p>
+				紙の制作からWeb制作、サイト運用、ディレクション、制作者の育成まで。<br />
+				立場を変えながら制作現場に携わってきた経験をもとに、MARORIRIを運営しています。
+			</p>
+		</Fragment>
+		<div slot="graphic" class="profile-hero-card">
+			<p class="profile-hero-card__en num-mono">{site.operatorNameEn}</p>
+			<p class="profile-hero-card__ja">{site.operatorNameJa}</p>
+		</div>
+	</PageHero>
+
+	<section class="section section--white p-about">
+		<div class="container">
+			<SectionHeading eyebrow="ABOUT">運営者について</SectionHeading>
+			<div class="p-about__body">
+				<p>コーディング、サイト運用、ディレクション、制作者の育成まで、さまざまな立場でWebの仕事に携わってきました。</p>
+				<p>制作現場では、コードを書く技術だけでなく、デザインの意図を読み取り、状況を整理し、相手へ伝えるための判断が必要です。</p>
+				<p>MARORIRIでは、現場で積み重ねてきた経験をもとに、コーダー・Web制作者が自分で考え、判断するための基準を伝えています。</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section p-career">
+		<div class="container">
+			<p class="eyebrow reveal-heading">CAREER</p>
+			<h2 class="p-career__heading reveal-heading">経歴</h2>
+			<div class="p-career__wrap">
+				<CareerTimeline items={career} />
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--white p-values">
+		<div class="container">
+			<SectionHeading eyebrow="WHAT MATTERS">コードの前後にある仕事まで考える。</SectionHeading>
+			<ul class="list-plain p-values__list">
+				{values.map((v) => <li>{v}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section p-why">
+		<div class="container">
+			<SectionHeading eyebrow="WHY MARORIRI">MARORIRIを始める理由</SectionHeading>
+			<div class="p-why__body">
+				<p>コードの書き方やエラーの解決方法は、ネットやAIから得られるようになりました。</p>
+				<p>一方で、実際の制作現場では、何を選び、どう進め、どのように相手へ伝えるかという判断が必要です。</p>
+				<p>制作の仕事を続ける中で身につけてきたこの判断の基準を、次の制作者へ伝えるためにMARORIRIを始めました。</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--white p-domains">
+		<div class="container">
+			<p class="eyebrow reveal-heading">FIELDS</p>
+			<h2 class="p-domains__heading reveal-heading">対応してきた領域</h2>
+			<ul class="tag-list p-domains__list">
+				{domains.map((d) => <li>{d}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<CTASection primaryLabel="公式LINEで相談する" primaryHref="/contact/">
+		制作現場の迷いを、<br />一人で抱え続けないために。
+	</CTASection>
+</BaseLayout>
+
+<style>
+	.profile-hero-card {
+		padding: 32px;
+		border: 1px solid var(--color-border);
+		border-top: 3px solid var(--color-accent);
+	}
+
+	.profile-hero-card__en {
+		font-size: 0.8rem;
+		letter-spacing: 0.05em;
+		opacity: 0.6;
+	}
+
+	.profile-hero-card__ja {
+		margin-top: 10px;
+		font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem);
+		font-weight: 700;
+	}
+
+	.p-about__body {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 38em;
+	}
+
+	.p-career__heading {
+		margin-top: 16px;
+		font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem);
+	}
+
+	.p-career__wrap {
+		margin-top: 40px;
+	}
+
+	.p-values__list {
+		margin-top: 40px;
+	}
+
+	.p-why__body {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 38em;
+	}
+
+	.p-domains__heading {
+		margin-top: 16px;
+		font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem);
+	}
+
+	.p-domains__list {
+		margin-top: 32px;
+	}
+</style>

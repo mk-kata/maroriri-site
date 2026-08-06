@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LegalPageLayout from "../../components/LegalPageLayout.astro";
+import { legal } from "../../data/legal";
+import { coderClub, caseCheck, consulting } from "../../data/services";
+
+const pending = "確定次第掲載します";
+const rows: [string, string][] = [
+	["販売事業者", legal.businessName ?? pending],
+	["運営責任者", legal.operatorName ?? pending],
+	["所在地", legal.address ?? pending],
+	["電話番号", legal.phone ?? pending],
+	["メールアドレス", legal.email ?? pending],
+	[
+		"販売価格",
+		`マロリリコーダー部：${coderClub.monthlyFee} / 案件チェック：${caseCheck.priceGeneral}（一般）・${caseCheck.priceMember}（コーダー部会員） / 単発個別相談：${consulting.price}（${consulting.duration}）`,
+	],
+	["販売価格以外に必要な費用", "記載の料金のほか、通信費等はお客様のご負担となります。"],
+	["支払方法", legal.paymentMethods ?? pending],
+	["支払時期", legal.billingTiming ?? pending],
+	["サービス提供時期", "お申込み・お支払い確認後、公式LINEにて日程等をご案内します。"],
+	["キャンセル", pending],
+	["返金", legal.refundPolicy ?? pending],
+	["退会", legal.withdrawalPolicy ?? pending],
+	["動作環境", legal.operatingEnvironment ?? "最新版の主要Webブラウザおよび公式LINEアプリを推奨します。"],
+	["お問い合わせ方法", "公式LINEを主な窓口とします。"],
+	["その他の条件", pending],
+];
+---
+
+<BaseLayout title="特定商取引法に基づく表記｜MARORIRI" description="MARORIRIの特定商取引法に基づく表記です。">
+	<LegalPageLayout eyebrow="LEGAL NOTICE" crumbLabel="特定商取引法に基づく表記" title="特定商取引法に基づく表記">
+		<dl>
+			{
+				rows.map(([label, value]) => (
+					<div>
+						<dt>{label}</dt>
+						<dd class={value === pending ? "pending" : ""}>{value}</dd>
+					</div>
+				))
+			}
+		</dl>
+	</LegalPageLayout>
+</BaseLayout>

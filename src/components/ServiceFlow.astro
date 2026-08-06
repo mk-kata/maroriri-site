@@ -1,0 +1,85 @@
+---
+interface Step {
+	num: string;
+	title: string;
+	body?: string;
+}
+
+interface Props {
+	steps: Step[];
+}
+
+const { steps } = Astro.props;
+---
+
+<ol class="service-flow">
+	{
+		steps.map((step) => (
+			<li class="service-flow__item">
+				<span class="num-mono service-flow__num" aria-hidden="true">
+					{step.num}
+				</span>
+				<div>
+					<p class="service-flow__title">{step.title}</p>
+					{step.body && <p class="service-flow__body">{step.body}</p>}
+				</div>
+			</li>
+		))
+	}
+</ol>
+
+<style>
+	.service-flow {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.service-flow__item {
+		display: flex;
+		gap: 20px;
+		padding-block: 24px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.service-flow__item:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.service-flow__num {
+		flex-shrink: 0;
+		width: 2.4em;
+		color: var(--color-accent);
+		font-size: 1.1rem;
+	}
+
+	.service-flow__title {
+		font-size: 1.05rem;
+		font-weight: 500;
+	}
+
+	.service-flow__body {
+		margin-top: 8px;
+		font-size: 0.9rem;
+		opacity: 0.7;
+	}
+
+	@media (min-width: 1024px) {
+		.service-flow {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.service-flow__item {
+			flex: 1 1 260px;
+			flex-direction: column;
+			gap: 12px;
+			border-top: none;
+			border-left: 1px solid var(--color-border);
+			padding: 0 24px;
+		}
+
+		.service-flow__item:last-child {
+			border-bottom: none;
+		}
+	}
+</style>

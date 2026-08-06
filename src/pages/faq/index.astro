@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import FaqAccordion from "../../components/FaqAccordion.astro";
+import CTASection from "../../components/CTASection.astro";
+import { faqCategories } from "../../data/faq";
+---
+
+<BaseLayout title="よくある質問｜MARORIRI" description="マロリリコーダー部、案件チェック、単発個別相談、料金や申込み、LINEでの相談、情報の取り扱いについて、よくいただく質問をまとめています。">
+	<PageHero eyebrow="FAQ" crumbLabel="よくある質問">
+		参加や相談について、<br />よくいただく質問。
+		<Fragment slot="lede">
+			<p>カテゴリごとに、よくいただく質問をまとめています。</p>
+		</Fragment>
+	</PageHero>
+
+	<section class="section section--white faq-nav">
+		<div class="container">
+			<nav class="faq-nav__list" aria-label="FAQカテゴリ">
+				{
+					faqCategories.map((c) => (
+						<a href={`#${c.id}`} class="faq-nav__link">
+							{c.label}
+						</a>
+					))
+				}
+			</nav>
+		</div>
+	</section>
+
+	<section class="section faq-body">
+		<div class="container">
+			{
+				faqCategories.map((c) => (
+					<div class="faq-category" id={c.id}>
+						<p class="eyebrow faq-category__label">{c.label}</p>
+						<div class="faq-category__list">
+							<FaqAccordion items={c.items} />
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<CTASection primaryLabel="公式LINEで相談する" primaryHref="/contact/">
+		掲載されていない内容については、<br />公式LINEからお問い合わせください。
+	</CTASection>
+</BaseLayout>
+
+<style>
+	.faq-nav__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.faq-nav__link {
+		padding: 10px 18px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+	}
+
+	.faq-nav__link:hover,
+	.faq-nav__link:focus-visible {
+		border-color: var(--color-accent);
+		color: var(--color-accent);
+	}
+
+	.faq-category__list {
+		margin-top: 32px;
+		max-width: 760px;
+	}
+</style>

@@ -1,0 +1,128 @@
+---
+import { site } from "../data/site";
+
+const messages = ["コーダー部", "案件チェック", "個別相談", "その他の質問"];
+const isConfigured = Boolean(site.lineOfficialUrl);
+---
+
+<div class="line-block">
+	<div class="line-block__panel">
+		<p class="line-block__label num-mono">OFFICIAL LINE</p>
+		{
+			isConfigured ? (
+				<a href={site.lineOfficialUrl} class="btn btn--primary line-block__add" target="_blank" rel="noopener">
+					公式LINEを友だち追加
+				</a>
+			) : (
+				<p class="line-block__pending">公式LINEのURL・QRコード設定待ち</p>
+			)
+		}
+
+		<div class="line-block__qr" role="img" aria-label="公式LINE友だち追加用QRコード">
+			{
+				isConfigured && site.lineQrImage ? (
+					<img src={site.lineQrImage} alt="" width="160" height="160" />
+				) : (
+					<span class="line-block__qr-placeholder">QR CODE<br />設定待ち</span>
+				)
+			}
+		</div>
+	</div>
+
+	<div class="line-block__messages">
+		<p class="line-block__messages-label">友だち追加後に送る言葉</p>
+		<ul>
+			{messages.map((m) => <li class="num-mono">「{m}」</li>)}
+		</ul>
+	</div>
+</div>
+
+<style>
+	.line-block {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+
+	.line-block__panel {
+		padding: 32px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		background: var(--color-bg-white);
+	}
+
+	.line-block__label {
+		font-size: 0.78rem;
+		letter-spacing: 0.05em;
+		color: var(--color-accent);
+	}
+
+	.line-block__add {
+		margin-top: 20px;
+		width: 100%;
+	}
+
+	.line-block__pending {
+		margin-top: 20px;
+		padding: 14px 16px;
+		border: 1px dashed var(--color-border);
+		border-radius: var(--radius-sm);
+		font-size: 0.9rem;
+		opacity: 0.7;
+	}
+
+	.line-block__qr {
+		margin-top: 24px;
+		width: 160px;
+		height: 160px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
+	}
+
+	.line-block__qr-placeholder {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		text-align: center;
+		line-height: 1.6;
+		opacity: 0.5;
+	}
+
+	.line-block__messages-label {
+		font-size: 0.85rem;
+		opacity: 0.7;
+	}
+
+	.line-block__messages ul {
+		margin-top: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.line-block__messages li {
+		padding: 10px 14px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
+		font-size: 0.9rem;
+		width: fit-content;
+	}
+
+	@media (min-width: 768px) {
+		.line-block {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 48px;
+		}
+
+		.line-block__panel {
+			flex: 0 0 320px;
+		}
+
+		.line-block__messages {
+			flex: 1;
+		}
+	}
+</style>

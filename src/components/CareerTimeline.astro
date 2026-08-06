@@ -1,0 +1,99 @@
+---
+interface Item {
+	num: string;
+	en: string;
+	ja: string;
+	lines: string[];
+}
+
+interface Props {
+	items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="career-timeline">
+	{
+		items.map((item) => (
+			<li class="career-timeline__item">
+				<div class="career-timeline__meta">
+					<div class="career-timeline__heading">
+						<span class="num-mono career-timeline__num">{item.num}</span>
+						<span class="career-timeline__en">{item.en}</span>
+					</div>
+					<p class="career-timeline__ja">{item.ja}</p>
+				</div>
+				<p class="career-timeline__body">
+					{item.lines.map((line, i) => (
+						<>
+							{i > 0 && <br />}
+							{line}
+						</>
+					))}
+				</p>
+			</li>
+		))
+	}
+</ol>
+
+<style>
+	.career-timeline {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.career-timeline__item {
+		padding-block: 28px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.career-timeline__item:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.career-timeline__heading {
+		display: flex;
+		align-items: baseline;
+		gap: 16px;
+	}
+
+	.career-timeline__num {
+		color: var(--color-accent);
+		font-size: 0.85rem;
+	}
+
+	.career-timeline__en {
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: 1.15rem;
+	}
+
+	.career-timeline__ja {
+		margin-top: 8px;
+		font-size: 0.9rem;
+		opacity: 0.65;
+	}
+
+	.career-timeline__body {
+		margin-top: 14px;
+		max-width: 40em;
+		opacity: 0.85;
+	}
+
+	@media (min-width: 1024px) {
+		.career-timeline__item {
+			display: flex;
+			gap: 48px;
+		}
+
+		.career-timeline__meta {
+			flex: 0 0 260px;
+		}
+
+		.career-timeline__body {
+			flex: 1;
+			margin-top: 0;
+		}
+	}
+</style>

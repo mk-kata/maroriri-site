@@ -294,3 +294,140 @@ summary:focus-visible {
 		transition: transform 0.6s ease;
 	}
 }
+
+/* ===== Subpage shared: legal content prose ===== */
+.legal-content {
+	padding-top: 0;
+}
+
+.legal-content h2 {
+	font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem);
+	padding-top: 40px;
+	margin-top: 40px;
+	border-top: 1px solid var(--color-border);
+}
+
+.legal-content section:first-child h2,
+.legal-content > h2:first-child {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: none;
+}
+
+.legal-content p {
+	margin-top: 16px;
+	max-width: 42em;
+	opacity: 0.85;
+}
+
+.legal-content ul,
+.legal-content ol {
+	margin-top: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	max-width: 42em;
+}
+
+.legal-content li {
+	padding-left: 1.2em;
+	position: relative;
+	opacity: 0.85;
+}
+
+.legal-content li::before {
+	content: "―";
+	position: absolute;
+	left: 0;
+	color: var(--color-accent);
+}
+
+.legal-content dl {
+	margin-top: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.legal-content dl > div {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 4px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.legal-content dt {
+	font-family: var(--font-mono);
+	font-size: 0.78rem;
+	opacity: 0.6;
+}
+
+.legal-content dd {
+	font-size: 0.95rem;
+}
+
+.legal-content .pending {
+	color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+	.legal-content dl > div {
+		grid-template-columns: 220px 1fr;
+		gap: 24px;
+	}
+}
+
+/* ===== Subpage shared: generic list / grid utilities ===== */
+.list-plain {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	max-width: 40em;
+}
+
+.list-plain li {
+	padding-left: 1.4em;
+	position: relative;
+}
+
+.list-plain li::before {
+	content: "―";
+	position: absolute;
+	left: 0;
+	color: var(--color-accent);
+}
+
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 16px;
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+}
+
+.tag-list li {
+	padding: 6px 12px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+}
+
+.section--dark .tag-list li {
+	border-color: var(--color-border-dark);
+}
+
+.faq-category {
+	margin-top: 64px;
+}
+
+.faq-category:first-child {
+	margin-top: 0;
+}
+
+.faq-category__label {
+	font-family: var(--font-mono);
+	font-size: 0.85rem;
+	color: var(--color-accent);
+	padding-bottom: 16px;
+	border-bottom: 1px solid var(--color-border);
+}

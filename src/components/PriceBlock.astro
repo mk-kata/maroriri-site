@@ -1,0 +1,56 @@
+---
+interface Item {
+	label: string;
+	value: string;
+}
+
+interface Props {
+	items: Item[];
+	note?: string;
+}
+
+const { items, note } = Astro.props;
+---
+
+<div class="price-block">
+	<dl class="price-block__list">
+		{
+			items.map((item) => (
+				<div>
+					<dt>{item.label}</dt>
+					<dd>{item.value}</dd>
+				</div>
+			))
+		}
+	</dl>
+	{note && <p class="price-block__note">{note}</p>}
+</div>
+
+<style>
+	.price-block__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24px 48px;
+		padding-top: 24px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.price-block__list dt {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		opacity: 0.6;
+	}
+
+	.price-block__list dd {
+		margin: 8px 0 0;
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: 1.6rem;
+	}
+
+	.price-block__note {
+		margin-top: 20px;
+		font-size: 0.88rem;
+		opacity: 0.7;
+	}
+</style>

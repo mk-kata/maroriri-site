@@ -1,0 +1,418 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import ArrowLink from "../../components/ArrowLink.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const topics = [
+	"HTMLの意味",
+	"HTMLを書く意味",
+	"デザインを文章構造として読む方法",
+	"見出しや情報の優先順位",
+	"工数、納期、修正、確認",
+	"クライアントとの関係",
+	"自分の価値の伝え方",
+	"仕事獲得へのアプローチ",
+	"キャリアと働き方",
+	"AI時代に身につける力",
+];
+
+const perspectives = [
+	{
+		num: "01",
+		tag: "STRUCTURE",
+		title: "HTMLとデザインを読む",
+		body: "HTMLとは何か、なぜ書くのか。デザインを見た目として再現するだけではなく、文章の構造や情報の優先順位として読み取ります。",
+	},
+	{
+		num: "02",
+		tag: "PRACTICE",
+		title: "実案件を進める",
+		body: "工数、納期、確認、修正、クライアントとのやり取りなど、コード以外に必要になる実務の判断を考えます。",
+	},
+	{
+		num: "03",
+		tag: "VALUE",
+		title: "仕事とキャリアをつくる",
+		body: "自分の価値をどのように伝え、仕事につなげるのか。AI時代も含め、これからの働き方を考えます。",
+	},
+];
+
+const forCreators = [
+	"デザインをどのHTML構造にすればよいか迷う",
+	"正しく動くが、意味のあるHTMLになっているか不安",
+	"工数や納期の伝え方が分からない",
+	"修正をどこまで受けるべきか判断できない",
+	"クライアントとの関係に悩んでいる",
+	"自分の強みや価値を説明できない",
+	"AI時代に何を身につけるべきか迷っている",
+	"今後の働き方やキャリアを考えたい",
+];
+
+const services = [
+	{
+		num: "01",
+		en: "CODER CLUB",
+		title: "マロリリコーダー部",
+		body: "実務の疑問や迷いを持ち寄り、判断の基準を育てる月額制のコミュニティ。MARORIRIの中心となる場です。",
+		href: "/coder-club/",
+	},
+	{
+		num: "02",
+		en: "CASE CHECK",
+		title: "案件チェック",
+		body: "制作した案件を、構造・再現・表示・操作性の視点から確認し、次に活かせる考え方までお伝えします。",
+		href: "/case-check/",
+	},
+	{
+		num: "03",
+		en: "1ON1 CONSULTING",
+		title: "単発個別相談",
+		body: "案件の進め方やキャリアなど、いま相談したいことを個別に整理します。",
+		href: "/consulting/",
+	},
+];
+---
+
+<BaseLayout title="MARORIRIとは｜MARORIRI" description="MARORIRIは、コーダー・Web制作者が、制作現場で自分なりの基準を持って考え、選び、説明できるようになるための場所です。">
+	<PageHero eyebrow="ABOUT MARORIRI" crumbLabel="MARORIRIとは">
+		コードの書き方ではなく、<br />制作者としての考え方を育てる。
+		<Fragment slot="lede">
+			<p>
+				MARORIRIは、コーダー・Web制作者が、<br />
+				制作現場で自分なりの基準を持って<br />
+				考え、選び、説明できるようになるための場所です。
+			</p>
+			<p>
+				エラーの解決方法やコードの書き方だけではなく、<br />
+				そのコードを書く理由、デザインの読み取り方、<br />
+				仕事の進め方やクライアントとの関係まで扱います。
+			</p>
+		</Fragment>
+	</PageHero>
+
+	<section class="section section--white about-what">
+		<div class="container">
+			<SectionHeading eyebrow="WHAT WE LEARN">コードの外側にある、<br />仕事の判断を扱います。</SectionHeading>
+			<div class="about-what__body">
+				<p>検索すれば、コードの書き方やエラーの解決方法は見つかります。</p>
+				<p>
+					しかし、実際の仕事では、複数の選択肢の中から何を選ぶか、なぜそう判断したのかを相手に説明する力が必要です。
+				</p>
+				<p>MARORIRIでは、完成したコードだけでは見えない、実装に至るまでの考え方を扱います。</p>
+			</div>
+			<ol class="about-what__topics">
+				{
+					topics.map((t, i) => (
+						<li>
+							<span class="num-mono">{String(i + 1).padStart(2, "0")}</span>
+							<span>{t}</span>
+						</li>
+					))
+				}
+			</ol>
+		</div>
+	</section>
+
+	<section class="section about-diff">
+		<div class="container">
+			<SectionHeading eyebrow="NOT A CODE SCHOOL">正解を覚える場所ではなく、<br />自分で判断するための基準を育てる場所。</SectionHeading>
+			<div class="about-diff__grid">
+				<div class="about-diff__col">
+					<p class="about-diff__label num-mono">一般的な技術学習</p>
+					<ul class="about-diff__list about-diff__list--muted">
+						<li>コードの書き方を知る</li>
+						<li>エラーを解決する</li>
+						<li>ツールの使い方を覚える</li>
+						<li>完成形を再現する</li>
+					</ul>
+				</div>
+				<div class="about-diff__col">
+					<p class="about-diff__label num-mono about-diff__label--accent">MARORIRI</p>
+					<ul class="about-diff__list">
+						<li>なぜそのコードを書くのか考える</li>
+						<li>デザインの意図を構造として読む</li>
+						<li>複数の方法から適切なものを選ぶ</li>
+						<li>判断した理由を相手に説明する</li>
+						<li>仕事全体を見て進め方を考える</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--white about-perspectives">
+		<div class="container">
+			<SectionHeading eyebrow="THREE PERSPECTIVES">技術、実務、キャリア。<br />3つの視点から仕事を考える。</SectionHeading>
+			<ul class="about-perspectives__list">
+				{
+					perspectives.map((p) => (
+						<li class="about-perspectives__item">
+							<div class="about-perspectives__meta">
+								<span class="num-mono">{p.num}</span>
+								<span class="eyebrow">{p.tag}</span>
+							</div>
+							<div>
+								<h3>{p.title}</h3>
+								<p>{p.body}</p>
+							</div>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section about-cooking">
+		<div class="container about-cooking__grid">
+			<SectionHeading eyebrow="DESIGN COOKING">デザインを、そのまま写さない。<br />意味を読み取り、実装できる形に料理する。</SectionHeading>
+			<div class="about-cooking__body">
+				<p>デザインデータを受け取ったとき、コーダーが考えるのは、見た目をどう再現するかだけではありません。</p>
+				<p>どこが見出しで、どこが一つのまとまりなのか。どの順番で情報を読み、どのHTML要素で表現するのか。</p>
+				<p>MARORIRIでは、この実装までの思考を「デザインを料理する」と表現しています。</p>
+				<p class="about-cooking__note">
+					デザイン料理教室は独立したサービスではなく、マロリリコーダー部の会員向け勉強会として開催しています。
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--white about-for">
+		<div class="container">
+			<SectionHeading eyebrow="FOR CREATORS">こんな迷いを持つ制作者へ。</SectionHeading>
+			<ul class="list-plain about-for__list">
+				{forCreators.map((t) => <li>{t}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section about-services">
+		<div class="container">
+			<p class="eyebrow reveal-heading">MARORIRI SERVICES</p>
+			<ol class="about-services__list">
+				{
+					services.map((s) => (
+						<li class="about-services__item">
+							<span class="num-mono about-services__num">{s.num}</span>
+							<div class="about-services__content">
+								<p class="about-services__en num-mono">{s.en}</p>
+								<h3>{s.title}</h3>
+								<p class="about-services__body">{s.body}</p>
+								<ArrowLink href={s.href}>詳しく見る</ArrowLink>
+							</div>
+						</li>
+					))
+				}
+			</ol>
+		</div>
+	</section>
+
+	<CTASection
+		primaryLabel="マロリリコーダー部を見る"
+		primaryHref="/coder-club/"
+		secondaryLabel="公式LINEで相談する"
+		secondaryHref="/contact/"
+	>
+		自分の判断基準を、<br />仕事の中で育てていく。
+	</CTASection>
+</BaseLayout>
+
+<style>
+	.about-what__body {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 38em;
+	}
+
+	.about-what__topics {
+		margin-top: 48px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.about-what__topics li {
+		display: flex;
+		align-items: baseline;
+		gap: 20px;
+		padding-block: 16px;
+		border-top: 1px solid var(--color-border);
+		font-size: 1rem;
+	}
+
+	.about-what__topics li:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.about-what__topics .num-mono {
+		color: var(--color-accent);
+		font-size: 0.85rem;
+	}
+
+	.about-diff__grid {
+		margin-top: 48px;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.about-diff__label {
+		font-size: 0.85rem;
+		opacity: 0.55;
+	}
+
+	.about-diff__label--accent {
+		color: var(--color-accent);
+		opacity: 1;
+	}
+
+	.about-diff__list {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		padding-top: 20px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.about-diff__list li {
+		font-size: 1rem;
+	}
+
+	.about-diff__list--muted li {
+		opacity: 0.5;
+	}
+
+	.about-perspectives__list {
+		margin-top: 48px;
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+	}
+
+	.about-perspectives__item {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-top: 28px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.about-perspectives__meta {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.about-perspectives__meta .num-mono {
+		color: var(--color-border);
+		font-size: 1.3rem;
+	}
+
+	.about-perspectives__item h3 {
+		font-size: clamp(1.2rem, 1.05rem + 0.8vw, 1.5rem);
+	}
+
+	.about-perspectives__item p {
+		margin-top: 12px;
+		max-width: 34em;
+		opacity: 0.85;
+	}
+
+	.about-cooking__body {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 38em;
+	}
+
+	.about-cooking__note {
+		margin-top: 8px;
+		padding-top: 16px;
+		border-top: 1px solid var(--color-border);
+		font-size: 0.9rem;
+		opacity: 0.65;
+	}
+
+	.about-for__list {
+		margin-top: 40px;
+	}
+
+	.about-services__list {
+		margin-top: 40px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.about-services__item {
+		display: flex;
+		gap: 24px;
+		padding-block: 32px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.about-services__item:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.about-services__num {
+		flex-shrink: 0;
+		color: var(--color-border);
+		font-size: 1.6rem;
+	}
+
+	.about-services__en {
+		font-size: 0.78rem;
+		color: var(--color-accent);
+	}
+
+	.about-services__content h3 {
+		margin-top: 8px;
+		font-size: clamp(1.1rem, 1rem + 0.6vw, 1.4rem);
+	}
+
+	.about-services__body {
+		margin-top: 10px;
+		max-width: 34em;
+		opacity: 0.8;
+	}
+
+	.about-services__content :global(.arrow-link) {
+		margin-top: 18px;
+	}
+
+	@media (min-width: 768px) {
+		.about-what__topics {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.about-what__topics li {
+			flex: 0 0 50%;
+			padding-right: 20px;
+		}
+
+		.about-diff__grid {
+			flex-direction: row;
+			gap: 64px;
+		}
+
+		.about-diff__col {
+			flex: 1;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.about-perspectives__item {
+			flex-direction: row;
+			gap: 48px;
+		}
+
+		.about-perspectives__meta {
+			flex: 0 0 220px;
+		}
+	}
+</style>

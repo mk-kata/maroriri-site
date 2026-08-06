@@ -1,0 +1,89 @@
+---
+import Breadcrumbs from "./Breadcrumbs.astro";
+
+interface Crumb {
+	label: string;
+	href?: string;
+}
+
+interface Props {
+	eyebrow: string;
+	crumbLabel: string;
+}
+
+const { eyebrow, crumbLabel } = Astro.props;
+const crumbs: Crumb[] = [{ label: crumbLabel }];
+const hasGraphic = Astro.slots.has("graphic");
+---
+
+<section class="page-hero section">
+	<div class="container">
+		<Breadcrumbs items={crumbs} />
+		<p class="eyebrow page-hero__eyebrow reveal-heading">{eyebrow}</p>
+		<div class:list={["page-hero__grid", { "page-hero__grid--split": hasGraphic }]}>
+			<div class="page-hero__copy">
+				<h1 class="page-hero__heading reveal-heading"><slot /></h1>
+				<div class="page-hero__lede">
+					<slot name="lede" />
+				</div>
+			</div>
+			{
+				hasGraphic && (
+					<div class="page-hero__graphic reveal" aria-hidden="true">
+						<slot name="graphic" />
+					</div>
+				)
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.page-hero {
+		padding-bottom: 0;
+	}
+
+	.page-hero__eyebrow {
+		margin-top: 20px;
+	}
+
+	.page-hero__grid {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.page-hero__heading {
+		margin-top: 16px;
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: clamp(1.8rem, 1.3rem + 3vw, 3.2rem);
+		line-height: 1.35;
+	}
+
+	.page-hero__lede {
+		margin-top: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 42em;
+		opacity: 0.85;
+	}
+
+	@media (min-width: 1024px) {
+		.page-hero__grid--split {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 64px;
+		}
+
+		.page-hero__grid--split .page-hero__copy {
+			flex: 1;
+			max-width: 560px;
+		}
+
+		.page-hero__graphic {
+			flex: 1;
+		}
+	}
+</style>
