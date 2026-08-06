@@ -1154,6 +1154,35 @@ const faqs = [
 	}
 
 	@media (min-width: 1024px) {
+		.services__grid {
+			flex-direction: row;
+			align-items: stretch;
+		}
+
+		.services__card {
+			flex-direction: column;
+		}
+
+		.services__card--main {
+			flex: 1.6;
+		}
+
+		.services__card--sub {
+			flex: 1;
+		}
+
+		.services__price {
+			padding-top: 24px;
+			padding-left: 0;
+			border-top: 1px solid var(--color-border);
+			border-left: none;
+			text-align: left;
+			align-items: flex-start;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 24px 40px;
+		}
+
 		.hero__grid {
 			flex-direction: row;
 			align-items: flex-start;
