@@ -908,6 +908,18 @@ const faqs = [
 		background: var(--color-bg-white);
 	}
 
+	.services__card--main {
+		padding: 40px 32px;
+	}
+
+	.services__card--main h3 {
+		font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+	}
+
+	.services__card--sub {
+		max-width: 42em;
+	}
+
 	.services__card .eyebrow {
 		display: block;
 		margin-top: 16px;
@@ -1117,18 +1129,6 @@ const faqs = [
 			margin-left: 4%;
 		}
 
-		.services__grid {
-			flex-direction: row;
-			align-items: stretch;
-		}
-
-		.services__card--main {
-			flex: 1.6;
-		}
-
-		.services__card--sub {
-			flex: 1;
-		}
 	}
 
 	@media (min-width: 1024px) {
