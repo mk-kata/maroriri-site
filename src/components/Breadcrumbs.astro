@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../utils/url";
+
 interface Crumb {
 	label: string;
 	href?: string;
@@ -13,14 +15,14 @@ const { items } = Astro.props;
 
 <nav class="breadcrumbs" aria-label="パンくずリスト">
 	<ol>
-		<li><a href="/">HOME</a></li>
+		<li><a href={withBase("/")}>HOME</a></li>
 		{
 			items.map((item) => (
 				<li>
 					<span class="breadcrumbs__sep" aria-hidden="true">
 						/
 					</span>
-					{item.href ? <a href={item.href}>{item.label}</a> : <span aria-current="page">{item.label}</span>}
+					{item.href ? <a href={withBase(item.href)}>{item.label}</a> : <span aria-current="page">{item.label}</span>}
 				</li>
 			))
 		}

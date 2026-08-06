@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ArrowLink from "../components/ArrowLink.astro";
 import FaqItem from "../components/FaqItem.astro";
+import { withBase } from "../utils/url";
 
 const questions = [
 	{ num: "01", lines: ["このデザインを、", "どの順番でHTMLにする？"] },
@@ -177,7 +178,7 @@ const faqs = [
 					</p>
 				</div>
 				<div class="hero__cta">
-					<a href="/coder-club/" class="btn btn--primary">マロリリコーダー部を見る</a>
+					<a href={withBase("/coder-club/")} class="btn btn--primary">マロリリコーダー部を見る</a>
 					<ArrowLink href="/about/">MARORIRIについて</ArrowLink>
 				</div>
 			</div>
@@ -547,7 +548,7 @@ const faqs = [
 				<p>マロリリコーダー部への参加や各サービスについて、気になることがあればお問い合わせください。</p>
 			</div>
 			<div class="final-cta__actions">
-				<a href="/coder-club/" class="btn btn--primary">コーダー部に参加する</a>
+				<a href={withBase("/coder-club/")} class="btn btn--primary">コーダー部に参加する</a>
 				<ArrowLink href="/contact/">まずは相談する</ArrowLink>
 			</div>
 		</div>

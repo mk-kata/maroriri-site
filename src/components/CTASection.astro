@@ -1,5 +1,6 @@
 ---
 import ArrowLink from "./ArrowLink.astro";
+import { withBase } from "../utils/url";
 
 interface Props {
 	enCopy?: string;
@@ -20,7 +21,7 @@ const { enCopy, primaryLabel, primaryHref, secondaryLabel, secondaryHref } = Ast
 			<slot name="body" />
 		</div>
 		<div class="cta-section__actions">
-			<a href={primaryHref} class="btn btn--primary">{primaryLabel}</a>
+			<a href={withBase(primaryHref)} class="btn btn--primary">{primaryLabel}</a>
 			{
 				secondaryLabel && secondaryHref && (
 					<ArrowLink href={secondaryHref} class="cta-section__secondary">

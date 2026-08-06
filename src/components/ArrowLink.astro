@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../utils/url";
+
 interface Props {
 	href: string;
 	class?: string;
@@ -7,7 +9,7 @@ interface Props {
 const { href, class: className } = Astro.props;
 ---
 
-<a href={href} class:list={["arrow-link", className]}>
+<a href={withBase(href)} class:list={["arrow-link", className]}>
 	<span class="arrow-link__label"><slot /></span>
 	<span class="arrow-link__arrow" aria-hidden="true">→</span>
 </a>

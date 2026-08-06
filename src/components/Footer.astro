@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../utils/url";
+
 const navItems = [
 	{ label: "MARORIRIとは", href: "/about/" },
 	{ label: "マロリリコーダー部", href: "/coder-club/" },
@@ -25,13 +27,13 @@ const legalItems = [
 
 		<nav class="site-footer__nav" aria-label="フッターナビゲーション">
 			<ul>
-				{navItems.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+				{navItems.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}
 			</ul>
 		</nav>
 
 		<nav class="site-footer__legal" aria-label="法務情報">
 			<ul>
-				{legalItems.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+				{legalItems.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}
 			</ul>
 		</nav>
 	</div>
