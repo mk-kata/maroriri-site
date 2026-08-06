@@ -77,6 +77,14 @@ const icons: Record<string, string> = {
 	apply: '<path d="M12 3.5v10.5"/><path d="m7.5 10 4.5 4.5L16.5 10"/><path d="M4.5 18.5h15"/>',
 };
 
+const experience = [
+	{ num: "01", en: "PRINT", ja: "印刷" },
+	{ num: "02", en: "DTP", ja: "誌面・販促物制作" },
+	{ num: "03", en: "WEB", ja: "Web制作・運用" },
+	{ num: "04", en: "DIRECTION", ja: "進行・品質管理" },
+	{ num: "05", en: "CREATOR SUPPORT", ja: "制作者の育成・支援" },
+];
+
 const faqs = [
 	{
 		q: "コーディング経験が浅くても参加できますか？",
@@ -382,29 +390,60 @@ const faqs = [
 
 	<!-- 7. 運営者紹介 -->
 	<section class="profile section section--white" id="profile">
-		<div class="container profile__grid">
-			<div class="profile__intro">
+		<div class="container">
+			<div class="profile__head">
 				<p class="eyebrow reveal-heading">FROM THE WEB FIELD</p>
 				<h2 class="reveal-heading">制作現場で積み重ねてきた判断を、<br />次の制作者へ。</h2>
-				<div class="profile__body">
-					<p>印刷、DTP、Web制作、サイト運用、ディレクション、制作者の育成。</p>
-					<p>
-						さまざまな立場でWebの仕事に携わる中で、コードを書く力だけでは解決できない場面を数多く経験してきました。
-					</p>
-					<p>MARORIRIでは、制作現場で身につけてきた考え方や判断の基準を、これからの制作者に伝えていきます。</p>
-				</div>
-				<ArrowLink href="/profile/">運営者について見る</ArrowLink>
 			</div>
 
-			<div class="profile__card">
-				<span class="profile__mark" aria-hidden="true">MK</span>
-				<p class="profile__name-en num-mono">MAYUMI KATAYAMA</p>
-				<p class="profile__name-ja">片山 まゆみ</p>
-				<ul class="profile__roles">
-					<li>WEB CREATOR</li>
-					<li>DIRECTOR</li>
-					<li>SUPPORTER</li>
-				</ul>
+			<div class="profile__row">
+				<div class="profile__body">
+					<p class="profile__lede">印刷・DTPからWeb制作へ。</p>
+					<p>
+						コーディング、サイト運用、ディレクション、<br />
+						制作者の育成まで、立場を変えながら<br />
+						制作の仕事に携わってきました。
+					</p>
+					<p>
+						制作現場で必要になるのは、<br />
+						コードを書く技術だけではありません。
+					</p>
+					<p>
+						デザインの意図を読み取り、<br />
+						相手に伝わる形へ整理し、<br />
+						案件を前へ進めるための判断が求められます。
+					</p>
+					<p>
+						MARORIRIでは、現場で身につけてきた<br />
+						考え方や判断の基準を、これからの制作者へ伝えています。
+					</p>
+					<ArrowLink href="/profile/">運営者について見る</ArrowLink>
+				</div>
+
+				<div class="profile__info">
+					<p class="profile__name-en num-mono">MAYUMI KATAYAMA</p>
+					<p class="profile__name-ja">片山 まゆみ</p>
+					<ul class="profile__roles">
+						<li>WEB CREATOR</li>
+						<li>DIRECTOR</li>
+						<li>CREATOR SUPPORT</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="profile__experience">
+				<p class="eyebrow">EXPERIENCE</p>
+				<ol class="profile__experience-list">
+					{
+						experience.map((e) => (
+							<li>
+								<span class="num-mono profile__experience-num">{e.num}</span>
+								<span class="profile__experience-en">{e.en}</span>
+								<span class="profile__experience-ja">{e.ja}</span>
+							</li>
+						))
+					}
+				</ol>
 			</div>
 		</div>
 	</section>
@@ -917,81 +956,105 @@ const faqs = [
 	}
 
 	/* ---------- Profile ---------- */
-	.profile__grid {
+	.profile {
+		border-top: 1px solid var(--color-accent);
+	}
+
+	.profile__head h2 {
+		margin-top: 16px;
+		font-size: clamp(1.6rem, 1.2rem + 2.4vw, 2.6rem);
+		max-width: 24em;
+	}
+
+	.profile__row {
+		margin-top: 56px;
 		display: flex;
 		flex-direction: column;
 		gap: 48px;
 	}
 
-	.profile__intro h2 {
-		margin-top: 16px;
-		font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem);
-	}
-
 	.profile__body {
-		margin-top: 24px;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
 		max-width: 36em;
 	}
 
-	.profile__intro :global(.arrow-link) {
-		margin-top: 28px;
-	}
-
-	.profile__card {
-		padding: 40px;
-		background: var(--color-bg);
-		border: 1px solid var(--color-border);
-		border-top: 3px solid var(--color-accent);
-	}
-
-	.profile__mark {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 72px;
-		height: 72px;
+	.profile__lede {
 		font-family: var(--font-en);
 		font-weight: 700;
-		font-size: 1.6rem;
-		letter-spacing: 0.02em;
-		background: var(--color-bg-dark);
-		color: var(--color-text-inverse);
-		border-radius: var(--radius-md);
+		font-size: 1.3rem;
+	}
+
+	.profile__body :global(.arrow-link) {
+		margin-top: 12px;
+	}
+
+	.profile__info {
+		padding-top: 24px;
+		border-top: 1px solid var(--color-border);
 	}
 
 	.profile__name-en {
-		margin-top: 24px;
-		font-size: 0.85rem;
+		font-size: 0.8rem;
 		letter-spacing: 0.05em;
 		opacity: 0.6;
 	}
 
 	.profile__name-ja {
-		margin-top: 8px;
-		font-size: 2rem;
+		margin-top: 10px;
+		font-size: clamp(2rem, 1.7rem + 1vw, 2.5rem);
 		font-weight: 700;
 	}
 
 	.profile__roles {
 		margin-top: 24px;
 		display: flex;
-		flex-wrap: wrap;
-		gap: 10px;
-		padding-top: 24px;
+		flex-direction: column;
+		gap: 8px;
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		opacity: 0.75;
+	}
+
+	/* ---------- Experience ---------- */
+	.profile__experience {
+		margin-top: 96px;
+	}
+
+	.profile__experience-list {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.profile__experience-list li {
+		padding-block: 20px;
 		border-top: 1px solid var(--color-border);
 	}
 
-	.profile__roles li {
-		padding: 6px 14px;
-		font-family: var(--font-mono);
-		font-size: 0.78rem;
-		letter-spacing: 0.02em;
-		background: var(--color-bg-white);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-sm);
+	.profile__experience-list li:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.profile__experience-num {
+		color: var(--color-accent);
+		font-size: 0.85rem;
+	}
+
+	.profile__experience-en {
+		display: block;
+		margin-top: 6px;
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: 1.2rem;
+	}
+
+	.profile__experience-ja {
+		display: block;
+		margin-top: 4px;
+		font-size: 0.85rem;
+		opacity: 0.65;
 	}
 
 	/* ---------- FAQ ---------- */
@@ -1156,18 +1219,55 @@ const faqs = [
 			border-bottom: 1px solid var(--color-border-dark);
 		}
 
-		.profile__grid {
+		.profile__row {
 			flex-direction: row;
-			gap: 80px;
+			gap: 64px;
 		}
 
-		.profile__intro {
-			flex: 1.3;
+		.profile__body {
+			flex: 7;
 		}
 
-		.profile__card {
+		.profile__info {
+			flex: 4;
+			padding-top: 0;
+			border-top: none;
+			border-left: 1px solid var(--color-border);
+			padding-left: 48px;
+		}
+
+		.profile__experience-list {
+			flex-direction: row;
+			position: relative;
+		}
+
+		.profile__experience-list::before {
+			content: "";
+			position: absolute;
+			top: 6px;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background: var(--color-border);
+		}
+
+		.profile__experience-list li {
+			position: relative;
 			flex: 1;
-			align-self: flex-start;
+			padding: 0 20px 0 0;
+			border-top: none;
+		}
+
+		.profile__experience-list li:last-child {
+			border-bottom: none;
+			padding-right: 0;
+		}
+
+		.profile__experience-num {
+			position: relative;
+			display: inline-block;
+			padding-right: 10px;
+			background: var(--color-bg-white);
 		}
 
 		.faq__grid {
