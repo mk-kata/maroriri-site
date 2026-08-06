@@ -344,17 +344,19 @@ const faqs = [
 					<p class="services__body">
 						単に間違いを指摘するのではなく、なぜ直したほうがよいのか、次の案件でどう考えればよいのかまでお伝えします。
 					</p>
-					<dl class="services__price">
-						<div>
-							<dt>一般価格</dt>
-							<dd>10,000円（税込）</dd>
-						</div>
-						<div>
-							<dt>コーダー部会員価格</dt>
-							<dd>5,000円（税込）</dd>
-						</div>
-					</dl>
-					<ArrowLink href="/case-check/">案件チェックについて見る</ArrowLink>
+					<div class="services__footer">
+						<ArrowLink href="/case-check/">案件チェックについて見る</ArrowLink>
+						<dl class="services__price">
+							<div>
+								<dt>一般価格</dt>
+								<dd>10,000円（税込）</dd>
+							</div>
+							<div>
+								<dt>コーダー部会員価格</dt>
+								<dd>5,000円（税込）</dd>
+							</div>
+						</dl>
+					</div>
 				</article>
 
 				<article class="services__card services__card--sub">
@@ -375,14 +377,16 @@ const faqs = [
 					<p class="services__body">
 						案件の進め方、工数、納期、修正、クライアントとの関係、仕事の獲得、キャリアなどについて相談できます。
 					</p>
-					<dl class="services__price">
-						<div>
-							<dt>60分</dt>
-							<dd>5,000円（税込）</dd>
-						</div>
-					</dl>
 					<p class="services__note">コーダー部会員は、月1回60分の個別相談を月会費に含みます。</p>
-					<ArrowLink href="/consulting/">個別相談について見る</ArrowLink>
+					<div class="services__footer">
+						<ArrowLink href="/consulting/">個別相談について見る</ArrowLink>
+						<dl class="services__price">
+							<div>
+								<dt>60分</dt>
+								<dd>5,000円（税込）</dd>
+							</div>
+						</dl>
+					</div>
 				</article>
 			</div>
 		</div>
@@ -916,10 +920,6 @@ const faqs = [
 		font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
 	}
 
-	.services__card--sub {
-		max-width: 42em;
-	}
-
 	.services__card .eyebrow {
 		display: block;
 		margin-top: 16px;
@@ -935,13 +935,23 @@ const faqs = [
 		max-width: 38em;
 	}
 
-	.services__price {
-		margin-top: 24px;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 24px 40px;
+	.services__footer {
+		margin-top: 28px;
 		padding-top: 20px;
 		border-top: 1px solid var(--color-border);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 16px 24px;
+	}
+
+	.services__price {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 8px 32px;
+		text-align: right;
 	}
 
 	.services__price dt {
@@ -961,10 +971,6 @@ const faqs = [
 		margin-top: 16px;
 		font-size: 0.85rem;
 		opacity: 0.7;
-	}
-
-	.services__card :global(.arrow-link) {
-		margin-top: 28px;
 	}
 
 	/* ---------- Profile ---------- */
