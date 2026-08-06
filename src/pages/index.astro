@@ -11,6 +11,61 @@ const questions = [
 	{ num: "05", lines: ["AIがコードを書く時代に、", "何を身につける？"] },
 ];
 
+const career = [
+	{
+		num: "01",
+		en: "BANK",
+		ja: "銀行勤務",
+		lines: ["正確さと確認が求められる環境で、", "仕事の基本となる業務姿勢を身につける。"],
+	},
+	{
+		num: "02",
+		en: "PRINTING / SALES SUPPORT",
+		ja: "凸版印刷｜営業事務",
+		lines: ["営業担当者や制作現場を支える立場で、", "印刷物が完成するまでの進行や連携に携わる。"],
+	},
+	{
+		num: "03",
+		en: "DTP DESIGN",
+		ja: "大阪の印刷会社｜DTP制作",
+		lines: [
+			"Illustrator・Photoshopなどを使用し、",
+			"印刷物の制作や入稿データの作成を担当。",
+			"情報を整理し、紙面へ落とし込む力を培う。",
+		],
+	},
+	{
+		num: "04",
+		en: "WEB PRODUCTION",
+		ja: "Web制作・サイト運用",
+		lines: [
+			"Webデザイン、HTML・CSSコーディング、",
+			"WordPress・Movable Typeの構築や運用、",
+			"サーバー・ドメイン関連の対応まで幅広く経験。",
+		],
+	},
+	{
+		num: "05",
+		en: "DIRECTION",
+		ja: "Webディレクション",
+		lines: [
+			"クライアントへのヒアリング、情報整理、",
+			"ページ構成、制作指示、進行管理、品質確認など、",
+			"制作側とクライアント側をつなぐ役割を担う。",
+		],
+	},
+	{
+		num: "06",
+		en: "CREATOR SUPPORT",
+		ja: "制作者の育成・実務支援",
+		lines: [
+			"コーダーやWeb制作者の案件確認、",
+			"仕事の進め方やクライアント対応の相談、",
+			"制作現場で判断するための考え方を伝えている。",
+		],
+	},
+];
+
 const perspectives = [
 	{
 		num: "01",
@@ -198,6 +253,7 @@ const faqs = [
 								</h3>
 								<span class="questions__rule reveal-rule" aria-hidden="true" />
 							</div>
+							<span class="questions__ghost num-mono" aria-hidden="true">{q.num}</span>
 						</li>
 					))
 				}
@@ -430,6 +486,33 @@ const faqs = [
 					</ul>
 				</div>
 			</div>
+
+			<div class="career">
+				<p class="eyebrow">CAREER</p>
+				<ol class="career__list">
+					{
+						career.map((c) => (
+							<li class="career__item">
+								<div class="career__meta">
+									<div class="career__heading">
+										<span class="num-mono career__num">{c.num}</span>
+										<span class="career__en">{c.en}</span>
+									</div>
+									<p class="career__ja">{c.ja}</p>
+								</div>
+								<p class="career__body">
+									{c.lines.map((line, i) => (
+										<>
+											{i > 0 && <br />}
+											{line}
+										</>
+									))}
+								</p>
+							</li>
+						))
+					}
+				</ol>
+			</div>
 		</div>
 	</section>
 
@@ -654,12 +737,17 @@ const faqs = [
 	}
 
 	.questions__item {
+		position: relative;
 		border-top: 1px solid var(--color-border);
 		padding-block: 32px;
 	}
 
 	.questions__item:last-child {
 		border-bottom: 1px solid var(--color-border);
+	}
+
+	.questions__ghost {
+		display: none;
 	}
 
 	.questions__num {
@@ -1019,6 +1107,55 @@ const faqs = [
 		opacity: 0.75;
 	}
 
+	/* ---------- Career ---------- */
+	.career {
+		margin-top: 96px;
+	}
+
+	.career__list {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.career__item {
+		padding-block: 28px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.career__item:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.career__heading {
+		display: flex;
+		align-items: baseline;
+		gap: 16px;
+	}
+
+	.career__num {
+		color: var(--color-accent);
+		font-size: 0.85rem;
+	}
+
+	.career__en {
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: 1.15rem;
+	}
+
+	.career__ja {
+		margin-top: 8px;
+		font-size: 0.9rem;
+		opacity: 0.65;
+	}
+
+	.career__body {
+		margin-top: 14px;
+		max-width: 40em;
+		opacity: 0.85;
+	}
+
 	/* ---------- FAQ ---------- */
 	.faq__grid {
 		display: flex;
@@ -1082,6 +1219,19 @@ const faqs = [
 	}
 
 	@media (min-width: 1024px) {
+		.questions__ghost {
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: clamp(4.5rem, 3rem + 6vw, 8rem);
+			line-height: 1;
+			color: var(--color-accent);
+			opacity: 0.06;
+			pointer-events: none;
+		}
+
 		.services__grid {
 			flex-direction: row;
 			align-items: stretch;
@@ -1197,6 +1347,24 @@ const faqs = [
 			border-top: none;
 			border-left: 1px solid var(--color-border);
 			padding-left: 48px;
+		}
+
+		.career__item {
+			display: flex;
+			gap: 48px;
+		}
+
+		.career__meta {
+			flex: 0 0 260px;
+		}
+
+		.career__ja {
+			margin-top: 6px;
+		}
+
+		.career__body {
+			flex: 1;
+			margin-top: 0;
 		}
 
 		.faq__grid {
