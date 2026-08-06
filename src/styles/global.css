@@ -144,6 +144,29 @@ body {
 	font-family: var(--font-mono);
 }
 
+/* ===== Icon badge ===== */
+.icon-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	flex-shrink: 0;
+	border-radius: var(--radius-md);
+	background: rgba(70, 85, 255, 0.08);
+	color: var(--color-accent);
+}
+
+.icon-badge svg {
+	width: 22px;
+	height: 22px;
+}
+
+.section--dark .icon-badge {
+	background: rgba(255, 255, 255, 0.08);
+	color: var(--color-highlight);
+}
+
 /* ===== Skip link ===== */
 .skip-link {
 	position: absolute;
@@ -190,14 +213,16 @@ summary:focus-visible {
 }
 
 .btn--primary {
-	background: var(--color-text);
-	color: var(--color-bg-white);
+	background: var(--color-accent);
+	color: var(--color-text-inverse);
+	border-color: var(--color-accent);
+	border-radius: var(--radius-md);
 }
 
 .section--dark .btn--primary {
-	background: var(--color-text-inverse);
-	color: var(--color-bg-dark);
-	border-color: var(--color-text-inverse);
+	background: var(--color-accent);
+	color: var(--color-text-inverse);
+	border-color: var(--color-accent);
 }
 
 .btn--ghost {
