@@ -180,6 +180,7 @@ const faqs = [
 
 	<!-- 3. 制作者が仕事の中で向き合う問い -->
 	<section class="questions section section--white" id="questions">
+		<span class="questions__quote" aria-hidden="true">”</span>
 		<div class="container">
 			<div class="questions__head">
 				<p class="eyebrow reveal-heading">QUESTIONS FROM THE FIELD</p>
@@ -187,8 +188,8 @@ const faqs = [
 			</div>
 			<ul class="questions__list">
 				{
-					questions.map((q, i) => (
-						<li class:list={["questions__item", `questions__item--${i % 2 === 0 ? "a" : "b"}`]}>
+					questions.map((q) => (
+						<li class="questions__item">
 							<div class="reveal">
 								<span class="questions__num num-mono" aria-hidden="true">{q.num}</span>
 								<h3 class="questions__text">
@@ -240,6 +241,9 @@ const faqs = [
 				<h2 class="reveal-heading">
 					ひとりで正解を探すのではなく、<br />考え方を持ち寄り、自分の基準を育てる。
 				</h2>
+			</div>
+
+			<div class="coder-club__row">
 				<div class="coder-club__body">
 					<p>
 						マロリリコーダー部は、コーダー・Web制作者が、実務で感じた疑問や迷いを持ち寄る月額制のコミュニティです。
@@ -251,12 +255,12 @@ const faqs = [
 						正解を教えてもらうだけではなく、ほかの制作者の考え方にも触れながら、自分なりの判断基準を育てていきます。
 					</p>
 				</div>
-			</div>
 
-			<div class="coder-club__fee">
-				<span class="eyebrow">MONTHLY FEE</span>
-				<p class="coder-club__price">月額 3,300<span class="coder-club__price-unit">円</span></p>
-				<p class="coder-club__price-note">税込</p>
+				<div class="coder-club__fee">
+					<span class="eyebrow">MONTHLY FEE</span>
+					<p class="coder-club__price">月額 3,300<span class="coder-club__price-unit">円</span></p>
+					<p class="coder-club__price-note">税込</p>
+				</div>
 			</div>
 
 			<ul class="coder-club__activities">
@@ -442,8 +446,8 @@ const faqs = [
 		margin-top: 20px;
 		font-family: var(--font-en);
 		font-weight: 700;
-		font-size: clamp(2.2rem, 1.5rem + 4vw, 4.2rem);
-		line-height: 1.25;
+		font-size: clamp(1.9rem, 1.3rem + 3vw, 3.3rem);
+		line-height: 1.3;
 	}
 
 	.hero__body {
@@ -584,6 +588,25 @@ const faqs = [
 	}
 
 	/* ---------- Questions ---------- */
+	.questions {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.questions__quote {
+		position: absolute;
+		top: -0.3em;
+		right: 4%;
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: clamp(9rem, 6rem + 14vw, 18rem);
+		line-height: 1;
+		color: var(--color-accent);
+		opacity: 0.06;
+		pointer-events: none;
+		user-select: none;
+	}
+
 	.questions__head h2 {
 		margin-top: 16px;
 		font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem);
@@ -691,8 +714,14 @@ const faqs = [
 		font-size: clamp(1.6rem, 1.2rem + 2.4vw, 2.6rem);
 	}
 
-	.coder-club__body {
+	.coder-club__row {
 		margin-top: 28px;
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+
+	.coder-club__body {
 		display: flex;
 		flex-direction: column;
 		gap: 18px;
@@ -701,12 +730,13 @@ const faqs = [
 	}
 
 	.coder-club__fee {
-		margin-top: 72px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		padding: 28px 32px;
 		background: var(--color-bg-white);
 		color: var(--color-text);
 		border-radius: var(--radius-md);
-		max-width: 340px;
 	}
 
 	.coder-club__fee .eyebrow {
@@ -714,11 +744,12 @@ const faqs = [
 	}
 
 	.coder-club__price {
-		margin-top: 12px;
+		margin-top: 14px;
 		font-family: var(--font-en);
 		font-weight: 700;
-		font-size: clamp(2rem, 1.6rem + 2vw, 3rem);
+		font-size: clamp(2rem, 1.6rem + 1.4vw, 2.6rem);
 		color: var(--color-text);
+		white-space: nowrap;
 	}
 
 	.coder-club__price-unit {
@@ -792,7 +823,7 @@ const faqs = [
 		opacity: 0.65;
 	}
 
-	.coder-club__fee ~ :global(.arrow-link) {
+	.coder-club__row ~ :global(.arrow-link) {
 		margin-top: 56px;
 		color: var(--color-highlight);
 	}
@@ -1027,17 +1058,20 @@ const faqs = [
 			max-width: 720px;
 		}
 
-		.questions__item {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
+		.questions__item > div {
+			max-width: 640px;
 		}
 
-		.questions__item--a > div {
-			grid-column: 1 / span 1;
+		.questions__item:nth-child(2) > div {
+			margin-left: 8%;
 		}
 
-		.questions__item--b > div {
-			grid-column: 2 / span 1;
+		.questions__item:nth-child(3) > div {
+			margin-left: 16%;
+		}
+
+		.questions__item:nth-child(4) > div {
+			margin-left: 8%;
 		}
 
 		.perspectives__item {
@@ -1055,6 +1089,17 @@ const faqs = [
 		.perspectives__content {
 			flex: 1;
 			max-width: 680px;
+		}
+
+		.coder-club__row {
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 64px;
+		}
+
+		.coder-club__fee {
+			flex: 0 0 300px;
 		}
 
 		.coder-club__activities {
