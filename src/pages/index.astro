@@ -397,6 +397,7 @@ const faqs = [
 			</div>
 
 			<div class="profile__card">
+				<span class="profile__mark" aria-hidden="true">MK</span>
 				<p class="profile__name-en num-mono">MAYUMI KATAYAMA</p>
 				<p class="profile__name-ja">片山 まゆみ</p>
 				<ul class="profile__roles">
@@ -940,12 +941,29 @@ const faqs = [
 	}
 
 	.profile__card {
-		padding: 32px;
+		padding: 40px;
+		background: var(--color-bg);
 		border: 1px solid var(--color-border);
-		border-left: 3px solid var(--color-accent);
+		border-top: 3px solid var(--color-accent);
+	}
+
+	.profile__mark {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 72px;
+		height: 72px;
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: 1.6rem;
+		letter-spacing: 0.02em;
+		background: var(--color-bg-dark);
+		color: var(--color-text-inverse);
+		border-radius: var(--radius-md);
 	}
 
 	.profile__name-en {
+		margin-top: 24px;
 		font-size: 0.85rem;
 		letter-spacing: 0.05em;
 		opacity: 0.6;
@@ -953,20 +971,27 @@ const faqs = [
 
 	.profile__name-ja {
 		margin-top: 8px;
-		font-size: 1.6rem;
-		font-weight: 500;
+		font-size: 2rem;
+		font-weight: 700;
 	}
 
 	.profile__roles {
-		margin-top: 20px;
+		margin-top: 24px;
 		display: flex;
-		flex-direction: column;
-		gap: 8px;
-		padding-top: 20px;
+		flex-wrap: wrap;
+		gap: 10px;
+		padding-top: 24px;
 		border-top: 1px solid var(--color-border);
+	}
+
+	.profile__roles li {
+		padding: 6px 14px;
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
-		opacity: 0.7;
+		font-size: 0.78rem;
+		letter-spacing: 0.02em;
+		background: var(--color-bg-white);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
 	}
 
 	/* ---------- FAQ ---------- */
