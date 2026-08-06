@@ -484,6 +484,9 @@ const faqs = [
 						<li>DIRECTOR</li>
 						<li>CREATOR SUPPORT</li>
 					</ul>
+					<p class="profile__summary">
+						銀行勤務を経て、印刷・DTPからWeb制作の現場へ。ディレクションを経験し、現在は制作者支援に携わる。
+					</p>
 				</div>
 			</div>
 
@@ -1107,6 +1110,14 @@ const faqs = [
 		opacity: 0.75;
 	}
 
+	.profile__summary {
+		margin-top: 24px;
+		padding-top: 24px;
+		border-top: 1px solid var(--color-border);
+		font-size: 0.9rem;
+		opacity: 0.8;
+	}
+
 	/* ---------- Career ---------- */
 	.career {
 		margin-top: 96px;
@@ -1332,12 +1343,21 @@ const faqs = [
 			border-bottom: 1px solid var(--color-border-dark);
 		}
 
+		.profile__row {
+			flex-direction: row;
+			gap: 64px;
+		}
+
 		.profile__body {
-			max-width: 44em;
+			flex: 7;
 		}
 
 		.profile__info {
-			max-width: 26em;
+			flex: 4;
+			padding-top: 0;
+			border-top: none;
+			border-left: 1px solid var(--color-border);
+			padding-left: 48px;
 		}
 
 		.career__item {
@@ -1364,7 +1384,7 @@ const faqs = [
 		}
 
 		.faq__head {
-			flex: 0 0 320px;
+			flex: 0 0 400px;
 		}
 
 		.faq__list {
