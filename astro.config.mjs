@@ -11,4 +11,10 @@ const base = process.env.SITE_BASE || '/';
 // https://astro.build/config
 export default defineConfig({
 	base,
+	// 暫定対応: Astro生成のmeta refreshリダイレクト（真の301ではない）。
+	// 公開前TODO: 本番デプロイ先を確定後、ホスティング側（Netlify _redirects /
+	// Vercel rewrites / Apache .htaccess 等）で正式な301リダイレクトを設定する。
+	redirects: {
+		"/coder-club/": "/maroriri-plus/",
+	},
 });

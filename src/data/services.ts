@@ -1,8 +1,8 @@
 export const coderClub = {
 	monthlyFee: "月額 3,300円（税込）",
-	feeNote: "コーダー部会員には、月1回60分の個別相談を含みます。",
-	lineText: "コーダー部",
-	contactAnchor: "/contact/#coder-club",
+	feeNote: "月1回のオンライン勉強会、アーカイブ、コミュニティでの交流・軽い実務相談を含みます。60分の個別相談「実務・キャリア相談」は含まれません。",
+	lineText: "プラス",
+	contactAnchor: "/contact/#maroriri-plus",
 };
 
 export const caseCheck = {
@@ -16,7 +16,7 @@ export const caseCheck = {
 export const consulting = {
 	price: "5,000円（税込）",
 	duration: "60分",
-	memberNote: "コーダー部会員は、月1回60分の個別相談を月会費に含みます。",
+	memberNote: "maroririプラスの月額料金には含まれない、別料金の相談です。",
 	lineText: "個別相談",
 	contactAnchor: "/contact/#consulting",
 };

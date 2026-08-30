@@ -1,0 +1,488 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import PriceBlock from "../../components/PriceBlock.astro";
+import ServiceFlow from "../../components/ServiceFlow.astro";
+import FaqAccordion from "../../components/FaqAccordion.astro";
+import ArrowLink from "../../components/ArrowLink.astro";
+import CTASection from "../../components/CTASection.astro";
+import { coderClub, consulting } from "../../data/services";
+import { faqCategories } from "../../data/faq";
+
+const concerns = [
+	"コーディングはできるようになった。でも、この先どうすればよいかわからない",
+	"指示どおりには作れるが、自分で判断する場面になると迷う",
+	"AIでコードが書ける時代に、何を強みにすればよいかわからない",
+	"デザイン、提案、進行などにも関わりたいが、どこから始めればよいかわからない",
+	"実務上の疑問を安心して相談できる相手がいない",
+];
+
+const addOns = ["文章構造を読む力", "デザインを見る力", "提案する力", "進行を管理する力", "クライアントに対応する力", "判断する力"];
+
+const included = [
+	"月1回のオンライン勉強会",
+	"勉強会のアーカイブ",
+	"メンバー同士で交流・相談できるコミュニティ",
+	"コミュニティ内での軽い実務相談",
+	"実際の案件や疑問を題材にした考え方の共有",
+];
+
+const whoItsFor = [
+	"実案件について相談できる相手がいない",
+	"ほかの制作者の考え方を知りたい",
+	"HTMLの構造に自信が持てない",
+	"仕事の進め方に迷っている",
+	"クライアントへの伝え方を学びたい",
+	"自分の価値や強みを整理したい",
+	"これからのキャリアを考えたい",
+];
+
+const lightConsult = [
+	"コミュニティへの投稿形式",
+	"日々の実務で生じた疑問を短く相談できる",
+	"考え方や確認するポイントについて、簡単なヒントや方向性を伝える",
+	"個別の時間予約は行わない",
+	"画面共有を使った相談、資料やサイト全体の確認、詳細なコードレビューなどは含まない",
+];
+
+const bookedConsult = [
+	"事前予約制の個別相談",
+	"60分間、1対1で相談できる",
+	"実際の案件、クライアント対応、見積もり、進行、キャリアなどについて深く整理する",
+	"必要に応じて、相談資料や制作物を見ながら話す",
+	"相談者の状況に合わせて、具体的な判断材料を一緒に整理する",
+];
+
+const flowSteps = [
+	{ num: "01", title: "公式LINEを友だち追加" },
+	{ num: "02", title: "「プラス」と送信" },
+	{ num: "03", title: "参加条件と利用方法の案内を確認" },
+	{ num: "04", title: "申込み手続き" },
+	{ num: "05", title: "maroririプラスへ参加" },
+];
+
+const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
+---
+
+<BaseLayout
+	title="maroririプラス｜MARORIRI"
+	description="maroririプラスは、コーダー・Web制作者が実務の疑問や迷いを持ち寄り、制作者としての判断基準を育てる月額制のコミュニティです。"
+>
+	<PageHero eyebrow="maroriri＋" crumbLabel="maroririプラス">
+		一人で歩く。<br />でも、独りではない。
+		<Fragment slot="lede">
+			<p>
+				「一人」は、自分で考え、自分で選び、自分の足で歩くこと。<br />
+				「独りではない」は、迷ったときや判断に困ったときに、隣で一緒に考える人がいることです。
+			</p>
+			<p class="hero-sub">コーディングを土台に、仕事の領域を広げる。</p>
+		</Fragment>
+	</PageHero>
+
+	<div class="container hero-cta">
+		<ArrowLink href="#about">maroririプラスの内容を見る</ArrowLink>
+	</div>
+
+	<section class="section section--white plus-concerns">
+		<div class="container">
+			<SectionHeading eyebrow="SOUND FAMILIAR?">こんなことに、<br />心当たりはありませんか。</SectionHeading>
+			<p class="plus-concerns__lead">制作の仕事を続けていると、コードの書き方だけでは解決しない場面に出会います。</p>
+			<ul class="list-plain plus-concerns__list">
+				{concerns.map((t) => <li>{t}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section plus-about" id="about">
+		<div class="container">
+			<SectionHeading eyebrow="WHAT IS MARORIRI+">コーディングの先を、<br />一緒に考える。</SectionHeading>
+			<div class="plus-about__body">
+				<p>maroririプラスは、「一人で歩く。でも、独りではない。」というMARORIRIのモットーを、具体的な場にしたコミュニティです。</p>
+				<p class="plus-about__direction">コーディングを土台に、仕事の領域を広げる。</p>
+				<p>コードの書き方やエラーの解決方法だけを教える場所ではありません。すでに実務に入っているコーダー・Web制作者が、実務の中で感じた疑問や迷いを持ち寄り、自分なりの判断基準を育てていく場所です。</p>
+				<p>初心者向けのコーディングスクールでも、ディレクター養成講座でもありません。すでに手を動かして仕事をしている方が、次の一歩を考えるための場です。</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--white plus-add">
+		<div class="container">
+			<SectionHeading eyebrow="WHAT YOU ADD">今ある経験に、<br />次の力をプラスする。</SectionHeading>
+			<p class="plus-add__lead">
+				maroririプラスが目指すのは、職種を変えることではありません。今持っているコーディングの経験の上に、次の力を重ねていくことです。
+			</p>
+			<ul class="tag-list plus-add__list">
+				{addOns.map((t) => <li>{t}</li>)}
+			</ul>
+			<p class="plus-add__note">何をどれだけプラスするかは、経験やこれからの働き方によって異なります。すべてを一度に身につける必要はありません。</p>
+		</div>
+	</section>
+
+	<section class="section plus-get">
+		<div class="container">
+			<SectionHeading eyebrow="WHAT YOU GET">maroririプラスでできること</SectionHeading>
+			<ol class="plus-get__list">
+				{
+					included.map((t, i) => (
+						<li>
+							<span class="num-mono">{String(i + 1).padStart(2, "0")}</span>
+							<span>{t}</span>
+						</li>
+					))
+				}
+			</ol>
+			<p class="plus-get__note">
+				事前予約制・60分の個別相談「実務・キャリア相談」は、月額料金には含まれません。詳しい違いは、料金のセクションでご案内しています。
+			</p>
+		</div>
+	</section>
+
+	<section class="section section--white plus-change">
+		<div class="container">
+			<SectionHeading eyebrow="THE CHANGE YOU BUILD">誰かの正解を探すところから、<br />自分の判断基準を持てる状態へ。</SectionHeading>
+			<div class="plus-change__body">
+				<p>ひとりで正解を探し続けると、判断のたびに不安が残ります。</p>
+				<p>
+					maroririプラスでは、ほかの制作者の考え方に触れながら、なぜその方法を選ぶのかを一緒に考えます。答えを教えてもらうことが目的ではなく、自分で判断し、その理由を自分の言葉で説明できるようになることを目指します。
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section plus-who">
+		<div class="container">
+			<SectionHeading eyebrow="WHO IT'S FOR">こんな方へ</SectionHeading>
+			<p class="plus-who__lead">maroririプラスは、次のような方に向いています。</p>
+			<ul class="list-plain plus-who__list">
+				{whoItsFor.map((t) => <li>{t}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section section--white plus-price">
+		<div class="container">
+			<SectionHeading eyebrow="PRICE & WHAT'S INCLUDED">料金と、含まれる内容</SectionHeading>
+			<div class="plus-price__wrap">
+				<PriceBlock items={[{ label: "月額料金", value: coderClub.monthlyFee }]} />
+			</div>
+
+			<ul class="list-plain plus-price__included">
+				{included.map((t) => <li>{t}</li>)}
+			</ul>
+
+			<div class="plus-price__excluded">
+				<p class="plus-price__excluded-label num-mono">含まれないもの</p>
+				<p>
+					事前予約制の個別相談「実務・キャリア相談」（{consulting.duration}
+					{consulting.price}）は、月額料金には含まれません。
+				</p>
+				<ArrowLink href="/consulting/">実務・キャリア相談について見る</ArrowLink>
+			</div>
+
+			<div class="plus-compare">
+				<p class="plus-compare__heading">「軽い実務相談」と「実務・キャリア相談」の違い</p>
+				<div class="plus-compare__grid">
+					<div class="plus-compare__col">
+						<p class="plus-compare__label num-mono">コミュニティ内での軽い実務相談</p>
+						<ul class="list-plain">
+							{lightConsult.map((t) => <li>{t}</li>)}
+						</ul>
+					</div>
+					<div class="plus-compare__col plus-compare__col--accent">
+						<p class="plus-compare__label num-mono plus-compare__label--accent">実務・キャリア相談</p>
+						<ul class="list-plain">
+							{bookedConsult.map((t) => <li>{t}</li>)}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section plus-flow">
+		<div class="container">
+			<SectionHeading eyebrow="HOW TO JOIN">参加までの流れ</SectionHeading>
+			<p class="plus-flow__lead">公式LINEから、次の手順でご参加いただけます。</p>
+			<div class="plus-flow__wrap">
+				<ServiceFlow steps={flowSteps} />
+			</div>
+			<p class="plus-flow__note">公式LINEで「プラス」と送ってください。</p>
+		</div>
+	</section>
+
+	<section class="section section--white plus-founder">
+		<div class="container">
+			<SectionHeading eyebrow="FROM THE FIELD">制作の現場で、<br />領域を広げてきた35年。</SectionHeading>
+			<div class="plus-founder__body">
+				<p>
+					DTPからWeb制作へ。コーディング、WordPressの構築・運用、進行管理、ディレクション、デザインの意図をくみ取る判断、そして制作者の育成まで、立場を変えながら制作の現場に携わってきました。
+				</p>
+				<p>これは、コーディングを土台に仕事の領域を広げてきた、私自身の実例でもあります。</p>
+				<p>MARORIRIで大切にしているのは、答えだけを渡すことではありません。相談してくれた方が、次の場面で自分で判断できる状態をつくることです。</p>
+				<p class="plus-founder__value">あなたが自分で考えたものに、35年分の実務経験をプラスする。</p>
+				<ArrowLink href="/profile/">運営者について詳しく見る</ArrowLink>
+			</div>
+		</div>
+	</section>
+
+	<section class="section plus-faq">
+		<div class="container plus-faq__grid">
+			<div class="plus-faq__head">
+				<p class="eyebrow reveal-heading">FAQ</p>
+				<h2 class="reveal-heading">maroririプラスに<br />よくいただく質問。</h2>
+				<ArrowLink href="/faq/">よくある質問をすべて見る</ArrowLink>
+			</div>
+			<div class="plus-faq__list">
+				<FaqAccordion items={faqItems} />
+			</div>
+		</div>
+	</section>
+
+	<CTASection
+		primaryLabel="公式LINEで「プラス」と送ってください。"
+		primaryHref="/contact/#maroriri-plus"
+		secondaryLabel="まずは個別に相談したい方へ"
+		secondaryHref="/consulting/"
+	>
+		一人で歩く。<br />でも、独りではない。
+		<Fragment slot="body">
+			<p>仕事の中で迷っていること、これから身につけたいことを、一人で抱え続ける必要はありません。</p>
+		</Fragment>
+	</CTASection>
+</BaseLayout>
+
+<style>
+	.hero-cta {
+		margin-top: 32px;
+	}
+
+	.hero-sub {
+		margin-top: 4px;
+		opacity: 0.85;
+	}
+
+	.plus-concerns__lead {
+		margin-top: 32px;
+		max-width: 38em;
+	}
+
+	.plus-concerns__list {
+		margin-top: 32px;
+	}
+
+	.plus-about__body {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 38em;
+	}
+
+	.plus-about__direction {
+		font-weight: 500;
+	}
+
+	.plus-add__lead {
+		margin-top: 32px;
+		max-width: 38em;
+	}
+
+	.plus-add__list {
+		margin-top: 32px;
+	}
+
+	.plus-add__note {
+		margin-top: 24px;
+		padding-top: 20px;
+		border-top: 1px solid var(--color-border);
+		font-size: 0.9rem;
+		opacity: 0.7;
+		max-width: 34em;
+	}
+
+	.plus-get__list {
+		margin-top: 40px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.plus-get__list li {
+		display: flex;
+		align-items: baseline;
+		gap: 20px;
+		padding-block: 16px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.plus-get__list li:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.plus-get__list .num-mono {
+		color: var(--color-accent);
+		font-size: 0.85rem;
+	}
+
+	.plus-get__note {
+		margin-top: 24px;
+		font-size: 0.9rem;
+		opacity: 0.7;
+		max-width: 36em;
+	}
+
+	.plus-change__body {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 38em;
+	}
+
+	.plus-who__lead {
+		margin-top: 32px;
+	}
+
+	.plus-who__list {
+		margin-top: 24px;
+	}
+
+	.plus-price__wrap {
+		margin-top: 32px;
+		max-width: 24em;
+	}
+
+	.plus-price__included {
+		margin-top: 40px;
+	}
+
+	.plus-price__excluded {
+		margin-top: 40px;
+		padding: 24px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		max-width: 34em;
+	}
+
+	.plus-price__excluded-label {
+		font-size: 0.78rem;
+		color: var(--color-accent);
+	}
+
+	.plus-price__excluded p {
+		margin-top: 14px;
+		opacity: 0.85;
+	}
+
+	.plus-price__excluded :global(.arrow-link) {
+		margin-top: 18px;
+	}
+
+	.plus-compare {
+		margin-top: 56px;
+	}
+
+	.plus-compare__heading {
+		font-size: clamp(1.1rem, 1rem + 0.6vw, 1.3rem);
+		font-weight: 500;
+	}
+
+	.plus-compare__grid {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+
+	.plus-compare__col {
+		padding-top: 20px;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.plus-compare__label {
+		font-size: 0.85rem;
+		opacity: 0.55;
+	}
+
+	.plus-compare__label--accent {
+		color: var(--color-accent);
+		opacity: 1;
+	}
+
+	.plus-compare__col ul {
+		margin-top: 20px;
+	}
+
+	.plus-flow__lead {
+		margin-top: 32px;
+	}
+
+	.plus-flow__wrap {
+		margin-top: 40px;
+	}
+
+	.plus-flow__note {
+		margin-top: 24px;
+		font-size: 0.9rem;
+		opacity: 0.7;
+	}
+
+	.plus-founder__body {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 38em;
+	}
+
+	.plus-founder__value {
+		margin-top: 8px;
+		font-weight: 500;
+	}
+
+	.plus-founder__body :global(.arrow-link) {
+		margin-top: 12px;
+	}
+
+	.plus-faq__grid {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+
+	.plus-faq__head h2 {
+		margin-top: 16px;
+		font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem);
+	}
+
+	.plus-faq__head :global(.arrow-link) {
+		margin-top: 24px;
+	}
+
+	@media (min-width: 768px) {
+		.plus-compare__grid {
+			flex-direction: row;
+			gap: 64px;
+		}
+
+		.plus-compare__col {
+			flex: 1;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.plus-faq__grid {
+			flex-direction: row;
+			gap: 80px;
+		}
+
+		.plus-faq__head {
+			flex: 0 0 320px;
+		}
+
+		.plus-faq__list {
+			flex: 1;
+			max-width: 720px;
+		}
+	}
+</style>
