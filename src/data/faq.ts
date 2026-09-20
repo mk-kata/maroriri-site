@@ -12,7 +12,7 @@ export interface FaqCategory {
 export const faqCategories: FaqCategory[] = [
 	{
 		id: "coder-club",
-		label: "maroririプラス",
+		label: "maroriri Plus",
 		items: [
 			{
 				q: "「コミュニティ内での軽い実務相談」と「実務・キャリア相談」は何が違いますか？",
@@ -28,7 +28,7 @@ export const faqCategories: FaqCategory[] = [
 			},
 			{
 				q: "デザイン料理教室だけに参加できますか？",
-				a: "デザイン料理教室は、maroririプラスの会員向け勉強会です。現在、デザイン料理教室だけの単独申込みは受け付けていません。",
+				a: "デザイン料理教室は、maroriri Plusの会員向け勉強会です。現在、デザイン料理教室だけの単独申込みは受け付けていません。",
 			},
 			{
 				q: "勉強会に参加できなかった場合はどうなりますか？",
@@ -40,7 +40,7 @@ export const faqCategories: FaqCategory[] = [
 			},
 			{
 				q: "退会方法を教えてください。",
-				a: "退会方法と手続き期限については、決済方法の確定後にmaroririプラスの案内ページへ掲載します。",
+				a: "退会方法と手続き期限については、決済方法の確定後にmaroriri Plusの案内ページへ掲載します。",
 			},
 		],
 	},

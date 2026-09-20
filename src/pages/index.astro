@@ -4,143 +4,82 @@ import ArrowLink from "../components/ArrowLink.astro";
 import FaqItem from "../components/FaqItem.astro";
 import { withBase } from "../utils/url";
 
-const questions = [
-	{ num: "01", lines: ["このデザインを、", "どの順番でHTMLにする？"] },
-	{ num: "02", lines: ["見た目を合わせることと、", "意味のある構造をどう両立する？"] },
-	{ num: "03", lines: ["修正が増えたとき、", "どこまで対応する？"] },
-	{ num: "04", lines: ["自分の仕事の価値を、", "どう言葉にする？"] },
-	{ num: "05", lines: ["AIがコードを書く時代に、", "何を身につける？"] },
-];
-
-const career = [
-	{
-		num: "01",
-		en: "BANK",
-		ja: "銀行勤務",
-		lines: ["正確さと確認が求められる環境で、", "仕事の基本となる業務姿勢を身につける。"],
-	},
-	{
-		num: "02",
-		en: "PRINTING / SALES SUPPORT",
-		ja: "凸版印刷｜営業事務",
-		lines: ["営業担当者や制作現場を支える立場で、", "印刷物が完成するまでの進行や連携に携わる。"],
-	},
-	{
-		num: "03",
-		en: "DTP DESIGN",
-		ja: "大阪の印刷会社｜DTP制作",
-		lines: [
-			"Illustrator・Photoshopなどを使用し、",
-			"印刷物の制作や入稿データの作成を担当。",
-			"情報を整理し、紙面へ落とし込む力を培う。",
-		],
-	},
-	{
-		num: "04",
-		en: "WEB PRODUCTION",
-		ja: "Web制作・サイト運用",
-		lines: [
-			"Webデザイン、HTML・CSSコーディング、",
-			"WordPress・Movable Typeの構築や運用、",
-			"サーバー・ドメイン関連の対応まで幅広く経験。",
-		],
-	},
-	{
-		num: "05",
-		en: "DIRECTION",
-		ja: "Webディレクション",
-		lines: [
-			"クライアントへのヒアリング、情報整理、",
-			"ページ構成、制作指示、進行管理、品質確認など、",
-			"制作側とクライアント側をつなぐ役割を担う。",
-		],
-	},
-	{
-		num: "06",
-		en: "CREATOR SUPPORT",
-		ja: "制作者の育成・実務支援",
-		lines: [
-			"コーダーやWeb制作者の案件確認、",
-			"仕事の進め方やクライアント対応の相談、",
-			"制作現場で判断するための考え方を伝えている。",
-		],
-	},
-];
-
 const perspectives = [
 	{
 		num: "01",
 		tag: "STRUCTURE",
 		title: "HTMLとデザインを読む",
-		body: "HTMLとは何か、なぜ書くのか。デザインを見た目として再現するだけではなく、文章の構造や情報の優先順位として読み取ります。",
-		topics: [
-			"HTMLの意味",
-			"文章構造",
-			"見出し階層",
-			"デザインの読み取り方",
-			"デザインを「料理する」考え方",
-		],
+		body: "見た目の奥にある文章構造や情報の優先順位を読み取り、HTMLに落とし込みます。",
+		img: { name: "perspective-structure", w: 1456, h: 1080 },
 	},
 	{
 		num: "02",
 		tag: "PRACTICE",
 		title: "実案件を進める",
-		body: "コーディング以外にも、案件では多くの判断が必要です。工数、納期、確認、修正、クライアントとのやり取りを実務として考えます。",
-		topics: ["工数の考え方", "納期の伝え方", "修正範囲", "確認方法", "クライアントとの関係づくり"],
+		body: "工数・納期・修正範囲を整理し、クライアントに伝えながら案件を進める考え方を学びます。",
+		img: { name: "perspective-practice", w: 1455, h: 1081 },
 	},
 	{
 		num: "03",
 		tag: "VALUE",
 		title: "仕事とキャリアをつくる",
-		body: "自分の価値をどのように伝え、仕事につなげるのか。AI時代も含め、これからの働き方を考えます。",
-		topics: ["自分の強みの伝え方", "仕事を獲得するためのアプローチ", "キャリアアップ", "働き方", "AI時代に身につける力"],
+		body: "今ある経験や強みを整理し、仕事の広げ方とこれからの働き方を考えます。",
+		img: { name: "perspective-value", w: 1455, h: 1081 },
 	},
 ];
 
-const activities = [
+// 下層ページ（/maroriri-plus/）の「できること」一覧と、テキスト（text）を一致させる。片方だけ更新しないこと。
+const coderClubFeatures = [
+	{ icon: "monitor", text: "月1回のオンライン勉強会" },
+	{ icon: "archive", text: "勉強会のアーカイブ" },
+	{ icon: "people", text: "メンバー同士で交流・相談できるコミュニティ" },
+	{ icon: "chat", text: "コミュニティ内での軽い実務相談" },
+	{ icon: "idea", text: "実際の案件や疑問を題材にした考え方の共有" },
+];
+
+const positioningPoints = [
+	{ q: "何を選ぶ？", a: "デザインに合うHTML構造" },
+	{ q: "なぜそうする？", a: "実装方法を選ぶ理由" },
+	{ q: "どう伝える？", a: "工数・納期・修正範囲" },
+];
+
+// 今後、開催予定・募集案内が確定したら項目を追加する。2講座は主従をつけず同列で扱うこと。
+const courses = [
 	{
-		tag: "LEARN",
-		title: "月1回のオンライン勉強会",
-		body: "HTMLの意味や文章構造、実案件の進め方、クライアントへの伝え方など、コーダーとして判断するためのテーマを取り上げます。代表的な勉強会が「デザイン料理教室」です。デザインデータをそのまま再現するのではなく、情報のまとまりや見出しの階層、読み進める順番を考え、実装できるHTML構造へ組み立てていきます。",
-		icon: "book",
+		tag: "コーディングマインド講座",
+		title: "コードを書く前に、考えること。",
+		body: [
+			"HTMLの意味や文章構造、デザインの意図、クライアントからの指示の受け取り方など、コーダーとして仕事をするときに必要になる「考え方」を扱う講座です。",
+			"正解のコードを覚えるのではなく、状況に合わせて自分で判断できる力を身につけることを目指します。",
+		],
 	},
 	{
-		tag: "THINK",
-		title: "問題を持ち寄るコミュニティ",
-		body: "メンバーが実務の中で困ったことや迷ったことを共有し、それぞれの考え方を持ち寄ります。",
-		icon: "people",
-	},
-	{
-		tag: "TALK",
-		title: "月1回・60分の個別相談",
-		body: "実案件や仕事、キャリアについて、ほかのメンバーがいない環境で相談できます。",
-		icon: "chat",
-	},
-	{
-		tag: "APPLY",
-		title: "学びを、実案件に持ち帰る",
-		body: "勉強会や相談で得た考え方を、目の前の案件でどう使うかまで整理します。知識を聞いて終わらせず、自分で判断し、仕事の中で活かせる状態を目指します。",
-		icon: "apply",
+		tag: "コーダーによるデザイン料理教室",
+		title: "デザインを、実装できる形まで読み解く。",
+		body: [
+			"完成したデザインを見て、どこからHTMLを組み立てるのか。どこを共通化し、どこをCSSで表現するのか。",
+			"デザインをそのまま再現するのではなく、コーダーの視点から構造を読み取り、実装へ落とし込む考え方を学ぶ講座です。",
+		],
 	},
 ];
 
 const icons: Record<string, string> = {
-	book: '<path d="M4 5.5C4 4.67 4.67 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5C20 4.67 19.33 4 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/>',
-	people: '<circle cx="8.5" cy="8" r="3"/><circle cx="16" cy="9.5" r="2.3"/><path d="M3.5 20c.4-3.5 2.6-5.5 5-5.5s4.6 2 5 5.5"/><path d="M14.5 15.3c2 .2 3.6 1.7 4 4.7"/>',
 	chat: '<rect x="4" y="5" width="16" height="10" rx="2"/><path d="M9 15v4l-2.5-4"/>',
-	link: '<path d="m9 15 6-6"/><path d="M8 6.5 6 8.5a4 4 0 0 0 0 5.7l.7.7"/><path d="M16 17.5 18 15.5a4 4 0 0 0 0-5.7l-.7-.7"/>',
 	clipboard: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 3.5h6a1 1 0 0 1 1 1V6H8V4.5a1 1 0 0 1 1-1Z"/><path d="m9 13 2 2 4-4"/>',
-	apply: '<path d="M12 3.5v10.5"/><path d="m7.5 10 4.5 4.5L16.5 10"/><path d="M4.5 18.5h15"/>',
+	monitor: '<rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8.5 20h7M12 17v3"/>',
+	archive: '<path d="M4 4h16v4H4z"/><path d="M5 8v10.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V8"/><path d="M10 12.5h4"/>',
+	people: '<circle cx="8.5" cy="8" r="3"/><circle cx="16" cy="9.5" r="2.3"/><path d="M3.5 20c.4-3.5 2.6-5.5 5-5.5s4.6 2 5 5.5"/><path d="M14.5 15.3c2 .2 3.6 1.7 4 4.7"/>',
+	idea: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3 11.2c.6.4 1 1.1 1 1.8h4c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z"/>',
 };
 
 const faqs = [
 	{
 		q: "コーディング経験が浅くても参加できますか？",
-		a: "経験年数だけで参加を判断するサービスではありません。HTMLやCSSの基本的な学習を進めながら、制作の考え方や実務について学びたい方にもご参加いただけます。",
+		a: "HTML・CSSの基礎学習を終え、実案件または実案件に近い制作に取り組んでいる方を主な対象としています。経験年数より、制作や実務について自分で考えたいという姿勢を大切にしています。",
 	},
 	{
 		q: "勉強会に参加できなかった場合はどうなりますか？",
-		a: "勉強会に参加できなかった場合も、アーカイブをご覧いただけます。勉強会のアーカイブは、maroririプラスの月額料金に含まれています。",
+		a: "勉強会に参加できなかった場合も、アーカイブをご覧いただけます。勉強会のアーカイブは、maroriri Plusの月額料金に含まれています。",
 	},
 	{
 		q: "個別相談では、どのようなことを相談できますか？",
@@ -148,11 +87,12 @@ const faqs = [
 	},
 	{
 		q: "案件の内容やクライアント情報は外部に公開されませんか？",
-		a: "ご相談いただいた案件やクライアントに関する情報を、許可なく外部へ公開することはありません。必要に応じて、個人名や会社名を伏せた状態でご相談ください。",
+		a: "個別相談でお聞きした案件情報を、許可なく外部へ公開することはありません。コミュニティへの投稿は参加メンバーが閲覧できるため、クライアント名や非公開情報などを伏せてご相談ください。",
 	},
 	{
-		q: "maroririプラスの退会方法を教えてください。",
-		a: "退会方法と手続き期限については、決済方法の確定後にmaroririプラスの案内ページへ掲載します。",
+		// 未確定：決済方法が確定するまでは、この保留表現のまま維持する（確認用ページでの報告事項）。
+		q: "maroriri Plusの退会方法を教えてください。",
+		a: "退会方法と手続き期限については、決済方法の確定後にmaroriri Plusの案内ページへ掲載します。",
 	},
 ];
 ---
@@ -168,45 +108,26 @@ const faqs = [
 				<p class="eyebrow reveal-heading">CODE IS NOT THE GOAL.</p>
 				<h1 class="hero__heading reveal-heading">コードを書く。<br />その前に、考える。</h1>
 				<div class="hero__body">
+					<p class="hero__direction">コーディングを土台に、仕事の領域を広げる。</p>
 					<p>
-						HTMLを構造として読み、デザインの意図を受け取り、<br />
-						仕事の中で自分なりの基準を持って判断する。
-					</p>
-					<p>
-						MARORIRIは、コーダー・Web制作者が<br />
-						「考え、選び、説明する力」を育てるための場所です。
+						MARORIRIは、コーダー・Web制作者が、制作や実務の迷いを相談しながら「考え、選び、説明する力」を育てる場所です。
 					</p>
 				</div>
 				<div class="hero__cta">
-					<a href={withBase("/maroriri-plus/")} class="btn btn--primary">maroririプラスを見る</a>
+					<a href={withBase("/maroriri-plus/")} class="btn btn--primary">maroriri Plusを見る</a>
 					<ArrowLink href="/about/">MARORIRIについて</ArrowLink>
 				</div>
 			</div>
 
-			<div class="hero__graphic reveal" aria-hidden="true">
-				<div class="html-graphic">
-					<p class="html-graphic__tag" style="--i:0">&lt;main&gt;</p>
-					<div class="html-graphic__indent">
-						<p class="html-graphic__tag" style="--i:1">&lt;section&gt;</p>
-						<div class="html-graphic__indent">
-							<p class="html-graphic__tag" style="--i:2">&lt;h1&gt;</p>
-							<div class="html-graphic__indent">
-								<div class="html-graphic__block" style="--i:3"></div>
-							</div>
-							<p class="html-graphic__tag" style="--i:4">&lt;/h1&gt;</p>
-							<p class="html-graphic__tag" style="--i:5">&lt;p&gt;</p>
-							<div class="html-graphic__indent">
-								<div class="html-graphic__block html-graphic__block--wide" style="--i:6"></div>
-								<div class="html-graphic__block" style="--i:7"></div>
-							</div>
-							<p class="html-graphic__tag" style="--i:8">&lt;/p&gt;</p>
-							<p class="html-graphic__note" style="--i:9">WHY?</p>
-						</div>
-						<p class="html-graphic__tag" style="--i:10">&lt;/section&gt;</p>
-					</div>
-					<p class="html-graphic__tag" style="--i:11">&lt;/main&gt;</p>
-					<p class="html-graphic__stamp" style="--i:12">THINK BEFORE CODE.</p>
-				</div>
+			<div class="hero__graphic">
+				<img
+					src={withBase("/assets/img/top/hero-illustration.webp")}
+					alt=""
+					width="1310"
+					height="1201"
+					loading="eager"
+					fetchpriority="high"
+				/>
 			</div>
 		</div>
 	</section>
@@ -214,55 +135,40 @@ const faqs = [
 	<!-- 2. MARORIRIの立ち位置 -->
 	<section class="positioning section" id="positioning">
 		<div class="container positioning__grid">
-			<p class="eyebrow reveal-heading">NOT A CODE SCHOOL</p>
-			<div class="positioning__content">
+			<div class="positioning__copy">
+				<p class="eyebrow reveal-heading">NOT A CODE SCHOOL</p>
 				<h2 class="reveal-heading">
-					検索すれば、答えは出てくる。<br />けれど、仕事では答えを選ぶ力がいる。
+					検索すれば、答えは出てくる。<br />けれど、仕事では<br />答えを選ぶ力がいる。
 				</h2>
 				<div class="positioning__body">
-					<p>エラーの直し方やコードの書き方は、ネットやAIで調べられます。</p>
-					<p>MARORIRIが扱うのは、その先にある判断です。</p>
-					<ul class="positioning__list">
-						<li>なぜ、このHTMLを書くのか。</li>
-						<li>デザインを、どう文章構造に置き換えるのか。</li>
-						<li>工数や納期、修正範囲を、どう考えて伝えるのか。</li>
-						<li>自分の仕事の価値を、どう次の仕事につなげるのか。</li>
-					</ul>
-					<p>コードを覚えることではなく、<br />制作者として考えるための基準を育てます。</p>
+					<p>コードの書き方が分かっても、実際の仕事では迷う場面があります。MARORIRIでは、選んだ理由まで説明できるよう、具体的な案件をもとに考えます。</p>
 				</div>
 				<ArrowLink href="/about/">MARORIRIについて詳しく見る</ArrowLink>
 			</div>
-		</div>
-	</section>
 
-	<!-- 3. 制作者が仕事の中で向き合う問い -->
-	<section class="questions section section--white" id="questions">
-		<span class="questions__quote" aria-hidden="true">”</span>
-		<div class="container">
-			<div class="questions__head">
-				<p class="eyebrow reveal-heading">QUESTIONS FROM THE FIELD</p>
-				<h2 class="reveal-heading">コードだけでは解決できないことがある。</h2>
+			<div class="positioning__visual">
+				<img
+					src={withBase("/assets/img/top/positioning-illustration.webp")}
+					alt=""
+					width="1402"
+					height="1122"
+					loading="lazy"
+				/>
+				<ul class="positioning__points">
+					{
+						positioningPoints.map((p) => (
+							<li>
+								<span class="positioning__q">{p.q}</span>
+								<span class="positioning__a">{p.a}</span>
+							</li>
+						))
+					}
+				</ul>
 			</div>
-			<ul class="questions__list">
-				{
-					questions.map((q) => (
-						<li class="questions__item">
-							<div class="reveal">
-								<span class="questions__num num-mono" aria-hidden="true">{q.num}</span>
-								<h3 class="questions__text">
-									{q.lines.map((line) => <span class="questions__line">{line}</span>)}
-								</h3>
-								<span class="questions__rule reveal-rule" aria-hidden="true" />
-							</div>
-							<span class="questions__ghost num-mono" aria-hidden="true">{q.num}</span>
-						</li>
-					))
-				}
-			</ul>
 		</div>
 	</section>
 
-	<!-- 4. MARORIRIで扱う3つの領域 -->
+	<!-- 3. MARORIRIで扱う3つの領域 -->
 	<section class="perspectives section" id="perspectives">
 		<div class="container">
 			<div class="perspectives__head">
@@ -271,19 +177,20 @@ const faqs = [
 			</div>
 			<ul class="perspectives__list">
 				{
-					perspectives.map((p, i) => (
-						<li class:list={["perspectives__item", `perspectives__item--${i}`]}>
-							<div class="perspectives__meta">
-								<span class="num-mono perspectives__num">{p.num}</span>
-								<span class="eyebrow">{p.tag}</span>
+					perspectives.map((p) => (
+						<li class="perspectives__item">
+							<div class="perspectives__visual">
+								<img
+									src={withBase(`/assets/img/top/${p.img.name}.webp`)}
+									alt=""
+									width={p.img.w}
+									height={p.img.h}
+									loading="lazy"
+								/>
 							</div>
-							<div class="perspectives__content">
-								<h3>{p.title}</h3>
-								<p class="perspectives__body">{p.body}</p>
-								<ul class="perspectives__topics">
-									{p.topics.map((t) => <li>{t}</li>)}
-								</ul>
-							</div>
+							<span class="num-mono perspectives__num">{p.num}</span>
+							<h3>{p.title}</h3>
+							<p class="perspectives__body">{p.body}</p>
 						</li>
 					))
 				}
@@ -291,40 +198,39 @@ const faqs = [
 		</div>
 	</section>
 
-	<!-- 5. maroririプラス -->
+	<!-- 4. サービス紹介：maroriri Plus（中心サービス） -->
 	<section class="coder-club section section--dark" id="coder-club">
 		<div class="container">
-			<div class="coder-club__head">
-				<p class="eyebrow reveal-heading">maroriri＋</p>
-				<h2 class="reveal-heading">
-					ひとりで正解を探すのではなく、<br />考え方を持ち寄り、自分の基準を育てる。
-				</h2>
-			</div>
-
-			<div class="coder-club__row">
-				<div class="coder-club__body">
-					<p>
-						maroririプラスは、コーダー・Web制作者が、実務で感じた疑問や迷いを持ち寄る月額制のコミュニティです。
+			<div class="coder-club__intro">
+				<div class="coder-club__copy">
+					<p class="eyebrow reveal-heading">maroriri Plus</p>
+					<h2 class="reveal-heading">一人で歩く。<br />でも、独りではない。</h2>
+					<p class="coder-club__lede">
+						実務の疑問や迷いを持ち寄る、コーダー・Web制作者のための月額コミュニティです。月1回の勉強会や交流を通じて、ほかの制作者の視点に触れ、自分なりの判断基準を育てます。
 					</p>
-					<p>
-						デザインをHTML構造へ落とし込む「デザイン料理教室」をはじめ、工数、納期、修正、クライアントとの関係、仕事の獲得方法など、コードだけでは解決できないテーマを扱います。
-					</p>
-					<p>
-						正解を教えてもらうだけではなく、ほかの制作者の考え方にも触れながら、自分なりの判断基準を育てていきます。
-					</p>
+					<ArrowLink href="/maroriri-plus/">maroriri Plusの内容を詳しく見る</ArrowLink>
 				</div>
 
-				<div class="coder-club__fee">
-					<span class="eyebrow">MONTHLY FEE</span>
-					<p class="coder-club__price">月額 3,300<span class="coder-club__price-unit">円</span></p>
-					<p class="coder-club__price-note">税込</p>
+				<div class="coder-club__visual">
+					<img
+						src={withBase("/assets/img/top/coder-club-illustration.webp")}
+						alt=""
+						width="1254"
+						height="1254"
+						loading="lazy"
+					/>
+					<div class="coder-club__fee">
+						<span class="eyebrow">MONTHLY FEE</span>
+						<p class="coder-club__price">月額 3,300<span class="coder-club__price-unit">円</span></p>
+						<p class="coder-club__price-note">税込</p>
+					</div>
 				</div>
 			</div>
 
-			<ul class="coder-club__activities">
+			<ul class="coder-club__features">
 				{
-					activities.map((a) => (
-						<li class="coder-club__activity">
+					coderClubFeatures.map((f) => (
+						<li>
 							<span class="icon-badge">
 								<svg
 									viewBox="0 0 24 24"
@@ -334,36 +240,18 @@ const faqs = [
 									stroke-linecap="round"
 									stroke-linejoin="round"
 									aria-hidden="true"
-									set:html={icons[a.icon]}
+									set:html={icons[f.icon]}
 								/>
 							</span>
-							<span class="eyebrow">{a.tag}</span>
-							<h3>{a.title}</h3>
-							<p>{a.body}</p>
+							<p>{f.text}</p>
 						</li>
 					))
 				}
 			</ul>
-
-			<div class="coder-club__past">
-				<span class="eyebrow">PAST ACTIVITY</span>
-				<p class="coder-club__past-title">コーダーによるデザイン料理教室</p>
-				<div class="coder-club__past-body">
-					<p>
-						ひとつのデザインを題材に、見出し階層やリスト、文章のまとまりをどう読み取り、HTMLへ落とし込むかをZoomで解説しました。
-					</p>
-					<p>
-						「この見た目を、どの構造で実装するか」という正解が一つではない問いを、特別ゲストと参加者の皆さんと一緒に考えたオンライン企画です。
-					</p>
-				</div>
-				<p class="coder-club__past-meta">2025年8月開催 ／ 約60名が参加</p>
-			</div>
-
-			<ArrowLink href="/maroriri-plus/">maroririプラスの内容を見る</ArrowLink>
 		</div>
 	</section>
 
-	<!-- 6. 実案件を支えるサービス -->
+	<!-- 4. サービス紹介：案件チェック／実務・キャリア相談（補助サービス） -->
 	<section class="services section" id="services">
 		<div class="container">
 			<div class="services__head">
@@ -373,6 +261,15 @@ const faqs = [
 
 			<div class="services__grid">
 				<article class="services__card services__card--main">
+					<div class="services__visual">
+						<img
+							src={withBase("/assets/img/top/case-check-illustration.webp")}
+							alt=""
+							width="1484"
+							height="1060"
+							loading="lazy"
+						/>
+					</div>
 					<div class="services__main">
 						<span class="icon-badge">
 							<svg
@@ -395,22 +292,28 @@ const faqs = [
 									<dd>10,000円（税込）</dd>
 								</div>
 								<div>
-									<dt>maroririプラス会員価格</dt>
+									<dt>maroriri Plus会員価格</dt>
 									<dd>5,000円（税込）</dd>
 								</div>
 							</dl>
 						</div>
 						<p class="services__body">
-							制作した案件を、HTMLの構造、デザインの再現、表示、操作性などの視点から確認します。
-						</p>
-						<p class="services__body">
-							単に間違いを指摘するのではなく、なぜ直したほうがよいのか、次の案件でどう考えればよいのかまでお伝えします。
+							制作したサイトを、HTML構造・デザインの再現・表示・操作性から確認。修正箇所だけでなく、その理由と次の案件での考え方までお伝えします。
 						</p>
 						<ArrowLink href="/case-check/">案件チェックについて見る</ArrowLink>
 					</div>
 				</article>
 
 				<article class="services__card services__card--sub">
+					<div class="services__visual">
+						<img
+							src={withBase("/assets/img/top/consulting-illustration.webp")}
+							alt=""
+							width="1484"
+							height="1060"
+							loading="lazy"
+						/>
+					</div>
 					<div class="services__main">
 						<span class="icon-badge">
 							<svg
@@ -435,9 +338,9 @@ const faqs = [
 							</dl>
 						</div>
 						<p class="services__body">
-							案件の進め方、工数、納期、修正、クライアントとの関係、仕事の獲得、キャリアなどについて相談できます。
+							案件の進め方、見積もり、クライアント対応、今後の働き方などを、60分の個別相談で一緒に整理します。
 						</p>
-						<p class="services__note">maroririプラスに、月1回60分の個別相談は含まれません。実務・キャリア相談として別料金でご案内しています。</p>
+						<p class="services__note">個別相談は、maroriri Plusの月額料金とは別料金です。</p>
 						<ArrowLink href="/consulting/">個別相談について見る</ArrowLink>
 					</div>
 				</article>
@@ -445,7 +348,43 @@ const faqs = [
 		</div>
 	</section>
 
-	<!-- 7. 運営者紹介 -->
+	<!-- 5. 講座・活動実績 -->
+	<section class="courses section section--white" id="courses">
+		<div class="container">
+			<div class="courses__head">
+				<p class="eyebrow reveal-heading">LEARN WITH MARORIRI</p>
+				<h2 class="reveal-heading">講座・活動実績</h2>
+				<p class="courses__lede">実務で身につけた「考え方」を、次のコーダーへ。</p>
+				<p class="courses__intro">
+					コーディングの技術だけではなく、「なぜこのHTMLにするのか」「デザインをどう読み取るのか」など、実際の制作現場で必要になる考え方を伝える講座を開催しています。
+				</p>
+			</div>
+			<div class="courses__cards">
+				{
+					courses.map((c) => (
+						<article class="courses__card">
+							<span class="courses__card-tag">{c.tag}</span>
+							<h3 class="courses__card-title">{c.title}</h3>
+							<div class="courses__card-body">
+								{c.body.map((line) => <p>{line}</p>)}
+							</div>
+							{c.date && (
+								<div class="courses__meta">
+									<p class="courses__meta-date">{c.date}</p>
+									<p class="courses__meta-count">
+										<span class="courses__meta-num">{c.count}</span>
+										{c.countNote}
+									</p>
+								</div>
+							)}
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- 6. 運営者紹介 -->
 	<section class="profile section section--white" id="profile">
 		<div class="container">
 			<div class="profile__head">
@@ -455,29 +394,21 @@ const faqs = [
 
 			<div class="profile__row">
 				<div class="profile__body">
-					<p class="profile__lede">印刷・DTPからWeb制作へ。</p>
 					<p>
-						コーディング、サイト運用、ディレクション、<br />
-						制作者の育成まで、立場を変えながら<br />
-						制作の仕事に携わってきました。
-					</p>
-					<p>
-						制作現場で必要になるのは、<br />
-						コードを書く技術だけではありません。
-					</p>
-					<p>
-						デザインの意図を読み取り、<br />
-						相手に伝わる形へ整理し、<br />
-						案件を前へ進めるための判断が求められます。
-					</p>
-					<p>
-						MARORIRIでは、現場で身につけてきた<br />
-						考え方や判断の基準を、これからの制作者へ伝えています。
+						印刷・DTPからWeb制作へ。コーディング、サイト運用、ディレクション、制作者の育成まで、制作の現場に携わってきました。現在も実務に取り組みながら、制作の考え方や案件の進め方を伝えています。
 					</p>
 					<ArrowLink href="/profile/">運営者について見る</ArrowLink>
 				</div>
 
 				<div class="profile__info">
+					<img
+						src={withBase("/assets/img/top/profile-illustration.webp")}
+						alt=""
+						width="1355"
+						height="1161"
+						loading="lazy"
+						class="profile__visual"
+					/>
 					<p class="profile__name-en num-mono">MAYUMI KATAYAMA</p>
 					<p class="profile__name-ja">片山 まゆみ</p>
 					<ul class="profile__roles">
@@ -485,42 +416,12 @@ const faqs = [
 						<li>DIRECTOR</li>
 						<li>CREATOR SUPPORT</li>
 					</ul>
-					<p class="profile__summary">
-						銀行勤務を経て、印刷・DTPからWeb制作の現場へ。ディレクションを経験し、現在は制作者支援に携わる。
-					</p>
 				</div>
-			</div>
-
-			<div class="career">
-				<p class="eyebrow">CAREER</p>
-				<ol class="career__list">
-					{
-						career.map((c) => (
-							<li class="career__item">
-								<div class="career__meta">
-									<div class="career__heading">
-										<span class="num-mono career__num">{c.num}</span>
-										<span class="career__en">{c.en}</span>
-									</div>
-									<p class="career__ja">{c.ja}</p>
-								</div>
-								<p class="career__body">
-									{c.lines.map((line, i) => (
-										<>
-											{i > 0 && <br />}
-											{line}
-										</>
-									))}
-								</p>
-							</li>
-						))
-					}
-				</ol>
 			</div>
 		</div>
 	</section>
 
-	<!-- 8. よくある質問 -->
+	<!-- 7. よくある質問 -->
 	<section class="faq section" id="faq">
 		<div class="container faq__grid">
 			<div class="faq__head">
@@ -536,19 +437,15 @@ const faqs = [
 		</div>
 	</section>
 
-	<!-- 9. 最終CTA -->
+	<!-- 8. 最終CTA -->
 	<section class="final-cta section section--dark" id="final-cta">
 		<div class="container">
-			<p class="final-cta__en reveal-heading">
-				YOU DON'T NEED MORE ANSWERS.<br />YOU NEED YOUR OWN CRITERIA.
-			</p>
 			<h2 class="reveal-heading">答えを集めるだけでなく、<br />自分で考え、選び、説明できる制作者へ。</h2>
 			<div class="final-cta__body">
-				<p>仕事の中で迷っていること、これから身につけたいことを、一人で抱え続ける必要はありません。</p>
-				<p>maroririプラスへの参加や各サービスについて、気になることがあればお問い合わせください。</p>
+				<p>継続して学びたい方はmaroriri Plusへ。まずは個別に相談したい方も、お気軽にお問い合わせください。</p>
 			</div>
 			<div class="final-cta__actions">
-				<a href={withBase("/maroriri-plus/")} class="btn btn--primary">maroririプラスに参加する</a>
+				<a href={withBase("/maroriri-plus/")} class="btn btn--primary">maroriri Plusを見る</a>
 				<ArrowLink href="/contact/">まずは相談する</ArrowLink>
 			</div>
 		</div>
@@ -556,6 +453,15 @@ const faqs = [
 </BaseLayout>
 
 <style>
+	/* 画像が白背景の素材のため、ダーク以外のセクションを白（#fff）に統一して境界をなじませる */
+	.hero.section,
+	.positioning.section,
+	.perspectives.section,
+	.services.section,
+	.faq.section {
+		background: var(--color-bg-white);
+	}
+
 	/* ---------- Hero ---------- */
 	.hero__grid {
 		display: flex;
@@ -576,8 +482,12 @@ const faqs = [
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
-		font-size: 1rem;
+		font-size: 1.0625rem;
 		max-width: 34em;
+	}
+
+	.hero__direction {
+		font-weight: 500;
 	}
 
 	.hero__cta {
@@ -589,193 +499,73 @@ const faqs = [
 	}
 
 	.hero__graphic {
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-md);
-		padding: 32px 24px;
-		background: var(--color-bg-white);
+		width: 100%;
 	}
 
-	.html-graphic {
-		font-family: var(--font-mono);
-		font-size: 0.82rem;
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-	}
-
-	.html-graphic__indent {
-		margin-left: 1.1rem;
-		padding-left: 1rem;
-		border-left: 1px solid var(--color-border);
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-	}
-
-	.html-graphic__tag {
-		color: var(--color-text);
-		opacity: 0.85;
-	}
-
-	.html-graphic__block {
-		height: 8px;
-		width: 55%;
-		background: var(--color-border);
-		border-radius: 2px;
-	}
-
-	.html-graphic__block--wide {
-		width: 90%;
-	}
-
-	.html-graphic__note {
-		display: inline-block;
-		font-family: var(--font-en);
-		font-weight: 700;
-		color: var(--color-accent);
-		width: fit-content;
-	}
-
-	.html-graphic__stamp {
-		margin-top: 8px;
-		font-family: var(--font-en);
-		font-weight: 700;
-		font-size: 1rem;
-		letter-spacing: 0.02em;
-	}
-
-	.js-enabled .html-graphic > * {
-		opacity: 0;
-		transform: translateY(6px);
-	}
-
-	.js-enabled .hero__graphic.is-visible .html-graphic > * {
-		opacity: 1;
-		transform: none;
-	}
-
-	@media (prefers-reduced-motion: no-preference) {
-		.js-enabled .html-graphic > * {
-			transition:
-				opacity 0.4s ease,
-				transform 0.4s ease;
-			transition-delay: calc(var(--i, 0) * 70ms);
-		}
+	.hero__graphic img {
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 
 	/* ---------- Positioning ---------- */
 	.positioning__grid {
 		display: flex;
 		flex-direction: column;
-		gap: 32px;
+		gap: 40px;
 	}
 
-	.positioning__content h2 {
+	.positioning__copy h2 {
+		margin-top: 16px;
 		font-size: clamp(1.5rem, 1.2rem + 2vw, 2.4rem);
 		line-height: 1.5;
 	}
 
 	.positioning__body {
 		margin-top: 32px;
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-		max-width: 38em;
+		max-width: 36em;
+		font-size: 1.0625rem;
 	}
 
-	.positioning__list {
-		display: flex;
-		flex-direction: column;
-		gap: 14px;
-		padding: 24px 0;
-		border-top: 1px solid var(--color-border);
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.positioning__list li {
-		padding-left: 1.4em;
-		position: relative;
-	}
-
-	.positioning__list li::before {
-		content: "―";
-		position: absolute;
-		left: 0;
-		color: var(--color-accent);
-	}
-
-	.positioning__grid :global(.arrow-link) {
+	.positioning__copy :global(.arrow-link) {
 		margin-top: 32px;
 	}
 
-	/* ---------- Questions ---------- */
-	.questions {
-		position: relative;
-		overflow: hidden;
+	.positioning__visual img {
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 
-	.questions__quote {
-		position: absolute;
-		top: -0.3em;
-		right: 4%;
-		font-family: var(--font-en);
-		font-weight: 700;
-		font-size: clamp(9rem, 6rem + 14vw, 18rem);
-		line-height: 1;
-		color: var(--color-accent);
-		opacity: 0.06;
-		pointer-events: none;
-		user-select: none;
-	}
-
-	.questions__head h2 {
-		margin-top: 16px;
-		font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem);
-		max-width: 20em;
-	}
-
-	.questions__list {
-		margin-top: 64px;
+	.positioning__points {
+		margin-top: 24px;
 		display: flex;
 		flex-direction: column;
 	}
 
-	.questions__item {
-		position: relative;
+	.positioning__points li {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 4px 12px;
+		padding-block: 12px;
 		border-top: 1px solid var(--color-border);
-		padding-block: 32px;
+		font-size: 0.95rem;
 	}
 
-	.questions__item:last-child {
+	.positioning__points li:last-child {
 		border-bottom: 1px solid var(--color-border);
 	}
 
-	.questions__ghost {
-		display: none;
-	}
-
-	.questions__num {
-		display: block;
-		font-size: clamp(2.2rem, 1.6rem + 3vw, 3.6rem);
+	.positioning__q {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
 		color: var(--color-accent);
-		opacity: 0.35;
-		line-height: 1;
+		flex: 0 0 auto;
 	}
 
-	.questions__text {
-		margin-top: 12px;
-		display: flex;
-		flex-direction: column;
-		font-size: clamp(1.15rem, 1rem + 1vw, 1.6rem);
-		font-weight: 500;
-	}
-
-	.questions__rule {
-		display: block;
-		margin-top: 20px;
-		height: 1px;
-		width: 64px;
-		background: var(--color-accent);
+	.positioning__a {
+		opacity: 0.8;
 	}
 
 	/* ---------- Perspectives ---------- */
@@ -785,74 +575,83 @@ const faqs = [
 	}
 
 	.perspectives__list {
-		margin-top: 64px;
+		margin-top: 56px;
 		display: flex;
 		flex-direction: column;
-		gap: 64px;
+		gap: 56px;
 	}
 
 	.perspectives__item {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
 		padding-top: 32px;
 		border-top: 1px solid var(--color-border);
 	}
 
+	.perspectives__visual {
+		margin-bottom: 24px;
+		aspect-ratio: 4 / 3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.perspectives__visual img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
 	.perspectives__num {
+		display: block;
 		font-size: 1.4rem;
 		color: var(--color-accent);
 	}
 
-	.perspectives__meta {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-	}
-
-	.perspectives__content h3 {
+	.perspectives__item h3 {
+		margin-top: 12px;
 		font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
 	}
 
 	.perspectives__body {
 		margin-top: 16px;
-		max-width: 36em;
-	}
-
-	.perspectives__topics {
-		margin-top: 20px;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 10px 16px;
-		font-family: var(--font-mono);
-		font-size: 0.8rem;
-	}
-
-	.perspectives__topics li {
-		padding: 6px 12px;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-sm);
+		max-width: 34em;
 	}
 
 	/* ---------- Coder Club ---------- */
-	.coder-club__head h2 {
+	.coder-club__intro {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.coder-club__copy h2 {
 		margin-top: 16px;
 		font-size: clamp(1.6rem, 1.2rem + 2.4vw, 2.6rem);
+		line-height: 1.3;
 	}
 
-	.coder-club__row {
-		margin-top: 28px;
-		display: flex;
-		flex-direction: column;
-		gap: 32px;
-	}
-
-	.coder-club__body {
-		display: flex;
-		flex-direction: column;
-		gap: 18px;
+	.coder-club__lede {
+		margin-top: 24px;
 		max-width: 40em;
-		opacity: 0.85;
+		font-size: 1.0625rem;
+		opacity: 0.9;
+	}
+
+	.coder-club__copy :global(.arrow-link) {
+		margin-top: 32px;
+		color: var(--color-highlight);
+	}
+
+	.coder-club__visual {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.coder-club__visual img {
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 
 	.coder-club__fee {
@@ -890,79 +689,28 @@ const faqs = [
 		opacity: 0.6;
 	}
 
-	.coder-club__activities {
+	.coder-club__features {
 		margin-top: 56px;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
 	}
 
-	.coder-club__activity {
-		padding: 24px;
-		border: 1px solid var(--color-border-dark);
-		border-radius: var(--radius-md);
-	}
-
-	.coder-club__activity .eyebrow {
-		display: block;
-		margin-top: 16px;
-	}
-
-	.coder-club__activity h3 {
-		margin-top: 10px;
-		font-size: 1.1rem;
-	}
-
-	.coder-club__activity p {
-		margin-top: 10px;
-		max-width: 42em;
-		opacity: 0.75;
-		font-size: 0.92rem;
-	}
-
-	.coder-club__past {
-		margin-top: 40px;
-		padding: 32px;
-		border: 1px solid var(--color-border-dark);
-		border-radius: var(--radius-md);
-	}
-
-	.coder-club__past .eyebrow {
-		display: inline-flex;
-		padding: 4px 10px;
-		background: var(--color-highlight);
-		color: var(--color-bg-dark);
-		border-radius: var(--radius-sm);
-	}
-
-	.coder-club__past-title {
-		margin-top: 16px;
-		font-size: 1.3rem;
-		font-weight: 500;
-	}
-
-	.coder-club__past-body {
-		margin-top: 18px;
+	.coder-club__features li {
 		display: flex;
-		flex-direction: column;
-		gap: 14px;
-		max-width: 46em;
-		opacity: 0.8;
-		font-size: 0.95rem;
-	}
-
-	.coder-club__past-meta {
-		margin-top: 20px;
-		padding-top: 20px;
+		align-items: flex-start;
+		gap: 16px;
+		padding: 20px 0;
 		border-top: 1px solid var(--color-border-dark);
-		font-family: var(--font-mono);
-		font-size: 0.8rem;
-		opacity: 0.6;
 	}
 
-	.coder-club__row ~ :global(.arrow-link) {
-		margin-top: 56px;
-		color: var(--color-highlight);
+	.coder-club__features li:last-child {
+		border-bottom: 1px solid var(--color-border-dark);
+	}
+
+	.coder-club__features p {
+		margin-top: 8px;
+		font-size: 0.95rem;
 	}
 
 	/* ---------- Services ---------- */
@@ -984,16 +732,25 @@ const faqs = [
 		gap: 24px;
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-md);
-		padding: 32px 24px;
+		padding: 24px;
 		background: var(--color-bg-white);
 	}
 
-	.services__card--main {
-		padding: 40px 32px;
+	.services__visual {
+		aspect-ratio: 1484 / 1060;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: var(--color-bg-white);
+		border-radius: var(--radius-sm);
 	}
 
-	.services__card--main .services__title-row h3 {
-		font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+	.services__visual img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 
 	.services__main .eyebrow {
@@ -1049,6 +806,92 @@ const faqs = [
 		opacity: 0.7;
 	}
 
+	/* ---------- Courses ---------- */
+	.courses__head h2 {
+		margin-top: 16px;
+		font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem);
+	}
+
+	.courses__lede {
+		margin-top: 24px;
+		font-weight: 500;
+		font-size: 1.05rem;
+	}
+
+	.courses__intro {
+		margin-top: 12px;
+		max-width: 42em;
+		opacity: 0.85;
+	}
+
+	.courses__cards {
+		margin-top: 56px;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.courses__card {
+		flex: 1;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		padding: 32px;
+		background: var(--color-bg-white);
+	}
+
+	.courses__card-tag {
+		display: inline-flex;
+		padding: 6px 14px;
+		background: var(--color-highlight);
+		color: var(--color-bg-dark);
+		border-radius: var(--radius-sm);
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 1.15rem;
+	}
+
+	.courses__card-title {
+		margin-top: 16px;
+		font-size: 1.3rem;
+		font-weight: 500;
+	}
+
+	.courses__card-body {
+		margin-top: 18px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		opacity: 0.85;
+		font-size: 1rem;
+	}
+
+	.courses__meta {
+		margin-top: 28px;
+		padding-top: 20px;
+		border-top: 1px solid var(--color-border);
+		display: flex;
+		align-items: baseline;
+		gap: 20px;
+	}
+
+	.courses__meta-date {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		opacity: 0.6;
+	}
+
+	.courses__meta-count {
+		font-size: 0.95rem;
+	}
+
+	.courses__meta-num {
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: 1.6rem;
+		color: var(--color-accent);
+		margin-right: 0.15em;
+	}
+
 	/* ---------- Profile ---------- */
 	.profile {
 		border-top: 1px solid var(--color-accent);
@@ -1064,7 +907,7 @@ const faqs = [
 		margin-top: 56px;
 		display: flex;
 		flex-direction: column;
-		gap: 48px;
+		gap: 32px;
 	}
 
 	.profile__body {
@@ -1072,21 +915,21 @@ const faqs = [
 		flex-direction: column;
 		gap: 16px;
 		max-width: 36em;
-	}
-
-	.profile__lede {
-		font-family: var(--font-en);
-		font-weight: 700;
-		font-size: 1.3rem;
+		font-size: 1.0625rem;
 	}
 
 	.profile__body :global(.arrow-link) {
-		margin-top: 12px;
+		margin-top: 8px;
 	}
 
 	.profile__info {
 		padding-top: 24px;
 		border-top: 1px solid var(--color-border);
+	}
+
+	.profile__visual {
+		margin-bottom: 24px;
+		border-radius: var(--radius-md);
 	}
 
 	.profile__name-en {
@@ -1111,63 +954,6 @@ const faqs = [
 		opacity: 0.75;
 	}
 
-	.profile__summary {
-		margin-top: 24px;
-		padding-top: 24px;
-		border-top: 1px solid var(--color-border);
-		font-size: 0.9rem;
-		opacity: 0.8;
-	}
-
-	/* ---------- Career ---------- */
-	.career {
-		margin-top: 96px;
-	}
-
-	.career__list {
-		margin-top: 32px;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.career__item {
-		padding-block: 28px;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.career__item:last-child {
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.career__heading {
-		display: flex;
-		align-items: baseline;
-		gap: 16px;
-	}
-
-	.career__num {
-		color: var(--color-accent);
-		font-size: 0.85rem;
-	}
-
-	.career__en {
-		font-family: var(--font-en);
-		font-weight: 700;
-		font-size: 1.15rem;
-	}
-
-	.career__ja {
-		margin-top: 8px;
-		font-size: 0.9rem;
-		opacity: 0.65;
-	}
-
-	.career__body {
-		margin-top: 14px;
-		max-width: 40em;
-		opacity: 0.85;
-	}
-
 	/* ---------- FAQ ---------- */
 	.faq__grid {
 		display: flex;
@@ -1185,25 +971,15 @@ const faqs = [
 	}
 
 	/* ---------- Final CTA ---------- */
-	.final-cta__en {
-		font-family: var(--font-en);
-		font-weight: 700;
-		font-size: clamp(1.1rem, 0.9rem + 1.2vw, 1.6rem);
-		line-height: 1.5;
-	}
-
 	.final-cta h2 {
-		margin-top: 24px;
 		font-size: clamp(1.7rem, 1.3rem + 2.6vw, 2.8rem);
 	}
 
 	.final-cta__body {
 		margin-top: 28px;
-		display: flex;
-		flex-direction: column;
-		gap: 14px;
 		max-width: 36em;
-		opacity: 0.8;
+		opacity: 0.85;
+		font-size: 1.0625rem;
 	}
 
 	.final-cta__actions {
@@ -1218,30 +994,50 @@ const faqs = [
 		color: var(--color-highlight);
 	}
 
-	/* ================= Tablet / Desktop ================= */
+	/* ================= Tablet ================= */
 	@media (min-width: 768px) {
-		.perspectives__item--1 {
-			margin-left: 12%;
+		.services__card {
+			padding: 32px;
 		}
-
-		.perspectives__item--2 {
-			margin-left: 4%;
-		}
-
 	}
 
+	/* ================= Desktop (PC) ================= */
 	@media (min-width: 1024px) {
-		.questions__ghost {
-			display: block;
-			position: absolute;
-			right: 0;
-			top: 50%;
-			transform: translateY(-50%);
-			font-size: clamp(4.5rem, 3rem + 6vw, 8rem);
-			line-height: 1;
-			color: var(--color-accent);
-			opacity: 0.06;
-			pointer-events: none;
+		/* セクション上下余白（このページのみ。80〜104pxを目安に内容へ合わせて調整） */
+		.hero.section {
+			padding-block: 96px 88px;
+		}
+
+		.positioning.section {
+			padding-block: 88px;
+		}
+
+		.perspectives.section {
+			padding-block: 96px;
+		}
+
+		.coder-club.section {
+			padding-block: 96px;
+		}
+
+		.services.section {
+			padding-block: 88px;
+		}
+
+		.courses.section {
+			padding-block: 88px;
+		}
+
+		.profile.section {
+			padding-block: 96px;
+		}
+
+		.faq.section {
+			padding-block: 88px;
+		}
+
+		.final-cta.section {
+			padding-block: 104px;
 		}
 
 		.services__grid {
@@ -1249,17 +1045,14 @@ const faqs = [
 			align-items: stretch;
 		}
 
-		.services__card--main {
-			flex: 1.6;
-		}
-
+		.services__card--main,
 		.services__card--sub {
 			flex: 1;
 		}
 
 		.hero__grid {
 			flex-direction: row;
-			align-items: flex-start;
+			align-items: center;
 			gap: 64px;
 		}
 
@@ -1270,113 +1063,99 @@ const faqs = [
 
 		.hero__graphic {
 			flex: 1;
-			padding: 48px 40px;
-			position: sticky;
-			top: 120px;
+			max-width: 560px;
 		}
 
 		.positioning__grid {
 			flex-direction: row;
+			align-items: flex-start;
 			gap: 64px;
 		}
 
-		.positioning__grid .eyebrow {
-			flex: 0 0 240px;
+		.positioning__copy {
+			flex: 0 0 600px;
 			padding-top: 8px;
 		}
 
-		.positioning__content {
+		.positioning__visual {
 			flex: 1;
-			max-width: 720px;
 		}
 
-		.questions__item > div {
-			max-width: 640px;
-		}
-
-		.questions__item:nth-child(2) > div {
-			margin-left: 8%;
-		}
-
-		.questions__item:nth-child(3) > div {
-			margin-left: 16%;
-		}
-
-		.questions__item:nth-child(4) > div {
-			margin-left: 8%;
+		.perspectives__list {
+			flex-direction: row;
+			gap: 0;
 		}
 
 		.perspectives__item {
-			flex-direction: row;
-			gap: 48px;
-		}
-
-		.perspectives__meta {
-			flex: 0 0 220px;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 20px;
-		}
-
-		.perspectives__content {
 			flex: 1;
-			max-width: 680px;
+			padding: 32px 32px 0;
+			border-top: 1px solid var(--color-border);
+			border-left: 1px solid var(--color-border);
 		}
 
-		.coder-club__row {
+		.perspectives__item:first-child {
+			padding-left: 0;
+			border-left: none;
+		}
+
+		.perspectives__item:last-child {
+			padding-right: 0;
+		}
+
+		.coder-club__intro {
 			flex-direction: row;
 			align-items: flex-start;
 			justify-content: space-between;
 			gap: 64px;
 		}
 
-		.coder-club__fee {
-			flex: 0 0 300px;
+		.coder-club__copy {
+			flex: 1.2;
+			max-width: 560px;
 		}
 
-		.coder-club__activities {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 0 48px;
+		.coder-club__copy h2 {
+			font-size: 2.375rem;
 		}
 
-		.coder-club__activity:nth-child(2) {
-			border-bottom: 1px solid var(--color-border-dark);
+		.coder-club__visual {
+			flex: 1;
+			max-width: 340px;
+		}
+
+		.coder-club__features {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.coder-club__features li {
+			flex: 0 0 calc(33.333% - 11px);
+		}
+
+		.courses__cards {
+			flex-direction: row;
+			align-items: stretch;
+			gap: 32px;
 		}
 
 		.profile__row {
 			flex-direction: row;
+			align-items: flex-start;
 			gap: 64px;
 		}
 
 		.profile__body {
-			flex: 7;
+			flex: 6;
+			padding-top: 8px;
 		}
 
 		.profile__info {
 			flex: 4;
+			max-width: 320px;
 			padding-top: 0;
 			border-top: none;
 			border-left: 1px solid var(--color-border);
 			padding-left: 48px;
-		}
-
-		.career__item {
-			display: flex;
-			gap: 48px;
-		}
-
-		.career__meta {
-			flex: 0 0 260px;
-		}
-
-		.career__ja {
-			margin-top: 6px;
-		}
-
-		.career__body {
-			flex: 1;
-			margin-top: 0;
 		}
 
 		.faq__grid {

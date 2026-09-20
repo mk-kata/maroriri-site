@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MARORIRI｜制作者として考え、判断する力を育てる（確認用プレビュー）</title>
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+	rel="stylesheet"
+/>
+<link rel="stylesheet" href="shared.css" />
+<link rel="stylesheet" href="components.css" />
+
+<style>
+	.hero.section,
+	.positioning.section,
+	.perspectives.section,
+	.services.section,
+	.faq.section {
+		background: var(--color-bg-white);
+	}
+
+	.hero__grid { display: flex; flex-direction: column; gap: 56px; }
+	.hero__heading {
+		margin-top: 20px;
+		font-family: var(--font-en);
+		font-weight: 700;
+		font-size: clamp(1.9rem, 1.3rem + 3vw, 3.3rem);
+		line-height: 1.3;
+	}
+	.hero__body { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; font-size: 1.0625rem; max-width: 34em; }
+	.hero__direction { font-weight: 500; }
+	.hero__cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 28px; }
+	.hero__graphic { width: 100%; }
+	.hero__graphic img { display: block; width: 100%; height: auto; }
+
+	.positioning__grid { display: flex; flex-direction: column; gap: 40px; }
+	.positioning__copy h2 { margin-top: 16px; font-size: clamp(1.5rem, 1.2rem + 2vw, 2.4rem); line-height: 1.5; }
+	.positioning__body { margin-top: 32px; max-width: 36em; font-size: 1.0625rem; }
+	.positioning__copy .arrow-link { margin-top: 32px; }
+	.positioning__visual img { display: block; width: 100%; height: auto; }
+	.positioning__points { margin-top: 24px; display: flex; flex-direction: column; }
+	.positioning__points li {
+		display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px;
+		padding-block: 12px; border-top: 1px solid var(--color-border); font-size: 0.95rem;
+	}
+	.positioning__points li:last-child { border-bottom: 1px solid var(--color-border); }
+	.positioning__q { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-accent); flex: 0 0 auto; }
+	.positioning__a { opacity: 0.8; }
+
+	.perspectives__head h2 { margin-top: 16px; font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem); }
+	.perspectives__list { margin-top: 56px; display: flex; flex-direction: column; gap: 56px; }
+	.perspectives__item { padding-top: 32px; border-top: 1px solid var(--color-border); }
+	.perspectives__visual {
+		margin-bottom: 24px; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden;
+	}
+	.perspectives__visual img { width: 100%; height: 100%; object-fit: contain; }
+	.perspectives__num { display: block; font-size: 1.4rem; color: var(--color-accent); }
+	.perspectives__item h3 { margin-top: 12px; font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem); }
+	.perspectives__body { margin-top: 16px; max-width: 34em; }
+
+	.coder-club__intro { display: flex; flex-direction: column; gap: 40px; }
+	.coder-club__copy h2 { margin-top: 16px; font-size: clamp(1.6rem, 1.2rem + 2.4vw, 2.6rem); line-height: 1.3; }
+	.coder-club__lede { margin-top: 24px; max-width: 40em; font-size: 1.0625rem; opacity: 0.9; }
+	.coder-club__copy .arrow-link { margin-top: 32px; color: var(--color-highlight); }
+	.coder-club__visual { display: flex; flex-direction: column; gap: 24px; }
+	.coder-club__visual img { display: block; width: 100%; height: auto; }
+	.coder-club__fee {
+		display: flex; flex-direction: column; justify-content: center; padding: 28px 32px;
+		background: var(--color-bg-white); color: var(--color-text); border-radius: var(--radius-md);
+	}
+	.coder-club__fee .eyebrow { color: var(--color-accent); }
+	.coder-club__price {
+		margin-top: 14px; font-family: var(--font-en); font-weight: 700;
+		font-size: clamp(2rem, 1.6rem + 1.4vw, 2.6rem); color: var(--color-text); white-space: nowrap;
+	}
+	.coder-club__price-unit { font-size: 0.5em; margin-left: 0.2em; }
+	.coder-club__price-note { margin-top: 4px; font-family: var(--font-mono); font-size: 0.8rem; opacity: 0.6; }
+	.coder-club__features { margin-top: 56px; display: flex; flex-direction: column; gap: 16px; }
+	.coder-club__features li { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-top: 1px solid var(--color-border-dark); }
+	.coder-club__features li:last-child { border-bottom: 1px solid var(--color-border-dark); }
+	.coder-club__features p { margin-top: 8px; font-size: 0.95rem; }
+
+	.services__head h2 { margin-top: 16px; font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem); }
+	.services__grid { margin-top: 56px; display: flex; flex-direction: column; gap: 24px; }
+	.services__card { display: flex; flex-direction: column; gap: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; background: var(--color-bg-white); }
+	.services__visual { aspect-ratio: 1484 / 1060; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--color-bg-white); border-radius: var(--radius-sm); }
+	.services__visual img { display: block; width: 100%; height: 100%; object-fit: contain; }
+	.services__main .eyebrow { display: block; margin-top: 16px; }
+	.services__title-row { margin-top: 12px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+	.services__title-row h3 { font-size: clamp(1.3rem, 1.1rem + 1vw, 1.8rem); }
+	.services__body { margin-top: 14px; max-width: 38em; }
+	.services__main .arrow-link { margin-top: 24px; }
+	.services__price { flex-shrink: 0; display: flex; flex-wrap: wrap; gap: 4px 20px; }
+	.services__price dt { font-family: var(--font-mono); font-size: 0.7rem; opacity: 0.6; }
+	.services__price dd { margin: 2px 0 0; font-family: var(--font-en); font-weight: 700; font-size: 1.05rem; }
+	.services__note { margin-top: 16px; font-size: 0.85rem; opacity: 0.7; }
+
+	.courses__head h2 { margin-top: 16px; font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem); }
+	.courses__lede { margin-top: 24px; font-weight: 500; font-size: 1.05rem; }
+	.courses__intro { margin-top: 12px; max-width: 42em; opacity: 0.85; }
+	.courses__cards { margin-top: 56px; display: flex; flex-direction: column; gap: 24px; }
+	.courses__card { flex: 1; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 32px; background: var(--color-bg-white); }
+	.courses__card-tag {
+		display: inline-flex; padding: 6px 14px; background: var(--color-highlight); color: var(--color-bg-dark);
+		border-radius: var(--radius-sm); font-family: var(--font-mono); font-weight: 700; font-size: 1.15rem;
+	}
+	.courses__card-title { margin-top: 16px; font-size: 1.3rem; font-weight: 500; }
+	.courses__card-body { margin-top: 18px; display: flex; flex-direction: column; gap: 14px; opacity: 0.85; font-size: 1rem; }
+	.courses__meta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-border); display: flex; align-items: baseline; gap: 20px; }
+	.courses__meta-date { font-family: var(--font-mono); font-size: 0.8rem; opacity: 0.6; }
+	.courses__meta-count { font-size: 0.95rem; }
+	.courses__meta-num { font-family: var(--font-en); font-weight: 700; font-size: 1.6rem; color: var(--color-accent); margin-right: 0.15em; }
+
+	.profile { border-top: 1px solid var(--color-accent); }
+	.profile__head h2 { margin-top: 16px; font-size: clamp(1.6rem, 1.2rem + 2.4vw, 2.6rem); max-width: 24em; }
+	.profile__row { margin-top: 56px; display: flex; flex-direction: column; gap: 32px; }
+	.profile__body { display: flex; flex-direction: column; gap: 16px; max-width: 36em; font-size: 1.0625rem; }
+	.profile__body .arrow-link { margin-top: 8px; }
+	.profile__info { padding-top: 24px; border-top: 1px solid var(--color-border); }
+	.profile__visual { margin-bottom: 24px; border-radius: var(--radius-md); }
+	.profile__name-en { font-size: 0.8rem; letter-spacing: 0.05em; opacity: 0.6; }
+	.profile__name-ja { margin-top: 10px; font-size: clamp(2rem, 1.7rem + 1vw, 2.5rem); font-weight: 700; }
+	.profile__roles { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 0.85rem; opacity: 0.75; }
+
+	.faq__grid { display: flex; flex-direction: column; gap: 32px; }
+	.faq__head h2 { margin-top: 16px; font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem); }
+	.faq__more { margin-top: 32px; }
+
+	.final-cta h2 { font-size: clamp(1.7rem, 1.3rem + 2.6vw, 2.8rem); }
+	.final-cta__body { margin-top: 28px; max-width: 36em; opacity: 0.85; font-size: 1.0625rem; }
+	.final-cta__actions { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 28px; }
+	.final-cta__actions .arrow-link { color: var(--color-highlight); }
+
+	@media (min-width: 768px) {
+		.services__card { padding: 32px; }
+	}
+
+	@media (min-width: 1024px) {
+		.hero.section { padding-block: 96px 88px; }
+		.positioning.section { padding-block: 88px; }
+		.perspectives.section { padding-block: 96px; }
+		.coder-club.section { padding-block: 96px; }
+		.services.section { padding-block: 88px; }
+		.courses.section { padding-block: 88px; }
+		.profile.section { padding-block: 96px; }
+		.faq.section { padding-block: 88px; }
+		.final-cta.section { padding-block: 104px; }
+
+		.services__grid { flex-direction: row; align-items: stretch; }
+		.services__card--main, .services__card--sub { flex: 1; }
+
+		.hero__grid { flex-direction: row; align-items: center; gap: 64px; }
+		.hero__copy { flex: 1; max-width: 560px; }
+		.hero__graphic { flex: 1; max-width: 560px; }
+
+		.positioning__grid { flex-direction: row; align-items: flex-start; gap: 64px; }
+		.positioning__copy { flex: 0 0 600px; padding-top: 8px; }
+		.positioning__visual { flex: 1; }
+
+		.perspectives__list { flex-direction: row; gap: 0; }
+		.perspectives__item { flex: 1; padding: 32px 32px 0; border-top: 1px solid var(--color-border); border-left: 1px solid var(--color-border); }
+		.perspectives__item:first-child { padding-left: 0; border-left: none; }
+		.perspectives__item:last-child { padding-right: 0; }
+
+		.coder-club__intro { flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 64px; }
+		.coder-club__copy { flex: 1.2; max-width: 560px; }
+		.coder-club__copy h2 { font-size: 2.375rem; }
+		.coder-club__visual { flex: 1; max-width: 340px; }
+		.coder-club__features { flex-direction: row; flex-wrap: wrap; }
+		.coder-club__features li { flex: 0 0 calc(33.333% - 11px); }
+
+		.courses__cards { flex-direction: row; align-items: stretch; gap: 32px; }
+
+		.profile__row { flex-direction: row; align-items: flex-start; gap: 64px; }
+		.profile__body { flex: 6; padding-top: 8px; }
+		.profile__info { flex: 4; max-width: 320px; padding-top: 0; border-top: none; border-left: 1px solid var(--color-border); padding-left: 48px; }
+
+		.faq__grid { flex-direction: row; gap: 80px; }
+		.faq__head { flex: 0 0 400px; }
+		.faq__list { flex: 1; max-width: 720px; }
+	}
+</style>
+</head>
+<body>
+	<div class="preview-flag">PREVIEW ONLY — 静的HTML確認用（本番非公開・noindex）</div>
+
+	<header class="site-header">
+		<div class="site-header__inner container">
+			<a href="./" class="site-header__logo">MARORIRI</a>
+			<nav class="site-header__nav" aria-label="メインナビゲーション">
+				<ul>
+					<li><a href="about/">ABOUT</a></li>
+					<li><a href="maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="case-check/">CASE CHECK</a></li>
+					<li><a href="consulting/">CONSULTING</a></li>
+					<li><a href="profile/">PROFILE</a></li>
+				</ul>
+			</nav>
+			<a href="contact/" class="site-header__cta btn btn--primary">相談・申込み</a>
+			<button type="button" class="site-header__menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+				<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span></span>
+				<span class="site-header__menu-label">MENU</span>
+			</button>
+		</div>
+		<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+			<nav aria-label="モバイルナビゲーション">
+				<ul>
+					<li><a href="about/"><span class="mobile-nav__num num-mono">01</span><span class="mobile-nav__text"><span class="mobile-nav__ja">MARORIRIとは</span><span class="mobile-nav__en num-mono">ABOUT</span></span></a></li>
+					<li><a href="maroriri-plus/"><span class="mobile-nav__num num-mono">02</span><span class="mobile-nav__text"><span class="mobile-nav__ja">maroriri Plus</span><span class="mobile-nav__en num-mono">maroriri Plus</span></span></a></li>
+					<li><a href="case-check/"><span class="mobile-nav__num num-mono">03</span><span class="mobile-nav__text"><span class="mobile-nav__ja">案件チェック</span><span class="mobile-nav__en num-mono">CASE CHECK</span></span></a></li>
+					<li><a href="consulting/"><span class="mobile-nav__num num-mono">04</span><span class="mobile-nav__text"><span class="mobile-nav__ja">単発個別相談</span><span class="mobile-nav__en num-mono">CONSULTING</span></span></a></li>
+					<li><a href="profile/"><span class="mobile-nav__num num-mono">05</span><span class="mobile-nav__text"><span class="mobile-nav__ja">運営者紹介</span><span class="mobile-nav__en num-mono">PROFILE</span></span></a></li>
+					<li><a href="faq/"><span class="mobile-nav__num num-mono">06</span><span class="mobile-nav__text"><span class="mobile-nav__ja">よくある質問</span><span class="mobile-nav__en num-mono">FAQ</span></span></a></li>
+				</ul>
+				<a href="contact/" class="mobile-nav__cta btn btn--primary">相談・申込み</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="hero section" id="hero">
+			<div class="container hero__grid">
+				<div class="hero__copy">
+					<p class="eyebrow">CODE IS NOT THE GOAL.</p>
+					<h1 class="hero__heading">コードを書く。<br />その前に、考える。</h1>
+					<div class="hero__body">
+						<p class="hero__direction">コーディングを土台に、仕事の領域を広げる。</p>
+						<p>MARORIRIは、コーダー・Web制作者が、制作や実務の迷いを相談しながら「考え、選び、説明する力」を育てる場所です。</p>
+					</div>
+					<div class="hero__cta">
+						<a href="maroriri-plus/" class="btn btn--primary">maroriri Plusを見る</a>
+						<a href="about/" class="arrow-link"><span class="arrow-link__label">MARORIRIについて</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+					</div>
+				</div>
+				<div class="hero__graphic">
+					<img src="/assets/img/top/hero-illustration.webp" alt="" width="1310" height="1201" />
+				</div>
+			</div>
+		</section>
+
+		<section class="positioning section" id="positioning">
+			<div class="container positioning__grid">
+				<div class="positioning__copy">
+					<p class="eyebrow">NOT A CODE SCHOOL</p>
+					<h2>検索すれば、答えは出てくる。<br />けれど、仕事では<br />答えを選ぶ力がいる。</h2>
+					<div class="positioning__body">
+						<p>コードの書き方が分かっても、実際の仕事では迷う場面があります。MARORIRIでは、選んだ理由まで説明できるよう、具体的な案件をもとに考えます。</p>
+					</div>
+					<a href="about/" class="arrow-link"><span class="arrow-link__label">MARORIRIについて詳しく見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+				</div>
+				<div class="positioning__visual">
+					<img src="/assets/img/top/positioning-illustration.webp" alt="" width="1402" height="1122" />
+					<ul class="positioning__points">
+						<li><span class="positioning__q">何を選ぶ？</span><span class="positioning__a">デザインに合うHTML構造</span></li>
+						<li><span class="positioning__q">なぜそうする？</span><span class="positioning__a">実装方法を選ぶ理由</span></li>
+						<li><span class="positioning__q">どう伝える？</span><span class="positioning__a">工数・納期・修正範囲</span></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="perspectives section" id="perspectives">
+			<div class="container">
+				<div class="perspectives__head">
+					<p class="eyebrow">THREE PERSPECTIVES</p>
+					<h2>技術だけではなく、<br />仕事全体を考える。</h2>
+				</div>
+				<ul class="perspectives__list">
+					<li class="perspectives__item">
+						<div class="perspectives__visual"><img src="/assets/img/top/perspective-structure.webp" alt="" width="1456" height="1080" /></div>
+						<span class="num-mono perspectives__num">01</span>
+						<h3>HTMLとデザインを読む</h3>
+						<p class="perspectives__body">見た目の奥にある文章構造や情報の優先順位を読み取り、HTMLに落とし込みます。</p>
+					</li>
+					<li class="perspectives__item">
+						<div class="perspectives__visual"><img src="/assets/img/top/perspective-practice.webp" alt="" width="1455" height="1081" /></div>
+						<span class="num-mono perspectives__num">02</span>
+						<h3>実案件を進める</h3>
+						<p class="perspectives__body">工数・納期・修正範囲を整理し、クライアントに伝えながら案件を進める考え方を学びます。</p>
+					</li>
+					<li class="perspectives__item">
+						<div class="perspectives__visual"><img src="/assets/img/top/perspective-value.webp" alt="" width="1455" height="1081" /></div>
+						<span class="num-mono perspectives__num">03</span>
+						<h3>仕事とキャリアをつくる</h3>
+						<p class="perspectives__body">今ある経験や強みを整理し、仕事の広げ方とこれからの働き方を考えます。</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="coder-club section section--dark" id="coder-club">
+			<div class="container">
+				<div class="coder-club__intro">
+					<div class="coder-club__copy">
+						<p class="eyebrow">maroriri Plus</p>
+						<h2>一人で歩く。<br />でも、独りではない。</h2>
+						<p class="coder-club__lede">実務の疑問や迷いを持ち寄る、コーダー・Web制作者のための月額コミュニティです。月1回の勉強会や交流を通じて、ほかの制作者の視点に触れ、自分なりの判断基準を育てます。</p>
+						<a href="maroriri-plus/" class="arrow-link"><span class="arrow-link__label">maroriri Plusの内容を詳しく見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+					</div>
+					<div class="coder-club__visual">
+						<img src="/assets/img/top/coder-club-illustration.webp" alt="" width="1254" height="1254" />
+						<div class="coder-club__fee">
+							<span class="eyebrow">MONTHLY FEE</span>
+							<p class="coder-club__price">月額 3,300<span class="coder-club__price-unit">円</span></p>
+							<p class="coder-club__price-note">税込</p>
+						</div>
+					</div>
+				</div>
+				<ul class="coder-club__features">
+					<li><span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8.5 20h7M12 17v3"/></svg></span><p>月1回のオンライン勉強会</p></li>
+					<li><span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4z"/><path d="M5 8v10.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V8"/><path d="M10 12.5h4"/></svg></span><p>勉強会のアーカイブ</p></li>
+					<li><span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="3"/><circle cx="16" cy="9.5" r="2.3"/><path d="M3.5 20c.4-3.5 2.6-5.5 5-5.5s4.6 2 5 5.5"/><path d="M14.5 15.3c2 .2 3.6 1.7 4 4.7"/></svg></span><p>メンバー同士で交流・相談できるコミュニティ</p></li>
+					<li><span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="10" rx="2"/><path d="M9 15v4l-2.5-4"/></svg></span><p>コミュニティ内での軽い実務相談</p></li>
+					<li><span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3 11.2c.6.4 1 1.1 1 1.8h4c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z"/></svg></span><p>実際の案件や疑問を題材にした考え方の共有</p></li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="services section" id="services">
+			<div class="container">
+				<div class="services__head">
+					<p class="eyebrow">REAL WORK SUPPORT</p>
+					<h2>目の前の案件について、<br />具体的に相談したいときに。</h2>
+				</div>
+				<div class="services__grid">
+					<article class="services__card services__card--main">
+						<div class="services__visual"><img src="/assets/img/top/case-check-illustration.webp" alt="" width="1484" height="1060" /></div>
+						<div class="services__main">
+							<span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 3.5h6a1 1 0 0 1 1 1V6H8V4.5a1 1 0 0 1 1-1Z"/><path d="m9 13 2 2 4-4"/></svg></span>
+							<span class="eyebrow">CASE CHECK</span>
+							<div class="services__title-row">
+								<h3>案件チェック</h3>
+								<dl class="services__price">
+									<div><dt>一般価格</dt><dd>10,000円（税込）</dd></div>
+									<div><dt>maroriri Plus会員価格</dt><dd>5,000円（税込）</dd></div>
+								</dl>
+							</div>
+							<p class="services__body">制作したサイトを、HTML構造・デザインの再現・表示・操作性から確認。修正箇所だけでなく、その理由と次の案件での考え方までお伝えします。</p>
+							<a href="case-check/" class="arrow-link"><span class="arrow-link__label">案件チェックについて見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+						</div>
+					</article>
+					<article class="services__card services__card--sub">
+						<div class="services__visual"><img src="/assets/img/top/consulting-illustration.webp" alt="" width="1484" height="1060" /></div>
+						<div class="services__main">
+							<span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="10" rx="2"/><path d="M9 15v4l-2.5-4"/></svg></span>
+							<span class="eyebrow">1ON1 CONSULTING</span>
+							<div class="services__title-row">
+								<h3>単発個別相談</h3>
+								<dl class="services__price"><div><dt>60分</dt><dd>5,000円（税込）</dd></div></dl>
+							</div>
+							<p class="services__body">案件の進め方、見積もり、クライアント対応、今後の働き方などを、60分の個別相談で一緒に整理します。</p>
+							<p class="services__note">個別相談は、maroriri Plusの月額料金とは別料金です。</p>
+							<a href="consulting/" class="arrow-link"><span class="arrow-link__label">個別相談について見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="courses section section--white" id="courses">
+			<div class="container">
+				<div class="courses__head">
+					<p class="eyebrow">LEARN WITH MARORIRI</p>
+					<h2>講座・活動実績</h2>
+					<p class="courses__lede">実務で身につけた「考え方」を、次のコーダーへ。</p>
+					<p class="courses__intro">コーディングの技術だけではなく、「なぜこのHTMLにするのか」「デザインをどう読み取るのか」など、実際の制作現場で必要になる考え方を伝える講座を開催しています。</p>
+				</div>
+				<div class="courses__cards">
+					<article class="courses__card">
+						<span class="courses__card-tag">コーディングマインド講座</span>
+						<h3 class="courses__card-title">コードを書く前に、考えること。</h3>
+						<div class="courses__card-body">
+							<p>HTMLの意味や文章構造、デザインの意図、クライアントからの指示の受け取り方など、コーダーとして仕事をするときに必要になる「考え方」を扱う講座です。</p>
+							<p>正解のコードを覚えるのではなく、状況に合わせて自分で判断できる力を身につけることを目指します。</p>
+						</div>
+					</article>
+					<article class="courses__card">
+						<span class="courses__card-tag">コーダーによるデザイン料理教室</span>
+						<h3 class="courses__card-title">デザインを、実装できる形まで読み解く。</h3>
+						<div class="courses__card-body">
+							<p>完成したデザインを見て、どこからHTMLを組み立てるのか。どこを共通化し、どこをCSSで表現するのか。</p>
+							<p>デザインをそのまま再現するのではなく、コーダーの視点から構造を読み取り、実装へ落とし込む考え方を学ぶ講座です。</p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="profile section section--white" id="profile">
+			<div class="container">
+				<div class="profile__head">
+					<p class="eyebrow">FROM THE WEB FIELD</p>
+					<h2>制作現場で積み重ねてきた判断を、<br />次の制作者へ。</h2>
+				</div>
+				<div class="profile__row">
+					<div class="profile__body">
+						<p>印刷・DTPからWeb制作へ。コーディング、サイト運用、ディレクション、制作者の育成まで、制作の現場に携わってきました。現在も実務に取り組みながら、制作の考え方や案件の進め方を伝えています。</p>
+						<a href="profile/" class="arrow-link"><span class="arrow-link__label">運営者について見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+					</div>
+					<div class="profile__info">
+						<img src="/assets/img/top/profile-illustration.webp" alt="" width="1355" height="1161" class="profile__visual" />
+						<p class="profile__name-en num-mono">MAYUMI KATAYAMA</p>
+						<p class="profile__name-ja">片山 まゆみ</p>
+						<ul class="profile__roles">
+							<li>WEB CREATOR</li>
+							<li>DIRECTOR</li>
+							<li>CREATOR SUPPORT</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="faq section" id="faq">
+			<div class="container faq__grid">
+				<div class="faq__head">
+					<p class="eyebrow">FAQ</p>
+					<h2>参加や相談について、<br />よくいただく質問。</h2>
+				</div>
+				<div class="faq__list">
+					<details class="faq-item"><summary class="faq-item__question"><span>コーディング経験が浅くても参加できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">HTML・CSSの基礎学習を終え、実案件または実案件に近い制作に取り組んでいる方を主な対象としています。経験年数より、制作や実務について自分で考えたいという姿勢を大切にしています。</div></details>
+					<details class="faq-item"><summary class="faq-item__question"><span>勉強会に参加できなかった場合はどうなりますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">勉強会に参加できなかった場合も、アーカイブをご覧いただけます。勉強会のアーカイブは、maroriri Plusの月額料金に含まれています。</div></details>
+					<details class="faq-item"><summary class="faq-item__question"><span>個別相談では、どのようなことを相談できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">実案件の進め方、工数、納期、修正対応、クライアントとのやり取り、仕事の獲得、今後の働き方などをご相談いただけます。</div></details>
+					<details class="faq-item"><summary class="faq-item__question"><span>案件の内容やクライアント情報は外部に公開されませんか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">個別相談でお聞きした案件情報を、許可なく外部へ公開することはありません。コミュニティへの投稿は参加メンバーが閲覧できるため、クライアント名や非公開情報などを伏せてご相談ください。</div></details>
+					<details class="faq-item"><summary class="faq-item__question"><span>maroriri Plusの退会方法を教えてください。</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">退会方法と手続き期限については、決済方法の確定後にmaroriri Plusの案内ページへ掲載します。</div></details>
+					<div class="faq__more"><a href="faq/" class="arrow-link"><span class="arrow-link__label">よくある質問をすべて見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="final-cta section section--dark" id="final-cta">
+			<div class="container">
+				<h2>答えを集めるだけでなく、<br />自分で考え、選び、説明できる制作者へ。</h2>
+				<div class="final-cta__body"><p>継続して学びたい方はmaroriri Plusへ。まずは個別に相談したい方も、お気軽にお問い合わせください。</p></div>
+				<div class="final-cta__actions">
+					<a href="maroriri-plus/" class="btn btn--primary">maroriri Plusを見る</a>
+					<a href="contact/" class="arrow-link"><span class="arrow-link__label">まずは相談する</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container site-footer__inner">
+			<div class="site-footer__brand">
+				<p class="site-footer__logo">MARORIRI</p>
+				<p class="site-footer__tagline">制作者として、考え、選び、仕事を続けるための場所。</p>
+			</div>
+			<nav class="site-footer__nav" aria-label="フッターナビゲーション">
+				<ul>
+					<li><a href="about/">MARORIRIとは</a></li>
+					<li><a href="maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="case-check/">案件チェック</a></li>
+					<li><a href="consulting/">単発個別相談</a></li>
+					<li><a href="profile/">運営者紹介</a></li>
+					<li><a href="faq/">よくある質問</a></li>
+					<li><a href="contact/">相談・申込み</a></li>
+				</ul>
+			</nav>
+			<nav class="site-footer__legal" aria-label="法務情報">
+				<ul>
+					<li><a href="terms/">利用規約</a></li>
+					<li><a href="tokushoho/">特定商取引法に基づく表記</a></li>
+					<li><a href="privacy/">プライバシーポリシー</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container site-footer__bottom">
+			<p>© MARORIRI</p>
+		</div>
+	</footer>
+
+	<script>
+		const toggle = document.getElementById("menu-toggle");
+		const nav = document.getElementById("mobile-nav");
+		if (toggle && nav) {
+			const links = nav.querySelectorAll("a");
+			const openMenu = () => { toggle.setAttribute("aria-expanded", "true"); nav.setAttribute("aria-hidden", "false"); document.body.classList.add("nav-open"); };
+			const closeMenu = () => { toggle.setAttribute("aria-expanded", "false"); nav.setAttribute("aria-hidden", "true"); document.body.classList.remove("nav-open"); };
+			toggle.addEventListener("click", () => { (toggle.getAttribute("aria-expanded") === "true") ? closeMenu() : openMenu(); });
+			links.forEach((link) => link.addEventListener("click", closeMenu));
+		}
+	</script>
+</body>
+</html>

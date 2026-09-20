@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>maroriri Plus｜MARORIRI（確認用プレビュー）</title>
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+	rel="stylesheet"
+/>
+<link rel="stylesheet" href="../shared.css" />
+<link rel="stylesheet" href="../components.css" />
+
+<style>
+	.hero-cta { margin-top: 32px; }
+	.hero-sub { margin-top: 4px; opacity: 0.85; }
+	.plus-concerns__lead { margin-top: 32px; max-width: 38em; }
+	.plus-concerns__list { margin-top: 32px; }
+	.plus-about__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; max-width: 38em; }
+	.plus-about__direction { font-weight: 500; }
+	.plus-add__lead { margin-top: 32px; max-width: 38em; }
+	.plus-add__list { margin-top: 32px; }
+	.plus-add__note { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-border); font-size: 0.9rem; opacity: 0.7; max-width: 34em; }
+	.plus-get__list { margin-top: 40px; display: flex; flex-direction: column; }
+	.plus-get__list li { display: flex; align-items: baseline; gap: 20px; padding-block: 16px; border-top: 1px solid var(--color-border); }
+	.plus-get__list li:last-child { border-bottom: 1px solid var(--color-border); }
+	.plus-get__list .num-mono { color: var(--color-accent); font-size: 0.85rem; }
+	.plus-get__note { margin-top: 24px; font-size: 0.9rem; opacity: 0.7; max-width: 36em; }
+	.plus-change__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; max-width: 38em; }
+	.plus-who__lead { margin-top: 32px; }
+	.plus-who__list { margin-top: 24px; }
+	.plus-not-for__lead { margin-top: 32px; }
+	.plus-not-for__list { margin-top: 24px; }
+	.plus-price__wrap { margin-top: 32px; max-width: 24em; }
+	.plus-price__included { margin-top: 40px; }
+	.plus-price__excluded { margin-top: 40px; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-md); max-width: 34em; }
+	.plus-price__excluded-label { font-size: 0.78rem; color: var(--color-accent); }
+	.plus-price__excluded p { margin-top: 14px; opacity: 0.85; }
+	.plus-price__excluded .arrow-link { margin-top: 18px; }
+	.plus-compare { margin-top: 56px; }
+	.plus-compare__heading { font-size: clamp(1.1rem, 1rem + 0.6vw, 1.3rem); font-weight: 500; }
+	.plus-compare__grid { margin-top: 32px; display: flex; flex-direction: column; gap: 32px; }
+	.plus-compare__col { padding-top: 20px; border-top: 1px solid var(--color-border); }
+	.plus-compare__label { font-size: 0.85rem; opacity: 0.55; }
+	.plus-compare__label--accent { color: var(--color-accent); opacity: 1; }
+	.plus-compare__col ul { margin-top: 20px; }
+	.plus-flow__lead { margin-top: 32px; }
+	.plus-flow__wrap { margin-top: 40px; }
+	.plus-flow__note { margin-top: 24px; font-size: 0.9rem; opacity: 0.7; }
+	.plus-founder__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; max-width: 38em; }
+	.plus-founder__value { margin-top: 8px; font-weight: 500; }
+	.plus-founder__body .arrow-link { margin-top: 12px; }
+	.plus-faq__grid { display: flex; flex-direction: column; gap: 32px; }
+	.plus-faq__head h2 { margin-top: 16px; font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem); }
+	.plus-faq__head .arrow-link { margin-top: 24px; }
+
+	@media (min-width: 768px) {
+		.plus-compare__grid { flex-direction: row; gap: 64px; }
+		.plus-compare__col { flex: 1; }
+	}
+	@media (min-width: 1024px) {
+		.plus-faq__grid { flex-direction: row; gap: 80px; }
+		.plus-faq__head { flex: 0 0 320px; }
+		.plus-faq__list { flex: 1; max-width: 720px; }
+	}
+</style>
+</head>
+<body>
+	<div class="preview-flag">PREVIEW ONLY — 静的HTML確認用（本番非公開・noindex）</div>
+
+	<header class="site-header">
+		<div class="site-header__inner container">
+			<a href="../" class="site-header__logo">MARORIRI</a>
+			<nav class="site-header__nav" aria-label="メインナビゲーション">
+				<ul>
+					<li><a href="../about/">ABOUT</a></li>
+					<li><a href="../maroriri-plus/" aria-current="page">maroriri Plus</a></li>
+					<li><a href="../case-check/">CASE CHECK</a></li>
+					<li><a href="../consulting/">CONSULTING</a></li>
+					<li><a href="../profile/">PROFILE</a></li>
+				</ul>
+			</nav>
+			<a href="../contact/" class="site-header__cta btn btn--primary">相談・申込み</a>
+			<button type="button" class="site-header__menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+				<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span></span>
+				<span class="site-header__menu-label">MENU</span>
+			</button>
+		</div>
+		<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+			<nav aria-label="モバイルナビゲーション">
+				<ul>
+					<li><a href="../about/"><span class="mobile-nav__num num-mono">01</span><span class="mobile-nav__text"><span class="mobile-nav__ja">MARORIRIとは</span><span class="mobile-nav__en num-mono">ABOUT</span></span></a></li>
+					<li><a href="../maroriri-plus/"><span class="mobile-nav__num num-mono">02</span><span class="mobile-nav__text"><span class="mobile-nav__ja">maroriri Plus</span><span class="mobile-nav__en num-mono">maroriri Plus</span></span></a></li>
+					<li><a href="../case-check/"><span class="mobile-nav__num num-mono">03</span><span class="mobile-nav__text"><span class="mobile-nav__ja">案件チェック</span><span class="mobile-nav__en num-mono">CASE CHECK</span></span></a></li>
+					<li><a href="../consulting/"><span class="mobile-nav__num num-mono">04</span><span class="mobile-nav__text"><span class="mobile-nav__ja">単発個別相談</span><span class="mobile-nav__en num-mono">CONSULTING</span></span></a></li>
+					<li><a href="../profile/"><span class="mobile-nav__num num-mono">05</span><span class="mobile-nav__text"><span class="mobile-nav__ja">運営者紹介</span><span class="mobile-nav__en num-mono">PROFILE</span></span></a></li>
+					<li><a href="../faq/"><span class="mobile-nav__num num-mono">06</span><span class="mobile-nav__text"><span class="mobile-nav__ja">よくある質問</span><span class="mobile-nav__en num-mono">FAQ</span></span></a></li>
+				</ul>
+				<a href="../contact/" class="mobile-nav__cta btn btn--primary">相談・申込み</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="page-hero section">
+			<div class="container">
+				<nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="../">HOME</a></li><li><span class="breadcrumbs__sep" aria-hidden="true">/</span><span aria-current="page">maroriri Plus</span></li></ol></nav>
+				<p class="eyebrow page-hero__eyebrow">maroriri Plus</p>
+				<div class="page-hero__grid">
+					<div class="page-hero__copy">
+						<h1 class="page-hero__heading">一人で歩く。<br />でも、独りではない。</h1>
+						<div class="page-hero__lede">
+							<p>「一人」は、自分で考え、自分で選び、自分の足で歩くこと。<br />「独りではない」は、迷ったときや判断に困ったときに、隣で一緒に考える人がいることです。</p>
+							<p class="hero-sub">コーディングを土台に、仕事の領域を広げる。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="container hero-cta">
+			<a href="#about" class="arrow-link"><span class="arrow-link__label">maroriri Plusの内容を見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+		</div>
+
+		<section class="section section--white plus-concerns">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">SOUND FAMILIAR?</p><h2 class="section-heading__title">こんなことに、<br />心当たりはありませんか。</h2></div>
+				<p class="plus-concerns__lead">制作の仕事を続けていると、コードの書き方だけでは解決しない場面に出会います。</p>
+				<ul class="list-plain plus-concerns__list">
+					<li>コーディングはできるようになった。でも、この先どうすればよいかわからない</li>
+					<li>指示どおりには作れるが、自分で判断する場面になると迷う</li>
+					<li>AIでコードが書ける時代に、何を強みにすればよいかわからない</li>
+					<li>デザイン、提案、進行などにも関わりたいが、どこから始めればよいかわからない</li>
+					<li>実務上の疑問を安心して相談できる相手がいない</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section plus-about" id="about">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">WHAT IS maroriri Plus</p><h2 class="section-heading__title">コーディングの先を、<br />一緒に考える。</h2></div>
+				<div class="plus-about__body">
+					<p>maroriri Plusは、「一人で歩く。でも、独りではない。」というMARORIRIのモットーを、具体的な場にしたコミュニティです。</p>
+					<p class="plus-about__direction">コーディングを土台に、仕事の領域を広げる。</p>
+					<p>コードの書き方やエラーの解決方法だけを教える場所ではありません。すでに実務に入っているコーダー・Web制作者が、実務の中で感じた疑問や迷いを持ち寄り、自分なりの判断基準を育てていく場所です。</p>
+					<p>初心者向けのコーディングスクールでも、ディレクター養成講座でもありません。すでに手を動かして仕事をしている方が、次の一歩を考えるための場です。</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--white plus-add">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">WHAT YOU ADD</p><h2 class="section-heading__title">今ある経験に、<br />次の力をプラスする。</h2></div>
+				<p class="plus-add__lead">maroriri Plusが目指すのは、職種を変えることではありません。今持っているコーディングの経験の上に、次の力を重ねていくことです。</p>
+				<ul class="tag-list plus-add__list">
+					<li>文章構造を読む力</li><li>デザインを見る力</li><li>提案する力</li><li>進行を管理する力</li><li>クライアントに対応する力</li><li>判断する力</li>
+				</ul>
+				<p class="plus-add__note">何をどれだけプラスするかは、経験やこれからの働き方によって異なります。すべてを一度に身につける必要はありません。</p>
+			</div>
+		</section>
+
+		<section class="section plus-get">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">WHAT YOU GET</p><h2 class="section-heading__title">maroriri Plusでできること</h2></div>
+				<ol class="plus-get__list">
+					<li><span class="num-mono">01</span><span>月1回のオンライン勉強会</span></li>
+					<li><span class="num-mono">02</span><span>勉強会のアーカイブ</span></li>
+					<li><span class="num-mono">03</span><span>メンバー同士で交流・相談できるコミュニティ</span></li>
+					<li><span class="num-mono">04</span><span>コミュニティ内での軽い実務相談</span></li>
+					<li><span class="num-mono">05</span><span>実際の案件や疑問を題材にした考え方の共有</span></li>
+				</ol>
+				<p class="plus-get__note">事前予約制・60分の個別相談「実務・キャリア相談」は、月額料金には含まれません。詳しい違いは、料金のセクションでご案内しています。</p>
+			</div>
+		</section>
+
+		<section class="section section--white plus-change">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">THE CHANGE YOU BUILD</p><h2 class="section-heading__title">誰かの正解を探すところから、<br />自分の判断基準を持てる状態へ。</h2></div>
+				<div class="plus-change__body">
+					<p>ひとりで正解を探し続けると、判断のたびに不安が残ります。</p>
+					<p>maroriri Plusでは、ほかの制作者の考え方に触れながら、なぜその方法を選ぶのかを一緒に考えます。答えを教えてもらうことが目的ではなく、自分で判断し、その理由を自分の言葉で説明できるようになることを目指します。</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section plus-who">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">WHO IT'S FOR</p><h2 class="section-heading__title">こんな方へ</h2></div>
+				<p class="plus-who__lead">maroriri Plusは、次のような方に向いています。</p>
+				<ul class="list-plain plus-who__list">
+					<li>実案件について相談できる相手がいない</li><li>ほかの制作者の考え方を知りたい</li><li>HTMLの構造に自信が持てない</li><li>仕事の進め方に迷っている</li><li>クライアントへの伝え方を学びたい</li><li>自分の価値や強みを整理したい</li><li>これからのキャリアを考えたい</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- 仮テキスト。最終的な文言は後日調整する。 -->
+		<section class="section plus-not-for">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">WHO IT'S NOT FOR</p><h2 class="section-heading__title">向いていない方</h2></div>
+				<p class="plus-not-for__lead">一方で、次のような方には向いていません。</p>
+				<ul class="list-plain plus-not-for__list">
+					<li>コードの書き方だけを教えてほしい方</li><li>初心者向けの基礎講座を求めている方</li><li>答えだけをすぐに受け取りたい方</li><li>自分で考えることより、指示どおりに進めたい方</li><li>短期間で仕事や収入を保証してほしい方</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section section--white plus-price">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">PRICE & WHAT'S INCLUDED</p><h2 class="section-heading__title">料金と、含まれる内容</h2></div>
+				<div class="plus-price__wrap">
+					<div class="price-block">
+						<dl class="price-block__list"><div><dt>月額料金</dt><dd>月額 3,300円（税込）</dd></div></dl>
+					</div>
+				</div>
+				<ul class="list-plain plus-price__included">
+					<li>月1回のオンライン勉強会</li><li>勉強会のアーカイブ</li><li>メンバー同士で交流・相談できるコミュニティ</li><li>コミュニティ内での軽い実務相談</li><li>実際の案件や疑問を題材にした考え方の共有</li>
+				</ul>
+				<div class="plus-price__excluded">
+					<p class="plus-price__excluded-label num-mono">含まれないもの</p>
+					<p>事前予約制の個別相談「実務・キャリア相談」（60分5,000円（税込））は、月額料金には含まれません。</p>
+					<a href="../consulting/" class="arrow-link"><span class="arrow-link__label">実務・キャリア相談について見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+				</div>
+				<div class="plus-compare">
+					<p class="plus-compare__heading">「軽い実務相談」と「実務・キャリア相談」の違い</p>
+					<div class="plus-compare__grid">
+						<div class="plus-compare__col">
+							<p class="plus-compare__label num-mono">コミュニティ内での軽い実務相談</p>
+							<ul class="list-plain">
+								<li>コミュニティへの投稿形式</li><li>日々の実務で生じた疑問を短く相談できる</li><li>考え方や確認するポイントについて、簡単なヒントや方向性を伝える</li><li>個別の時間予約は行わない</li><li>画面共有を使った相談、資料やサイト全体の確認、詳細なコードレビューなどは含まない</li>
+							</ul>
+						</div>
+						<div class="plus-compare__col plus-compare__col--accent">
+							<p class="plus-compare__label num-mono plus-compare__label--accent">実務・キャリア相談</p>
+							<ul class="list-plain">
+								<li>事前予約制の個別相談</li><li>60分間、1対1で相談できる</li><li>実際の案件、クライアント対応、見積もり、進行、キャリアなどについて深く整理する</li><li>必要に応じて、相談資料や制作物を見ながら話す</li><li>相談者の状況に合わせて、具体的な判断材料を一緒に整理する</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section plus-flow">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">HOW TO JOIN</p><h2 class="section-heading__title">参加までの流れ</h2></div>
+				<p class="plus-flow__lead">公式LINEから、次の手順でご参加いただけます。</p>
+				<div class="plus-flow__wrap">
+					<ol class="service-flow">
+						<li class="service-flow__item"><span class="num-mono service-flow__num">01</span><div><p class="service-flow__title">公式LINEを友だち追加</p></div></li>
+						<li class="service-flow__item"><span class="num-mono service-flow__num">02</span><div><p class="service-flow__title">「プラス」と送信</p></div></li>
+						<li class="service-flow__item"><span class="num-mono service-flow__num">03</span><div><p class="service-flow__title">参加条件と利用方法の案内を確認</p></div></li>
+						<li class="service-flow__item"><span class="num-mono service-flow__num">04</span><div><p class="service-flow__title">申込み手続き</p></div></li>
+						<li class="service-flow__item"><span class="num-mono service-flow__num">05</span><div><p class="service-flow__title">maroriri Plusへ参加</p></div></li>
+					</ol>
+				</div>
+				<p class="plus-flow__note">公式LINEで「プラス」と送ってください。</p>
+			</div>
+		</section>
+
+		<section class="section section--white plus-founder">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">FROM THE FIELD</p><h2 class="section-heading__title">制作の現場で、<br />領域を広げてきた35年。</h2></div>
+				<div class="plus-founder__body">
+					<p>DTPからWeb制作へ。コーディング、WordPressの構築・運用、進行管理、ディレクション、デザインの意図をくみ取る判断、そして制作者の育成まで、立場を変えながら制作の現場に携わってきました。</p>
+					<p>これは、コーディングを土台に仕事の領域を広げてきた、私自身の実例でもあります。</p>
+					<p>MARORIRIで大切にしているのは、答えだけを渡すことではありません。相談してくれた方が、次の場面で自分で判断できる状態をつくることです。</p>
+					<p class="plus-founder__value">あなたが自分で考えたものに、35年分の実務経験をプラスする。</p>
+					<a href="../profile/" class="arrow-link"><span class="arrow-link__label">運営者について詳しく見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section plus-faq">
+			<div class="container plus-faq__grid">
+				<div class="plus-faq__head">
+					<p class="eyebrow">FAQ</p>
+					<h2>maroriri Plusに<br />よくいただく質問。</h2>
+					<a href="../faq/" class="arrow-link"><span class="arrow-link__label">よくある質問をすべて見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+				</div>
+				<div class="plus-faq__list">
+					<div class="faq-accordion">
+						<details class="faq-item"><summary class="faq-item__question"><span>「コミュニティ内での軽い実務相談」と「実務・キャリア相談」は何が違いますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">「軽い実務相談」はコミュニティへの投稿形式で、日々の実務で生じた疑問に簡単なヒントや方向性をお伝えするものです。個別の時間予約はありません。「実務・キャリア相談」は事前予約制の個別相談で、60分間1対1で、案件やキャリアについて深く整理したいときにご利用いただけます。月額料金には含まれず、別料金（60分5,000円・税込）です。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>コーディング経験が浅くても参加できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">経験年数だけで判断するものではありませんが、HTML・CSSの基礎学習を終え、実案件または実案件に近い制作に取り組んでいる方を主な対象としています。これから初めてHTML・CSSを学ぶ方には、現在の内容が合わない可能性があります。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>勉強会ではどのような内容を扱いますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">HTMLの意味や文章構造、デザインの読み取り方、案件の進め方、クライアントへの伝え方など、コーダーとして判断するためのテーマを取り上げます。代表的な勉強会が「デザイン料理教室」です。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>デザイン料理教室だけに参加できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">デザイン料理教室は、maroriri Plusの会員向け勉強会です。現在、デザイン料理教室だけの単独申込みは受け付けていません。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>勉強会に参加できなかった場合はどうなりますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">勉強会のアーカイブを月額料金に含めてご提供します。配信方法の詳細は、正式な運用が決まり次第お知らせします。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>案件の内容やクライアント情報は外部に公開されませんか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">コミュニティへ投稿した内容は、参加メンバーが閲覧できます。クライアント名、会社名、個人情報、非公開情報などは伏せ、契約上共有できない情報を投稿しないようお願いいたします。実務・キャリア相談で個別にお聞きした内容を、許可なくコミュニティや外部へ公開することはありません。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>退会方法を教えてください。</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">退会方法と手続き期限については、決済方法の確定後にmaroriri Plusの案内ページへ掲載します。</div></details>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta-section section section--dark">
+			<div class="container">
+				<h2 class="cta-section__heading">一人で歩く。<br />でも、独りではない。</h2>
+				<div class="cta-section__body"><p>仕事の中で迷っていること、これから身につけたいことを、一人で抱え続ける必要はありません。</p></div>
+				<div class="cta-section__actions">
+					<a href="../contact/#maroriri-plus" class="btn btn--primary">公式LINEで「プラス」と送ってください。</a>
+					<a href="../consulting/" class="arrow-link cta-section__secondary"><span class="arrow-link__label">まずは個別に相談したい方へ</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container site-footer__inner">
+			<div class="site-footer__brand">
+				<p class="site-footer__logo">MARORIRI</p>
+				<p class="site-footer__tagline">制作者として、考え、選び、仕事を続けるための場所。</p>
+			</div>
+			<nav class="site-footer__nav" aria-label="フッターナビゲーション">
+				<ul>
+					<li><a href="../about/">MARORIRIとは</a></li>
+					<li><a href="../maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="../case-check/">案件チェック</a></li>
+					<li><a href="../consulting/">単発個別相談</a></li>
+					<li><a href="../profile/">運営者紹介</a></li>
+					<li><a href="../faq/">よくある質問</a></li>
+					<li><a href="../contact/">相談・申込み</a></li>
+				</ul>
+			</nav>
+			<nav class="site-footer__legal" aria-label="法務情報">
+				<ul>
+					<li><a href="../terms/">利用規約</a></li>
+					<li><a href="../tokushoho/">特定商取引法に基づく表記</a></li>
+					<li><a href="../privacy/">プライバシーポリシー</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container site-footer__bottom"><p>© MARORIRI</p></div>
+	</footer>
+
+	<script>
+		const toggle = document.getElementById("menu-toggle");
+		const nav = document.getElementById("mobile-nav");
+		if (toggle && nav) {
+			const links = nav.querySelectorAll("a");
+			const openMenu = () => { toggle.setAttribute("aria-expanded", "true"); nav.setAttribute("aria-hidden", "false"); document.body.classList.add("nav-open"); };
+			const closeMenu = () => { toggle.setAttribute("aria-expanded", "false"); nav.setAttribute("aria-hidden", "true"); document.body.classList.remove("nav-open"); };
+			toggle.addEventListener("click", () => { (toggle.getAttribute("aria-expanded") === "true") ? closeMenu() : openMenu(); });
+			links.forEach((link) => link.addEventListener("click", closeMenu));
+		}
+	</script>
+</body>
+</html>

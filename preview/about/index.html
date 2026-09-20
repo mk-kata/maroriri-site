@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MARORIRIとは｜MARORIRI（確認用プレビュー）</title>
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+	rel="stylesheet"
+/>
+<link rel="stylesheet" href="../shared.css" />
+<link rel="stylesheet" href="../components.css" />
+
+<style>
+	/* 画像は白背景の鉛筆画のため、乗算合成でセクション背景となじませる */
+	.about-illust {
+		display: block;
+		width: 100%;
+		height: auto;
+		mix-blend-mode: multiply;
+	}
+
+	/* ---- 1. 冒頭：文章をやや広め、イラストは小さめで少し下へずらす ---- */
+	.page-hero { padding-bottom: 64px; }
+	.about-hero__visual { max-width: 340px; margin-inline: auto; }
+
+	/* ---- 2. FOR CREATORS：左に見出し（狭め）、右に一覧と回答（同じ軸） ---- */
+	.about-for__head { max-width: 480px; }
+	.about-for__intro { margin-top: 24px; font-size: 1.02rem; }
+	.about-for__content { margin-top: 40px; }
+	.about-for__list {
+		display: flex;
+		flex-direction: column;
+	}
+	.about-for__list li {
+		display: flex;
+		align-items: baseline;
+		gap: 18px;
+		padding-block: 14px;
+		border-top: 1px solid var(--color-border);
+	}
+	.about-for__list .num-mono { color: var(--color-accent); font-size: 0.8rem; flex-shrink: 0; }
+	.about-for__answer {
+		margin-top: 48px;
+		padding-top: 40px;
+		border-top: 1px solid var(--color-border);
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 640px;
+	}
+	.about-for__emphasis {
+		font-size: 1.3rem;
+		font-weight: 700;
+	}
+
+	/* ---- 3. WHAT WE VALUE：見出しは通常の左軸、本文はやや右へ＋幅を絞る ---- */
+	.about-values__grid {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+	.about-values__body {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 560px;
+	}
+	.about-values__visual {
+		flex: 0 0 360px;
+		max-width: 360px;
+		margin-inline: auto;
+	}
+	.about-values__questions {
+		margin: 24px 0;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		font-size: 1.2rem;
+		line-height: 1.9;
+	}
+	.about-values__accent {
+		font-size: 1.2rem;
+		font-weight: 700;
+		color: var(--color-accent);
+	}
+
+	/* ---- 4. THREE PERSPECTIVES：本サイトと同じ、画像→番号→見出し→本文の3カラム ---- */
+	.about-perspectives__intro { margin-top: 24px; max-width: 640px; opacity: 0.85; }
+	.about-perspectives__list {
+		margin-top: 48px;
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+	}
+	.about-perspectives__item {
+		display: grid;
+		grid-template-areas: "meta" "heading" "image" "body";
+		gap: 16px;
+		padding-top: 28px;
+		border-top: 1px solid var(--color-border);
+	}
+	.about-perspectives__meta { grid-area: meta; display: flex; align-items: center; gap: 16px; }
+	.about-perspectives__meta .num-mono { color: var(--color-border); font-size: 1.3rem; }
+	.about-perspectives__item h3 { grid-area: heading; font-size: clamp(1.2rem, 1.05rem + 0.8vw, 1.5rem); }
+	.about-perspectives__img { grid-area: image; max-width: 320px; margin-inline: auto; }
+	.about-perspectives__body {
+		grid-area: body;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		opacity: 0.85;
+		align-self: start;
+	}
+
+	/* ---- 5. LEARN WITH MARORIRI：左軸に見出し・導入、イラストは控えめに添える → 2段組の講座（罫線区切り） ---- */
+	.about-learn__intro-row {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+	.about-learn__intro-text { max-width: 560px; }
+	.about-learn__intro-text h2 { margin-top: 16px; }
+	.about-learn__intro-text p { margin-top: 14px; }
+	.about-learn__visual { max-width: 300px; }
+
+	.about-learn__courses {
+		margin-top: 56px;
+		padding-top: 32px;
+		border-top: 1px solid var(--color-border);
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+	.about-learn__course {
+		border: 1px solid var(--color-border);
+		padding: 28px;
+	}
+	.about-learn__course-name {
+		margin: -28px -28px 20px;
+		padding: 20px 28px;
+		background: var(--color-bg-dark);
+		color: var(--color-text-inverse);
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+	.about-learn__course-catch { margin-top: 12px; font-size: 1.15rem; font-weight: 700; }
+	.about-learn__course-body {
+		margin-top: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		font-size: 0.95rem;
+		opacity: 0.85;
+	}
+
+	.about-learn__closing {
+		margin-top: 48px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 14px;
+		max-width: 560px;
+		margin-inline: auto;
+		text-align: center;
+	}
+	.about-learn__closing .arrow-link { margin-top: 4px; }
+
+	/* ---- 6. MARORIRI SERVICES：通常の左軸、番号・ラベルで整理。maroriri Plusのみ控えめに強調 ---- */
+	.about-services__intro {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		max-width: 560px;
+	}
+	@media (min-width: 1024px) {
+		.about-services__intro-nowrap { white-space: nowrap; }
+	}
+	.about-services__list {
+		margin-top: 48px;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+	.about-services__item { border: 1px solid var(--color-border); padding: 28px; }
+	.about-services__item--primary {
+		border: 2px solid var(--color-accent);
+		background: rgba(70, 85, 255, 0.035);
+	}
+	.about-services__title {
+		margin: -28px -28px 20px;
+		padding: 20px 28px;
+		background: var(--color-bg-dark);
+		color: var(--color-text-inverse);
+		text-align: center;
+		font-size: 1.35rem;
+		font-weight: 700;
+	}
+	.about-services__catch { margin-top: 6px; font-size: 1rem; font-weight: 500; opacity: 0.75; }
+	.about-services__item--primary .about-services__catch { font-weight: 700; opacity: 1; }
+	.about-services__body {
+		margin-top: 18px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		font-size: 0.95rem;
+		opacity: 0.85;
+		max-width: 34em;
+	}
+	.about-services__item .arrow-link { margin-top: 18px; }
+
+	/* ---- 7. 最終CTA：ここだけ中央配置 ---- */
+	.cta-section .container { text-align: center; }
+	.cta-section__body { margin-inline: auto; align-items: center; max-width: 600px; }
+	.cta-section__actions { justify-content: center; }
+
+	@media (min-width: 1024px) {
+		.page-hero { padding-bottom: 96px; }
+		.page-hero__grid {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 64px;
+		}
+		.about-hero__copy { flex: 0 0 62%; }
+		.about-hero__copy .page-hero__heading { font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.3rem); }
+		.about-hero__visual { flex: 0 0 38%; max-width: 38%; margin-inline: 0; margin-top: 64px; }
+
+		.about-for__grid { display: flex; align-items: flex-start; gap: 64px; }
+		.about-for__head { flex: 0 0 340px; }
+		.about-for__content { flex: 1; max-width: 680px; margin-top: 0; }
+
+		.about-values__grid { flex-direction: row; align-items: flex-start; gap: 48px; }
+		.about-values__body { margin-left: 64px; }
+		.about-values__visual { flex: 0 0 38%; max-width: 38%; margin-inline: 0; margin-top: 8px; }
+
+		.about-perspectives__item {
+			grid-template-columns: 320px 1fr;
+			grid-template-areas:
+				"image meta"
+				"image heading"
+				"image body";
+			column-gap: 56px;
+			row-gap: 12px;
+			align-items: start;
+		}
+		.about-perspectives__img { max-width: 100%; margin-inline: 0; }
+
+		.about-learn__intro-row {
+			flex-direction: row;
+			align-items: flex-end;
+			gap: 48px;
+		}
+		.about-learn__visual { flex: 0 0 320px; margin-inline: 0; margin-bottom: 4px; }
+
+		.about-learn__courses { flex-direction: row; gap: 24px; }
+		.about-learn__course { flex: 1; }
+
+		.about-services__body { margin-left: 0; }
+		.about-services__list { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+	}
+</style>
+</head>
+<body>
+	<div class="preview-flag">PREVIEW ONLY — 静的HTML確認用（本番非公開・noindex）</div>
+
+	<header class="site-header">
+		<div class="site-header__inner container">
+			<a href="../" class="site-header__logo">MARORIRI</a>
+			<nav class="site-header__nav" aria-label="メインナビゲーション">
+				<ul>
+					<li><a href="../about/" aria-current="page">ABOUT</a></li>
+					<li><a href="../maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="../case-check/">CASE CHECK</a></li>
+					<li><a href="../consulting/">CONSULTING</a></li>
+					<li><a href="../profile/">PROFILE</a></li>
+				</ul>
+			</nav>
+			<a href="../contact/" class="site-header__cta btn btn--primary">相談・申込み</a>
+			<button type="button" class="site-header__menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+				<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span></span>
+				<span class="site-header__menu-label">MENU</span>
+			</button>
+		</div>
+		<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+			<nav aria-label="モバイルナビゲーション">
+				<ul>
+					<li><a href="../about/"><span class="mobile-nav__num num-mono">01</span><span class="mobile-nav__text"><span class="mobile-nav__ja">MARORIRIとは</span><span class="mobile-nav__en num-mono">ABOUT</span></span></a></li>
+					<li><a href="../maroriri-plus/"><span class="mobile-nav__num num-mono">02</span><span class="mobile-nav__text"><span class="mobile-nav__ja">maroriri Plus</span><span class="mobile-nav__en num-mono">maroriri Plus</span></span></a></li>
+					<li><a href="../case-check/"><span class="mobile-nav__num num-mono">03</span><span class="mobile-nav__text"><span class="mobile-nav__ja">案件チェック</span><span class="mobile-nav__en num-mono">CASE CHECK</span></span></a></li>
+					<li><a href="../consulting/"><span class="mobile-nav__num num-mono">04</span><span class="mobile-nav__text"><span class="mobile-nav__ja">単発個別相談</span><span class="mobile-nav__en num-mono">CONSULTING</span></span></a></li>
+					<li><a href="../profile/"><span class="mobile-nav__num num-mono">05</span><span class="mobile-nav__text"><span class="mobile-nav__ja">運営者紹介</span><span class="mobile-nav__en num-mono">PROFILE</span></span></a></li>
+					<li><a href="../faq/"><span class="mobile-nav__num num-mono">06</span><span class="mobile-nav__text"><span class="mobile-nav__ja">よくある質問</span><span class="mobile-nav__en num-mono">FAQ</span></span></a></li>
+				</ul>
+				<a href="../contact/" class="mobile-nav__cta btn btn--primary">相談・申込み</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<!-- 1. ABOUT MARORIRI -->
+		<section class="page-hero section">
+			<div class="container">
+				<nav class="breadcrumbs" aria-label="パンくずリスト">
+					<ol>
+						<li><a href="../">HOME</a></li>
+						<li><span class="breadcrumbs__sep" aria-hidden="true">/</span><span aria-current="page">MARORIRIとは</span></li>
+					</ol>
+				</nav>
+				<p class="eyebrow page-hero__eyebrow">ABOUT MARORIRI</p>
+				<div class="page-hero__grid">
+					<div class="about-hero__copy">
+						<h1 class="page-hero__heading">コードを書くだけではない。<br />制作者として、考えて仕事をするために。</h1>
+						<div class="page-hero__lede">
+							<p>
+								MARORIRIは、コーダー・Web制作者が、<br />
+								制作の現場で迷ったときに、自分なりの基準を持って<br />
+								考え、選び、進められるようになるための場所です。
+							</p>
+							<p>
+								コードの書き方やツールの使い方だけではなく、<br />
+								デザインの読み取り方、仕事の進め方、クライアントとのやり取り、<br />
+								そして、これからどう働いていくかまで。
+							</p>
+							<p>
+								制作を「作業」で終わらせず、<br />
+								自分の仕事として向き合っていくための考え方を扱います。
+							</p>
+						</div>
+					</div>
+					<div class="about-hero__visual">
+						<img class="about-illust" src="/assets/img/about/about-thinking.webp" alt="" width="1100" height="825" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 2. FOR CREATORS -->
+		<section class="section section--white about-for">
+			<div class="container about-for__grid">
+				<div class="about-for__head">
+					<p class="eyebrow">FOR CREATORS</p>
+					<h2 class="section-heading__title">コードは書ける。<br />でも、仕事になると迷う。</h2>
+					<p class="about-for__intro">こんなことはありませんか？</p>
+				</div>
+				<div class="about-for__content">
+					<ol class="about-for__list">
+						<li><span class="num-mono">01</span><span>デザインを、どうHTMLに落とし込めばいいのか迷う</span></li>
+						<li><span class="num-mono">02</span><span>コードは書けるけれど、「これでいいのか」に自信が持てない</span></li>
+						<li><span class="num-mono">03</span><span>複数の実装方法があると、どれを選べばいいのか分からない</span></li>
+						<li><span class="num-mono">04</span><span>工数や納期、修正範囲をどう伝えればいいのか迷う</span></li>
+						<li><span class="num-mono">05</span><span>クライアントとのやり取りで、どこまで対応すればいいのか悩む</span></li>
+						<li><span class="num-mono">06</span><span>自分の経験や強みを、うまく言葉にできない</span></li>
+						<li><span class="num-mono">07</span><span>AIが当たり前になる中で、これから何を身につければいいのか分からない</span></li>
+					</ol>
+					<div class="about-for__answer">
+						<p>
+							技術を学んできても、<br />
+							実際の仕事では「正解が書いていないこと」に何度も出会います。
+						</p>
+						<p>
+							そんなときに必要なのは、<br />
+							誰かの答えをそのまま使うことではなく、
+						</p>
+						<p class="about-for__emphasis">自分で考えるための基準を持つこと。</p>
+						<p>
+							MARORIRIでは、目の前の悩みを解決するだけでなく、<br />
+							次に同じような場面に出会ったとき、<br />
+							自分で考えて進められるようになることを大切にしています。
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 3. WHAT WE VALUE -->
+		<section class="section about-values">
+			<div class="container">
+				<div class="section-heading">
+					<p class="eyebrow">WHAT WE VALUE</p>
+					<h2 class="section-heading__title">答えを覚えるより、「なぜ？」を考える。</h2>
+				</div>
+				<div class="about-values__grid">
+					<div class="about-values__body">
+						<p>
+							コードの書き方やエラーの解決方法は、<br />
+							検索やAIを使えば、以前よりずっと簡単に見つけられるようになりました。
+						</p>
+						<p>
+							でも、仕事で本当に迷うのは、<br />
+							答えがひとつではないところです。
+						</p>
+						<div class="about-values__questions">
+							<p>なぜ、このHTML構造にするのか。</p>
+							<p>なぜ、この実装方法を選ぶのか。</p>
+							<p>どこまで対応するのか。</p>
+							<p>どう説明すれば相手に伝わるのか。</p>
+						</div>
+						<p>案件の目的や状況が変われば、選ぶ答えも変わります。</p>
+						<p>
+							だからMARORIRIでは、<br />
+							「こうすれば正解」と覚えることよりも、
+						</p>
+						<p class="about-values__accent">
+							なぜそう考えるのか。<br />
+							何を基準に選ぶのか。
+						</p>
+						<p>そこを一緒に掘り下げます。</p>
+						<p>
+							自分で考え、選び、その理由を言葉にできる。<br />
+							それが、制作を長く仕事にしていくための力になると考えています。
+						</p>
+					</div>
+					<div class="about-values__visual">
+						<img class="about-illust" src="/assets/img/about/about-values.webp" alt="" width="1100" height="825" loading="lazy" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 4. THREE PERSPECTIVES -->
+		<section class="section section--white about-perspectives">
+			<div class="container">
+				<div class="section-heading">
+					<p class="eyebrow">THREE PERSPECTIVES</p>
+					<h2 class="section-heading__title">技術・実務・キャリア。<br />制作の仕事を、3つの視点から考えます。</h2>
+				</div>
+				<p class="about-perspectives__intro">
+					コードだけを切り離して学ぶのではなく、<br />
+					実際の仕事につながるところまでをMARORIRIでは扱います。
+				</p>
+				<ul class="about-perspectives__list">
+					<li class="about-perspectives__item">
+						<div class="about-perspectives__meta">
+							<span class="num-mono">01</span>
+							<span class="eyebrow">STRUCTURE</span>
+						</div>
+						<h3>HTMLとデザインを読む</h3>
+						<img class="about-perspectives__img about-illust" src="/assets/img/top/perspective-structure.webp" alt="" width="1456" height="1080" loading="lazy" />
+						<div class="about-perspectives__body">
+							<p>デザインを見たまま再現するだけではなく、「この情報は何を伝えたいのか」「どこが見出しで、どこがひとまとまりなのか」というところから考えます。</p>
+							<p>HTMLの意味、文章構造、情報の優先順位、デザインの意図を読み取りながら、なぜその構造にするのかを考える力を身につけていきます。</p>
+						</div>
+					</li>
+					<li class="about-perspectives__item">
+						<div class="about-perspectives__meta">
+							<span class="num-mono">02</span>
+							<span class="eyebrow">PRACTICE</span>
+						</div>
+						<h3>実案件を進める</h3>
+						<img class="about-perspectives__img about-illust" src="/assets/img/top/perspective-practice.webp" alt="" width="1455" height="1081" loading="lazy" />
+						<div class="about-perspectives__body">
+							<p>制作の仕事は、コードを書くだけでは終わりません。</p>
+							<p>工数をどう考えるか。納期をどう組み立てるか。どこまでが修正なのか。何を確認してから進めるのか。</p>
+							<p>そして、クライアントやディレクターとどうやり取りすれば、仕事をスムーズに進められるのか。</p>
+							<p>実際の制作現場で起こることを題材に、仕事として進めるための考え方を整理します。</p>
+						</div>
+					</li>
+					<li class="about-perspectives__item">
+						<div class="about-perspectives__meta">
+							<span class="num-mono">03</span>
+							<span class="eyebrow">CAREER</span>
+						</div>
+						<h3>自分の仕事をつくる</h3>
+						<img class="about-perspectives__img about-illust" src="/assets/img/top/perspective-value.webp" alt="" width="1455" height="1081" loading="lazy" />
+						<div class="about-perspectives__body">
+							<p>できることが増えても、それをどう仕事につなげるかで迷うことがあります。</p>
+							<p>自分には何ができるのか。何を強みにしていくのか。どんな仕事を選ぶのか。これから、どんな働き方をしたいのか。</p>
+							<p>経験を棚卸ししながら、自分の価値をどう伝えるか、これから何を身につけていくかを考えます。</p>
+							<p>AIが制作の中に入ってくるこれからも、「何を作るか」だけでなく、「何を考え、どう選ぶか」を大切にしていきます。</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- 5. LEARN WITH MARORIRI -->
+		<section class="section about-learn">
+			<div class="container">
+				<div class="about-learn__intro-row">
+					<div class="about-learn__intro-text">
+						<p class="eyebrow">LEARN WITH MARORIRI</p>
+						<h2 class="section-heading__title">実務で身につけたことを、<br />講座や相談を通して伝えています。</h2>
+						<p>
+							MARORIRIで扱うのは、<br />
+							教科書だけでは分からない、制作現場での考え方です。
+						</p>
+						<p>
+							実際の案件で迷ったこと、失敗したこと、<br />
+							何度も試しながら身につけてきたことをもとに、<br />
+							講座や相談の場をつくっています。
+						</p>
+					</div>
+					<div class="about-learn__visual">
+						<img class="about-illust" src="/assets/img/about/about-learning.webp" alt="" width="1100" height="825" loading="lazy" />
+					</div>
+				</div>
+
+				<div class="about-learn__courses">
+					<div class="about-learn__course">
+						<h3 class="about-learn__course-name">コーディングマインド講座</h3>
+						<p class="about-learn__course-catch">コードを書く前に、考える。</p>
+						<div class="about-learn__course-body">
+							<p>「HTMLの意味や文章構造」「デザインをどう読み取るか」「制作の中で何を基準に判断するか。」</p>
+							<p>コードを書く技術だけではなく、コーダーとして仕事をするときに必要になる「考え方」を扱う講座です。</p>
+						</div>
+					</div>
+					<div class="about-learn__course">
+						<h3 class="about-learn__course-name">コーダーによるデザイン料理教室</h3>
+						<p class="about-learn__course-catch">デザインを、実装できる形まで読み解く。</p>
+						<div class="about-learn__course-body">
+							<p>完成したデザインを見て、どこからHTMLを組み立てるのか。</p>
+							<p>
+								どこをひとまとまりとして考えるのか。<br />
+								何を共通化し、どうCSSへ落とし込むのか。
+							</p>
+							<p>デザインをそのまま写すのではなく、コーダーの視点から構造を読み取り、実装へつなげる考え方を学ぶ講座です。</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="about-learn__closing">
+					<p>
+						講座だけでなく、<br />
+						実際に抱えている案件や働き方について相談できる場も用意しています。
+					</p>
+					<a href="../#courses" class="arrow-link"><span class="arrow-link__label">講座・活動実績を見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</section>
+
+		<!-- 6. MARORIRI SERVICES -->
+		<section class="section section--white about-services">
+			<div class="container">
+				<div class="section-heading">
+					<p class="eyebrow">MARORIRI SERVICES</p>
+					<h2 class="section-heading__title">今の自分に合った形で、<br />MARORIRIを使ってください。</h2>
+				</div>
+				<div class="about-services__intro">
+					<p>学びたいことも、困っていることも、必要なサポートの形も人それぞれです。</p>
+					<p class="about-services__intro-nowrap">継続して考え方を身につけたいとき。今取り組んでいる案件を見てほしいとき。一度じっくり相談したいとき。</p>
+					<p>目的に合わせて選べる3つの形を用意しています。</p>
+				</div>
+
+				<ul class="about-services__list">
+					<li class="about-services__item about-services__item--primary">
+						<h3 class="about-services__title">maroriri Plus</h3>
+						<p class="about-services__catch">一人で歩く。でも、独りではない。</p>
+						<div class="about-services__body">
+							<p>制作の中で出てきた疑問や迷いを持ち寄り、みんなで考えながら、自分なりの基準を育てていく場所です。</p>
+							<p>技術のこと、案件のこと、クライアント対応、キャリアやこれからの働き方まで。</p>
+							<p>一人で仕事をしていると抱え込みやすいことを、「ちょっと聞いてみよう」と持ってこられる、MARORIRIの中心となる場です。</p>
+						</div>
+						<a href="../maroriri-plus/" class="arrow-link"><span class="arrow-link__label">詳しく見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+					</li>
+					<li class="about-services__item">
+						<h3 class="about-services__title">案件チェック</h3>
+						<p class="about-services__catch">作ったものを確認して、次の仕事につなげる。</p>
+						<div class="about-services__body">
+							<p>
+								制作したWebサイトやページを、<br />
+								HTML構造、デザインの再現、表示、操作性などの視点から確認します。
+							</p>
+							<p>
+								単に「ここを直してください」と指摘するだけではなく、<br />
+								なぜ直した方がいいのか、<br />
+								次はどこを意識すればいいのかまでお伝えします。
+							</p>
+							<p>
+								完成した案件を、<br />
+								次の制作に活かすためのサービスです。
+							</p>
+						</div>
+						<a href="../case-check/" class="arrow-link"><span class="arrow-link__label">詳しく見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+					</li>
+					<li class="about-services__item">
+						<h3 class="about-services__title">単発個別相談</h3>
+						<p class="about-services__catch">頭の中にある迷いを、一緒に整理する。</p>
+						<div class="about-services__body">
+							<p>
+								案件の進め方、クライアントとのやり取り、<br />
+								工数や見積もり、仕事の選び方、キャリアのこと。
+							</p>
+							<p>
+								「誰に聞けばいいのか分からない」<br />
+								「一人で考えていると整理できない」
+							</p>
+							<p>
+								そんなときに、いま抱えていることを話しながら、<br />
+								状況を整理し、次にどう動くかを一緒に考えます。
+							</p>
+						</div>
+						<a href="../consulting/" class="arrow-link"><span class="arrow-link__label">詳しく見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- 7. 最終CTA -->
+		<section class="cta-section section section--dark">
+			<div class="container">
+				<h2 class="cta-section__heading">自分で考えられることは、<br />仕事を続ける力になる。</h2>
+				<div class="cta-section__body">
+					<p>経験を重ねても、迷うことはなくなりません。</p>
+					<p>でも、迷ったときに立ち戻れる基準があれば、誰かの答えを待たずに、自分で次へ進めるようになります。</p>
+					<p>MARORIRIが、その基準を少しずつ育てていける場所になればと思っています。</p>
+				</div>
+				<div class="cta-section__actions">
+					<a href="../maroriri-plus/" class="btn btn--primary">maroriri Plusを見る</a>
+					<a href="../contact/" class="arrow-link cta-section__secondary"><span class="arrow-link__label">公式LINEで相談する</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container site-footer__inner">
+			<div class="site-footer__brand">
+				<p class="site-footer__logo">MARORIRI</p>
+				<p class="site-footer__tagline">制作者として、考え、選び、仕事を続けるための場所。</p>
+			</div>
+			<nav class="site-footer__nav" aria-label="フッターナビゲーション">
+				<ul>
+					<li><a href="../about/">MARORIRIとは</a></li>
+					<li><a href="../maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="../case-check/">案件チェック</a></li>
+					<li><a href="../consulting/">単発個別相談</a></li>
+					<li><a href="../profile/">運営者紹介</a></li>
+					<li><a href="../faq/">よくある質問</a></li>
+					<li><a href="../contact/">相談・申込み</a></li>
+				</ul>
+			</nav>
+			<nav class="site-footer__legal" aria-label="法務情報">
+				<ul>
+					<li><a href="../terms/">利用規約</a></li>
+					<li><a href="../tokushoho/">特定商取引法に基づく表記</a></li>
+					<li><a href="../privacy/">プライバシーポリシー</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container site-footer__bottom">
+			<p>© MARORIRI</p>
+		</div>
+	</footer>
+
+	<script>
+		const toggle = document.getElementById("menu-toggle");
+		const nav = document.getElementById("mobile-nav");
+		if (toggle && nav) {
+			const links = nav.querySelectorAll("a");
+			const openMenu = () => {
+				toggle.setAttribute("aria-expanded", "true");
+				nav.setAttribute("aria-hidden", "false");
+				document.body.classList.add("nav-open");
+			};
+			const closeMenu = () => {
+				toggle.setAttribute("aria-expanded", "false");
+				nav.setAttribute("aria-hidden", "true");
+				document.body.classList.remove("nav-open");
+			};
+			toggle.addEventListener("click", () => {
+				const isOpen = toggle.getAttribute("aria-expanded") === "true";
+				isOpen ? closeMenu() : openMenu();
+			});
+			links.forEach((link) => link.addEventListener("click", closeMenu));
+		}
+	</script>
+</body>
+</html>

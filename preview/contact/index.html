@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>相談・申込み｜MARORIRI（確認用プレビュー）</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../shared.css" />
+<link rel="stylesheet" href="../components.css" />
+<style>
+	.contact-line__wrap { margin-top: 40px; }
+	.contact-topics__heading { margin-top: 16px; font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem); }
+	.contact-topics__list { margin-top: 32px; }
+	.contact-flow__heading { margin-top: 16px; font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem); }
+	.contact-flow__wrap { margin-top: 40px; }
+	.contact-examples__heading { margin-top: 16px; font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem); }
+	.contact-examples__list { margin-top: 40px; display: flex; flex-direction: column; }
+	.contact-examples__item { padding-block: 24px; border-top: 1px solid var(--color-border); scroll-margin-top: 100px; }
+	.contact-examples__item:last-child { border-bottom: 1px solid var(--color-border); }
+	.contact-examples__label { color: var(--color-accent); font-size: 0.8rem; }
+	.contact-examples__text { margin-top: 10px; font-size: 1.1rem; }
+	.contact-caution__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; max-width: 38em; }
+	.contact-other__heading { margin-top: 16px; font-size: clamp(1.4rem, 1.15rem + 1.6vw, 2rem); }
+	.contact-other__body { margin-top: 24px; max-width: 38em; opacity: 0.8; }
+	.contact-faq__inner { text-align: left; }
+	.contact-faq__heading { font-size: clamp(1.4rem, 1.15rem + 1.8vw, 2.1rem); }
+	.contact-faq__link { margin-top: 28px; color: var(--color-highlight); }
+	@media (min-width: 768px) {
+		.contact-examples__list { flex-direction: row; flex-wrap: wrap; }
+		.contact-examples__item { flex: 0 0 50%; padding-right: 24px; }
+	}
+</style>
+</head>
+<body>
+	<div class="preview-flag">PREVIEW ONLY — 静的HTML確認用（本番非公開・noindex）</div>
+
+	<header class="site-header">
+		<div class="site-header__inner container">
+			<a href="../" class="site-header__logo">MARORIRI</a>
+			<nav class="site-header__nav" aria-label="メインナビゲーション">
+				<ul>
+					<li><a href="../about/">ABOUT</a></li>
+					<li><a href="../maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="../case-check/">CASE CHECK</a></li>
+					<li><a href="../consulting/">CONSULTING</a></li>
+					<li><a href="../profile/">PROFILE</a></li>
+				</ul>
+			</nav>
+			<a href="../contact/" class="site-header__cta btn btn--primary">相談・申込み</a>
+			<button type="button" class="site-header__menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+				<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span></span>
+				<span class="site-header__menu-label">MENU</span>
+			</button>
+		</div>
+		<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+			<nav aria-label="モバイルナビゲーション">
+				<ul>
+					<li><a href="../about/"><span class="mobile-nav__num num-mono">01</span><span class="mobile-nav__text"><span class="mobile-nav__ja">MARORIRIとは</span><span class="mobile-nav__en num-mono">ABOUT</span></span></a></li>
+					<li><a href="../maroriri-plus/"><span class="mobile-nav__num num-mono">02</span><span class="mobile-nav__text"><span class="mobile-nav__ja">maroriri Plus</span><span class="mobile-nav__en num-mono">maroriri Plus</span></span></a></li>
+					<li><a href="../case-check/"><span class="mobile-nav__num num-mono">03</span><span class="mobile-nav__text"><span class="mobile-nav__ja">案件チェック</span><span class="mobile-nav__en num-mono">CASE CHECK</span></span></a></li>
+					<li><a href="../consulting/"><span class="mobile-nav__num num-mono">04</span><span class="mobile-nav__text"><span class="mobile-nav__ja">単発個別相談</span><span class="mobile-nav__en num-mono">CONSULTING</span></span></a></li>
+					<li><a href="../profile/"><span class="mobile-nav__num num-mono">05</span><span class="mobile-nav__text"><span class="mobile-nav__ja">運営者紹介</span><span class="mobile-nav__en num-mono">PROFILE</span></span></a></li>
+					<li><a href="../faq/"><span class="mobile-nav__num num-mono">06</span><span class="mobile-nav__text"><span class="mobile-nav__ja">よくある質問</span><span class="mobile-nav__en num-mono">FAQ</span></span></a></li>
+				</ul>
+				<a href="../contact/" class="mobile-nav__cta btn btn--primary">相談・申込み</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="page-hero section">
+			<div class="container">
+				<nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="../">HOME</a></li><li><span class="breadcrumbs__sep" aria-hidden="true">/</span><span aria-current="page">相談・申込み</span></li></ol></nav>
+				<p class="eyebrow page-hero__eyebrow">CONTACT</p>
+				<div class="page-hero__grid">
+					<div class="page-hero__copy">
+						<h1 class="page-hero__heading">相談・申込みは、<br />公式LINEから受け付けています。</h1>
+						<div class="page-hero__lede">
+							<p>maroriri Plus、案件チェック、単発個別相談への<br />申込みやご質問を、公式LINEから受け付けています。</p>
+							<p>内容が整理できていない段階でも構いません。<br />現在困っていることや、気になっているサービスを分かる範囲でお送りください。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--white contact-line">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">OFFICIAL LINE</p><h2 class="section-heading__title">友だち追加後、<br />ご希望のサービス名をお送りください。</h2></div>
+				<div class="contact-line__wrap">
+					<div class="line-block">
+						<div class="line-block__panel">
+							<p class="line-block__label num-mono">OFFICIAL LINE</p>
+							<p class="line-block__pending">公式LINEのURL・QRコード設定待ち</p>
+							<div class="line-block__qr" role="img" aria-label="公式LINE友だち追加用QRコード">
+								<span class="line-block__qr-placeholder">QR CODE<br />設定待ち</span>
+							</div>
+						</div>
+						<div class="line-block__messages">
+							<p class="line-block__messages-label">友だち追加後に送る言葉</p>
+							<ul>
+								<li class="num-mono">「プラス」</li>
+								<li class="num-mono">「案件チェック」</li>
+								<li class="num-mono">「個別相談」</li>
+								<li class="num-mono">「その他の質問」</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section contact-topics">
+			<div class="container">
+				<p class="eyebrow">WHAT YOU CAN TALK ABOUT</p>
+				<h2 class="contact-topics__heading">相談できる内容</h2>
+				<ul class="list-plain contact-topics__list">
+					<li>maroriri Plusへの参加</li><li>案件チェックの申込み</li><li>単発個別相談の申込み</li><li>サービスについての質問</li><li>どのサービスが合うか分からない場合の相談</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section section--white contact-flow">
+			<div class="container">
+				<p class="eyebrow">AFTER YOU ADD US</p>
+				<h2 class="contact-flow__heading">友だち追加後の流れ</h2>
+				<div class="contact-flow__wrap">
+					<ol class="service-flow">
+						<li class="service-flow__item"><span class="num-mono service-flow__num">01</span><div><p class="service-flow__title">公式LINEを友だち追加</p></div></li>
+						<li class="service-flow__item"><span class="num-mono service-flow__num">02</span><div><p class="service-flow__title">希望するサービス名を送信</p></div></li>
+						<li class="service-flow__item"><span class="num-mono service-flow__num">03</span><div><p class="service-flow__title">現在の状況を分かる範囲で送信</p></div></li>
+						<li class="service-flow__item"><span class="num-mono service-flow__num">04</span><div><p class="service-flow__title">内容を確認後、必要事項をご案内</p></div></li>
+						<li class="service-flow__item"><span class="num-mono service-flow__num">05</span><div><p class="service-flow__title">日程や申込み方法を調整</p></div></li>
+					</ol>
+				</div>
+			</div>
+		</section>
+
+		<section class="section contact-examples">
+			<div class="container">
+				<p class="eyebrow">MESSAGE EXAMPLES</p>
+				<h2 class="contact-examples__heading">サービス別の送信例</h2>
+				<ul class="contact-examples__list">
+					<li id="maroriri-plus" class="contact-examples__item"><span class="contact-examples__label num-mono">maroriri Plus</span><p class="contact-examples__text">「maroriri Plusについて知りたいです」</p></li>
+					<li id="case-check" class="contact-examples__item"><span class="contact-examples__label num-mono">案件チェック</span><p class="contact-examples__text">「案件チェックを希望します」</p></li>
+					<li id="consulting" class="contact-examples__item"><span class="contact-examples__label num-mono">個別相談</span><p class="contact-examples__text">「個別相談を希望します」</p></li>
+					<li id="other" class="contact-examples__item"><span class="contact-examples__label num-mono">その他</span><p class="contact-examples__text">「どのサービスが合うか相談したいです」</p></li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section section--white contact-caution">
+			<div class="container">
+				<div class="section-heading"><p class="eyebrow">ABOUT CLIENT PROJECTS</p><h2 class="section-heading__title">クライアント案件について<br />相談する場合</h2></div>
+				<div class="contact-caution__body">
+					<p>案件チェックや個別相談では、クライアント案件について相談することもできます。</p>
+					<p>ただし、クライアント名、個人情報、ログイン情報、未公開データなどを最初からLINEへ送信しないでください。</p>
+					<p>まずは案件の概要と確認してほしい内容をお送りください。必要な資料や共有方法は、内容を確認した後にご案内します。</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section contact-other">
+			<div class="container">
+				<p class="eyebrow">OTHER CONTACT</p>
+				<h2 class="contact-other__heading">LINE以外の連絡先</h2>
+				<p class="contact-other__body">公式LINEを主な窓口としています。利用規約、特定商取引法に基づく表記、プライバシーポリシーには、必要に応じて正式なメールアドレスを掲載します。</p>
+			</div>
+		</section>
+
+		<section class="section section--dark contact-faq">
+			<div class="container contact-faq__inner">
+				<h2 class="contact-faq__heading">掲載されていない内容については、<br />よくある質問もご確認ください。</h2>
+				<a href="../faq/" class="arrow-link contact-faq__link"><span class="arrow-link__label">よくある質問を見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container site-footer__inner">
+			<div class="site-footer__brand">
+				<p class="site-footer__logo">MARORIRI</p>
+				<p class="site-footer__tagline">制作者として、考え、選び、仕事を続けるための場所。</p>
+			</div>
+			<nav class="site-footer__nav" aria-label="フッターナビゲーション">
+				<ul>
+					<li><a href="../about/">MARORIRIとは</a></li>
+					<li><a href="../maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="../case-check/">案件チェック</a></li>
+					<li><a href="../consulting/">単発個別相談</a></li>
+					<li><a href="../profile/">運営者紹介</a></li>
+					<li><a href="../faq/">よくある質問</a></li>
+					<li><a href="../contact/">相談・申込み</a></li>
+				</ul>
+			</nav>
+			<nav class="site-footer__legal" aria-label="法務情報">
+				<ul>
+					<li><a href="../terms/">利用規約</a></li>
+					<li><a href="../tokushoho/">特定商取引法に基づく表記</a></li>
+					<li><a href="../privacy/">プライバシーポリシー</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container site-footer__bottom"><p>© MARORIRI</p></div>
+	</footer>
+
+	<script>
+		const toggle = document.getElementById("menu-toggle");
+		const nav = document.getElementById("mobile-nav");
+		if (toggle && nav) {
+			const links = nav.querySelectorAll("a");
+			const openMenu = () => { toggle.setAttribute("aria-expanded", "true"); nav.setAttribute("aria-hidden", "false"); document.body.classList.add("nav-open"); };
+			const closeMenu = () => { toggle.setAttribute("aria-expanded", "false"); nav.setAttribute("aria-hidden", "true"); document.body.classList.remove("nav-open"); };
+			toggle.addEventListener("click", () => { (toggle.getAttribute("aria-expanded") === "true") ? closeMenu() : openMenu(); });
+			links.forEach((link) => link.addEventListener("click", closeMenu));
+		}
+	</script>
+</body>
+</html>

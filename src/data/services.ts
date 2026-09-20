@@ -16,7 +16,7 @@ export const caseCheck = {
 export const consulting = {
 	price: "5,000円（税込）",
 	duration: "60分",
-	memberNote: "maroririプラスの月額料金には含まれない、別料金の相談です。",
+	memberNote: "maroriri Plusの月額料金には含まれない、別料金の相談です。",
 	lineText: "個別相談",
 	contactAnchor: "/contact/#consulting",
 };

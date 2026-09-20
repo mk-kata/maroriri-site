@@ -38,6 +38,15 @@ const whoItsFor = [
 	"これからのキャリアを考えたい",
 ];
 
+// 仮テキスト。最終的な文言は後日調整する。
+const whoItsNotFor = [
+	"コードの書き方だけを教えてほしい方",
+	"初心者向けの基礎講座を求めている方",
+	"答えだけをすぐに受け取りたい方",
+	"自分で考えることより、指示どおりに進めたい方",
+	"短期間で仕事や収入を保証してほしい方",
+];
+
 const lightConsult = [
 	"コミュニティへの投稿形式",
 	"日々の実務で生じた疑問を短く相談できる",
@@ -59,17 +68,17 @@ const flowSteps = [
 	{ num: "02", title: "「プラス」と送信" },
 	{ num: "03", title: "参加条件と利用方法の案内を確認" },
 	{ num: "04", title: "申込み手続き" },
-	{ num: "05", title: "maroririプラスへ参加" },
+	{ num: "05", title: "maroriri Plusへ参加" },
 ];
 
 const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 ---
 
 <BaseLayout
-	title="maroririプラス｜MARORIRI"
-	description="maroririプラスは、コーダー・Web制作者が実務の疑問や迷いを持ち寄り、制作者としての判断基準を育てる月額制のコミュニティです。"
+	title="maroriri Plus｜MARORIRI"
+	description="maroriri Plusは、コーダー・Web制作者が実務の疑問や迷いを持ち寄り、制作者としての判断基準を育てる月額制のコミュニティです。"
 >
-	<PageHero eyebrow="maroriri＋" crumbLabel="maroririプラス">
+	<PageHero eyebrow="maroriri Plus" crumbLabel="maroriri Plus">
 		一人で歩く。<br />でも、独りではない。
 		<Fragment slot="lede">
 			<p>
@@ -81,7 +90,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 	</PageHero>
 
 	<div class="container hero-cta">
-		<ArrowLink href="#about">maroririプラスの内容を見る</ArrowLink>
+		<ArrowLink href="#about">maroriri Plusの内容を見る</ArrowLink>
 	</div>
 
 	<section class="section section--white plus-concerns">
@@ -96,9 +105,9 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 
 	<section class="section plus-about" id="about">
 		<div class="container">
-			<SectionHeading eyebrow="WHAT IS MARORIRI+">コーディングの先を、<br />一緒に考える。</SectionHeading>
+			<SectionHeading eyebrow="WHAT IS maroriri Plus">コーディングの先を、<br />一緒に考える。</SectionHeading>
 			<div class="plus-about__body">
-				<p>maroririプラスは、「一人で歩く。でも、独りではない。」というMARORIRIのモットーを、具体的な場にしたコミュニティです。</p>
+				<p>maroriri Plusは、「一人で歩く。でも、独りではない。」というMARORIRIのモットーを、具体的な場にしたコミュニティです。</p>
 				<p class="plus-about__direction">コーディングを土台に、仕事の領域を広げる。</p>
 				<p>コードの書き方やエラーの解決方法だけを教える場所ではありません。すでに実務に入っているコーダー・Web制作者が、実務の中で感じた疑問や迷いを持ち寄り、自分なりの判断基準を育てていく場所です。</p>
 				<p>初心者向けのコーディングスクールでも、ディレクター養成講座でもありません。すでに手を動かして仕事をしている方が、次の一歩を考えるための場です。</p>
@@ -110,7 +119,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 		<div class="container">
 			<SectionHeading eyebrow="WHAT YOU ADD">今ある経験に、<br />次の力をプラスする。</SectionHeading>
 			<p class="plus-add__lead">
-				maroririプラスが目指すのは、職種を変えることではありません。今持っているコーディングの経験の上に、次の力を重ねていくことです。
+				maroriri Plusが目指すのは、職種を変えることではありません。今持っているコーディングの経験の上に、次の力を重ねていくことです。
 			</p>
 			<ul class="tag-list plus-add__list">
 				{addOns.map((t) => <li>{t}</li>)}
@@ -121,7 +130,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 
 	<section class="section plus-get">
 		<div class="container">
-			<SectionHeading eyebrow="WHAT YOU GET">maroririプラスでできること</SectionHeading>
+			<SectionHeading eyebrow="WHAT YOU GET">maroriri Plusでできること</SectionHeading>
 			<ol class="plus-get__list">
 				{
 					included.map((t, i) => (
@@ -144,7 +153,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 			<div class="plus-change__body">
 				<p>ひとりで正解を探し続けると、判断のたびに不安が残ります。</p>
 				<p>
-					maroririプラスでは、ほかの制作者の考え方に触れながら、なぜその方法を選ぶのかを一緒に考えます。答えを教えてもらうことが目的ではなく、自分で判断し、その理由を自分の言葉で説明できるようになることを目指します。
+					maroriri Plusでは、ほかの制作者の考え方に触れながら、なぜその方法を選ぶのかを一緒に考えます。答えを教えてもらうことが目的ではなく、自分で判断し、その理由を自分の言葉で説明できるようになることを目指します。
 				</p>
 			</div>
 		</div>
@@ -153,9 +162,20 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 	<section class="section plus-who">
 		<div class="container">
 			<SectionHeading eyebrow="WHO IT'S FOR">こんな方へ</SectionHeading>
-			<p class="plus-who__lead">maroririプラスは、次のような方に向いています。</p>
+			<p class="plus-who__lead">maroriri Plusは、次のような方に向いています。</p>
 			<ul class="list-plain plus-who__list">
 				{whoItsFor.map((t) => <li>{t}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<!-- 仮テキスト。最終的な文言は後日調整する。 -->
+	<section class="section plus-not-for">
+		<div class="container">
+			<SectionHeading eyebrow="WHO IT'S NOT FOR">向いていない方</SectionHeading>
+			<p class="plus-not-for__lead">一方で、次のような方には向いていません。</p>
+			<ul class="list-plain plus-not-for__list">
+				{whoItsNotFor.map((t) => <li>{t}</li>)}
 			</ul>
 		</div>
 	</section>
@@ -230,7 +250,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 		<div class="container plus-faq__grid">
 			<div class="plus-faq__head">
 				<p class="eyebrow reveal-heading">FAQ</p>
-				<h2 class="reveal-heading">maroririプラスに<br />よくいただく質問。</h2>
+				<h2 class="reveal-heading">maroriri Plusに<br />よくいただく質問。</h2>
 				<ArrowLink href="/faq/">よくある質問をすべて見る</ArrowLink>
 			</div>
 			<div class="plus-faq__list">
@@ -344,6 +364,14 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 	}
 
 	.plus-who__list {
+		margin-top: 24px;
+	}
+
+	.plus-not-for__lead {
+		margin-top: 32px;
+	}
+
+	.plus-not-for__list {
 		margin-top: 24px;
 	}
 

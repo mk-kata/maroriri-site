@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>よくある質問｜MARORIRI（確認用プレビュー）</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../shared.css" />
+<link rel="stylesheet" href="../components.css" />
+<style>
+	.faq-nav__list { display: flex; flex-wrap: wrap; gap: 12px; }
+	.faq-nav__link { padding: 10px 18px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem; }
+	.faq-nav__link:hover { border-color: var(--color-accent); color: var(--color-accent); }
+	.faq-category__list { margin-top: 32px; max-width: 760px; }
+</style>
+</head>
+<body>
+	<div class="preview-flag">PREVIEW ONLY — 静的HTML確認用（本番非公開・noindex）</div>
+
+	<header class="site-header">
+		<div class="site-header__inner container">
+			<a href="../" class="site-header__logo">MARORIRI</a>
+			<nav class="site-header__nav" aria-label="メインナビゲーション">
+				<ul>
+					<li><a href="../about/">ABOUT</a></li>
+					<li><a href="../maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="../case-check/">CASE CHECK</a></li>
+					<li><a href="../consulting/">CONSULTING</a></li>
+					<li><a href="../profile/">PROFILE</a></li>
+				</ul>
+			</nav>
+			<a href="../contact/" class="site-header__cta btn btn--primary">相談・申込み</a>
+			<button type="button" class="site-header__menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+				<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span></span>
+				<span class="site-header__menu-label">MENU</span>
+			</button>
+		</div>
+		<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+			<nav aria-label="モバイルナビゲーション">
+				<ul>
+					<li><a href="../about/"><span class="mobile-nav__num num-mono">01</span><span class="mobile-nav__text"><span class="mobile-nav__ja">MARORIRIとは</span><span class="mobile-nav__en num-mono">ABOUT</span></span></a></li>
+					<li><a href="../maroriri-plus/"><span class="mobile-nav__num num-mono">02</span><span class="mobile-nav__text"><span class="mobile-nav__ja">maroriri Plus</span><span class="mobile-nav__en num-mono">maroriri Plus</span></span></a></li>
+					<li><a href="../case-check/"><span class="mobile-nav__num num-mono">03</span><span class="mobile-nav__text"><span class="mobile-nav__ja">案件チェック</span><span class="mobile-nav__en num-mono">CASE CHECK</span></span></a></li>
+					<li><a href="../consulting/"><span class="mobile-nav__num num-mono">04</span><span class="mobile-nav__text"><span class="mobile-nav__ja">単発個別相談</span><span class="mobile-nav__en num-mono">CONSULTING</span></span></a></li>
+					<li><a href="../profile/"><span class="mobile-nav__num num-mono">05</span><span class="mobile-nav__text"><span class="mobile-nav__ja">運営者紹介</span><span class="mobile-nav__en num-mono">PROFILE</span></span></a></li>
+					<li><a href="../faq/"><span class="mobile-nav__num num-mono">06</span><span class="mobile-nav__text"><span class="mobile-nav__ja">よくある質問</span><span class="mobile-nav__en num-mono">FAQ</span></span></a></li>
+				</ul>
+				<a href="../contact/" class="mobile-nav__cta btn btn--primary">相談・申込み</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="page-hero section">
+			<div class="container">
+				<nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="../">HOME</a></li><li><span class="breadcrumbs__sep" aria-hidden="true">/</span><span aria-current="page">よくある質問</span></li></ol></nav>
+				<p class="eyebrow page-hero__eyebrow">FAQ</p>
+				<div class="page-hero__grid">
+					<div class="page-hero__copy">
+						<h1 class="page-hero__heading">参加や相談について、<br />よくいただく質問。</h1>
+						<div class="page-hero__lede"><p>カテゴリごとに、よくいただく質問をまとめています。</p></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--white faq-nav">
+			<div class="container">
+				<nav class="faq-nav__list" aria-label="FAQカテゴリ">
+					<a href="#coder-club" class="faq-nav__link">maroriri Plus</a>
+					<a href="#case-check" class="faq-nav__link">案件チェック</a>
+					<a href="#consulting" class="faq-nav__link">個別相談</a>
+					<a href="#pricing" class="faq-nav__link">料金と申込み</a>
+					<a href="#line" class="faq-nav__link">LINEでの相談</a>
+					<a href="#privacy" class="faq-nav__link">情報の取り扱い</a>
+				</nav>
+			</div>
+		</section>
+
+		<section class="section faq-body">
+			<div class="container">
+				<div class="faq-category" id="coder-club">
+					<p class="eyebrow faq-category__label">maroriri Plus</p>
+					<div class="faq-category__list">
+						<div class="faq-accordion">
+							<details class="faq-item"><summary class="faq-item__question"><span>「コミュニティ内での軽い実務相談」と「実務・キャリア相談」は何が違いますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">「軽い実務相談」はコミュニティへの投稿形式で、日々の実務で生じた疑問に簡単なヒントや方向性をお伝えするものです。個別の時間予約はありません。「実務・キャリア相談」は事前予約制の個別相談で、60分間1対1で、案件やキャリアについて深く整理したいときにご利用いただけます。月額料金には含まれず、別料金（60分5,000円・税込）です。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>コーディング経験が浅くても参加できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">経験年数だけで判断するものではありませんが、HTML・CSSの基礎学習を終え、実案件または実案件に近い制作に取り組んでいる方を主な対象としています。これから初めてHTML・CSSを学ぶ方には、現在の内容が合わない可能性があります。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>勉強会ではどのような内容を扱いますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">HTMLの意味や文章構造、デザインの読み取り方、案件の進め方、クライアントへの伝え方など、コーダーとして判断するためのテーマを取り上げます。代表的な勉強会が「デザイン料理教室」です。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>デザイン料理教室だけに参加できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">デザイン料理教室は、maroriri Plusの会員向け勉強会です。現在、デザイン料理教室だけの単独申込みは受け付けていません。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>勉強会に参加できなかった場合はどうなりますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">勉強会のアーカイブを月額料金に含めてご提供します。配信方法の詳細は、正式な運用が決まり次第お知らせします。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>案件の内容やクライアント情報は外部に公開されませんか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">コミュニティへ投稿した内容は、参加メンバーが閲覧できます。クライアント名、会社名、個人情報、非公開情報などは伏せ、契約上共有できない情報を投稿しないようお願いいたします。実務・キャリア相談で個別にお聞きした内容を、許可なくコミュニティや外部へ公開することはありません。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>退会方法を教えてください。</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">退会方法と手続き期限については、決済方法の確定後にmaroriri Plusの案内ページへ掲載します。</div></details>
+						</div>
+					</div>
+				</div>
+
+				<div class="faq-category" id="case-check">
+					<p class="eyebrow faq-category__label">案件チェック</p>
+					<div class="faq-category__list">
+						<div class="faq-accordion">
+							<details class="faq-item"><summary class="faq-item__question"><span>どのような案件を確認してもらえますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">HTML・CSSによるWebページ、ランディングページ、コーポレートサイト、WordPressなどのテーマ実装を対象としています。仕事として制作している実案件、または公開前の制作物にご利用いただけます。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>修正作業も料金に含まれますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">案件チェックの料金には、確認と結果のご報告を含みます。実作業や修正対応が必要な場合は、別途お見積りとなります。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>クライアント案件でも依頼できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">ご依頼いただけます。ただし、クライアント名や個人情報などを許可なく外部へ公開することはありません。必要に応じて、名称を伏せた状態でご共有ください。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>公開前の案件でも確認できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">公開前の制作物についてもご確認いただけます。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>確認結果はどのように受け取りますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">確認結果は、内容に合った方法でお伝えします。正式な返却方法は、お申込み時にご案内します。</div></details>
+						</div>
+					</div>
+				</div>
+
+				<div class="faq-category" id="consulting">
+					<p class="eyebrow faq-category__label">個別相談</p>
+					<div class="faq-category__list">
+						<div class="faq-accordion">
+							<details class="faq-item"><summary class="faq-item__question"><span>どのような内容を相談できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">案件の進め方、工数、納期、修正、クライアントとの関係、仕事の獲得、今後のキャリアなど、実案件で迷っていることをご相談いただけます。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>相談前に資料を用意する必要はありますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">すべてを整理してから相談する必要はありません。内容がまとまっていない場合は、分かる範囲で公式LINEからお送りください。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>制作作業もお願いできますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">個別相談は状況の整理とご相談が中心となり、制作作業は料金に含まれません。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>オンラインで相談できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">オンラインでご相談いただけます。利用するオンライン会議ツールについては、日程調整の際にご案内します。</div></details>
+						</div>
+					</div>
+				</div>
+
+				<div class="faq-category" id="pricing">
+					<p class="eyebrow faq-category__label">料金と申込み</p>
+					<div class="faq-category__list">
+						<div class="faq-accordion">
+							<details class="faq-item"><summary class="faq-item__question"><span>料金の支払方法を教えてください。</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">支払方法については、正式な運用内容が決まり次第掲載します。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>キャンセルや日程変更はできますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">キャンセル・日程変更の条件については、正式な運用内容が決まり次第掲載します。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>領収書は発行できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">領収書の発行につきましては、公式LINEからお問い合わせください。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>法人でも利用できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">法人でのご利用についても、公式LINEからご相談ください。</div></details>
+						</div>
+					</div>
+				</div>
+
+				<div class="faq-category" id="line">
+					<p class="eyebrow faq-category__label">LINEでの相談</p>
+					<div class="faq-category__list">
+						<div class="faq-accordion">
+							<details class="faq-item"><summary class="faq-item__question"><span>公式LINEではどのように相談すればよいですか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">公式LINEを友だち追加後、「プラス」「案件チェック」「個別相談」「その他の質問」のいずれかを送信してください。内容を確認し、必要なご案内をお送りします。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>内容が整理できていなくても相談できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">整理できていない段階でも構いません。現在困っていることを、分かる範囲でお送りください。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>LINEへ案件のファイルを送ってもよいですか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">最初からファイルやクライアント情報をすべて送る必要はありません。まずは案件の概要をお送りください。必要な共有方法は、内容を確認した後にご案内します。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>返信にはどのくらいかかりますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">返信までの日数につきましては、正式な運用内容が決まり次第掲載します。</div></details>
+						</div>
+					</div>
+				</div>
+
+				<div class="faq-category" id="privacy">
+					<p class="eyebrow faq-category__label">情報の取り扱い</p>
+					<div class="faq-category__list">
+						<div class="faq-accordion">
+							<details class="faq-item"><summary class="faq-item__question"><span>案件やクライアント情報は外部に公開されませんか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">ご相談いただいた案件やクライアントに関する情報を、許可なく外部へ公開することはありません。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>秘密保持契約に対応できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">秘密保持契約への対応については、公式LINEからご相談ください。</div></details>
+							<details class="faq-item"><summary class="faq-item__question"><span>相談内容が勉強会で使用されることはありますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">個別にご相談いただいた内容を、許可なく勉強会などで使用することはありません。</div></details>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta-section section section--dark">
+			<div class="container">
+				<h2 class="cta-section__heading">掲載されていない内容については、<br />公式LINEからお問い合わせください。</h2>
+				<div class="cta-section__body"></div>
+				<div class="cta-section__actions">
+					<a href="../contact/" class="btn btn--primary">公式LINEで相談する</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container site-footer__inner">
+			<div class="site-footer__brand">
+				<p class="site-footer__logo">MARORIRI</p>
+				<p class="site-footer__tagline">制作者として、考え、選び、仕事を続けるための場所。</p>
+			</div>
+			<nav class="site-footer__nav" aria-label="フッターナビゲーション">
+				<ul>
+					<li><a href="../about/">MARORIRIとは</a></li>
+					<li><a href="../maroriri-plus/">maroriri Plus</a></li>
+					<li><a href="../case-check/">案件チェック</a></li>
+					<li><a href="../consulting/">単発個別相談</a></li>
+					<li><a href="../profile/">運営者紹介</a></li>
+					<li><a href="../faq/">よくある質問</a></li>
+					<li><a href="../contact/">相談・申込み</a></li>
+				</ul>
+			</nav>
+			<nav class="site-footer__legal" aria-label="法務情報">
+				<ul>
+					<li><a href="../terms/">利用規約</a></li>
+					<li><a href="../tokushoho/">特定商取引法に基づく表記</a></li>
+					<li><a href="../privacy/">プライバシーポリシー</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container site-footer__bottom"><p>© MARORIRI</p></div>
+	</footer>
+
+	<script>
+		const toggle = document.getElementById("menu-toggle");
+		const nav = document.getElementById("mobile-nav");
+		if (toggle && nav) {
+			const links = nav.querySelectorAll("a");
+			const openMenu = () => { toggle.setAttribute("aria-expanded", "true"); nav.setAttribute("aria-hidden", "false"); document.body.classList.add("nav-open"); };
+			const closeMenu = () => { toggle.setAttribute("aria-expanded", "false"); nav.setAttribute("aria-hidden", "true"); document.body.classList.remove("nav-open"); };
+			toggle.addEventListener("click", () => { (toggle.getAttribute("aria-expanded") === "true") ? closeMenu() : openMenu(); });
+			links.forEach((link) => link.addEventListener("click", closeMenu));
+		}
+	</script>
+</body>
+</html>
