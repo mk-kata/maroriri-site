@@ -19,8 +19,10 @@
 	.hero-cta { margin-top: 32px; margin-bottom: 40px; }
 	.hero-sub { margin-top: 4px; opacity: 0.85; }
 	.plus-concerns__lead { margin-top: 32px; }
-	.plus-concerns__list { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px 24px; max-width: none; }
-	.plus-concerns__list li { flex: 1 1 260px; max-width: 340px; padding: 20px 22px; background: var(--color-bg-white); color: var(--color-text); border: 1px solid var(--color-border); border-radius: var(--radius-sm); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); font-size: 0.92rem; line-height: 1.6; }
+	.plus-concerns__list { margin-top: 40px; display: grid; grid-template-columns: 1fr; gap: 16px 20px; max-width: none; }
+	.plus-concerns__list li { padding: 14px 16px; background: var(--color-bg-white); color: var(--color-text); border: 1px solid var(--color-border); border-radius: var(--radius-sm); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1); font-size: 0.9rem; line-height: 1.5; }
+	@media (min-width: 640px) { .plus-concerns__list { grid-template-columns: repeat(2, 1fr); } }
+	@media (min-width: 1024px) { .plus-concerns__list { grid-template-columns: repeat(3, 1fr); } }
 	.plus-concerns__list li::before { content: none; }
 	.plus-concerns__list li:nth-child(3n + 1) { transform: rotate(-1.5deg); }
 	.plus-concerns__list li:nth-child(3n + 2) { transform: rotate(1deg); }
@@ -44,13 +46,16 @@
 	}
 	.plus-change__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
 	.plus-who__lead { margin-top: 32px; }
-	.plus-who__list { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px 24px; max-width: none; }
-	.plus-who__list li { flex: 1 1 260px; max-width: 340px; padding: 20px 22px; background: var(--color-bg-white); color: var(--color-text); border: 1px solid var(--color-border); border-radius: var(--radius-sm); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); font-size: 0.92rem; line-height: 1.6; }
+	.plus-who__list { margin-top: 40px; display: grid; grid-template-columns: 1fr; gap: 16px 20px; max-width: none; }
+	.plus-who__list li { padding: 14px 16px; background: var(--color-bg-white); color: var(--color-text); border: 1px solid var(--color-border); border-radius: var(--radius-sm); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1); font-size: 0.9rem; line-height: 1.5; }
+	@media (min-width: 640px) { .plus-who__list { grid-template-columns: repeat(2, 1fr); } }
+	@media (min-width: 1024px) { .plus-who__list { grid-template-columns: repeat(3, 1fr); } }
 	.plus-who__list li::before { content: none; }
 	.plus-who__list li:nth-child(3n + 1) { transform: rotate(-1.5deg); }
 	.plus-who__list li:nth-child(3n + 2) { transform: rotate(1deg); }
 	.plus-who__list li:nth-child(3n + 3) { transform: rotate(-0.5deg); }
 	.plus-not-for__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+	.plus-price__lead { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
 	.plus-price__wrap { margin-top: 32px; max-width: 24em; }
 	.plus-price__included-lead { margin-top: 40px; }
 	.plus-price__included { margin-top: 16px; }
@@ -153,7 +158,7 @@
 					<li>指示どおりには作れるが、自分で判断する場面になると迷う</li>
 					<li>デザインの意図を、どうHTMLやCSSに落とし込むか悩むことがある</li>
 					<li>工数・納期・修正・クライアント対応など、制作以外の判断に迷う</li>
-					<li>AIでコードが書ける時代に、自分は何を強みにすればよいのかわからない</li>
+					<li>AIでコードが書ける時代に、自分は何を強みにすればよいかわからない</li>
 					<li>実務の疑問を、気軽に相談できる相手がいない</li>
 				</ul>
 			</div>
@@ -183,7 +188,7 @@
 						<li class="service-flow__item"><span class="num-mono service-flow__num">05</span><div><p class="service-flow__title">実際の案件や疑問を題材にした考え方の共有</p><p class="service-flow__body">実務の中で起きたことを題材に、「なぜそうするのか」「ほかにどんな考え方があるのか」を共有します。</p></div></li>
 					</ol>
 				</div>
-				<p class="plus-get__note">※事前予約制の60分個別相談「実務・キャリア相談」は月額料金には含まれません。</p>
+				<p class="plus-get__note">※事前予約制の60分個別相談「実務・キャリア相談」は、月額料金には含まれません。</p>
 			</div>
 		</section>
 
@@ -195,7 +200,7 @@
 					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>HTML・文章構造</h3><p>デザインをそのまま再現するのではなく、文章の意味や情報の関係を読み取り、どのようなHTML構造にするかを考えます。</p></div></li>
 					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>デザインの読み取り</h3><p>余白、強弱、まとまり、視線の流れなどから、デザイナーが何を意図しているのかを読み取り、実装へ落とし込む方法を考えます。</p></div></li>
 					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>案件の進め方</h3><p>工数、納期、修正範囲、確認方法など、制作を仕事として進めるために必要な判断を扱います。</p></div></li>
-					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>クライアント対応</h3><p>「できる・できない」だけではなく、なぜそう判断したのかを相手に伝える力を身につけます。</p></div></li>
+					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>クライアント対応</h3><p>「できる・できない」だけではなく、なぜそう判断したのかを相手に伝えるための考え方を扱います。</p></div></li>
 					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>キャリアとこれからの働き方</h3><p>AIでコードが書ける時代に、これまでの経験をどう活かし、どんな仕事へ領域を広げていくのかを一緒に考えます。</p></div></li>
 				</ul>
 			</div>
@@ -219,7 +224,7 @@
 				<div class="section-heading"><p class="eyebrow">WHO IT'S FOR</p><h2 class="section-heading__title">こんな方に参加してほしいと思っています。</h2></div>
 				<p class="plus-who__lead">maroriri Plusは、すでにHTML・CSSの基礎を学び、実案件または実案件に近い制作に取り組んでいる方を主な対象としています。</p>
 				<ul class="list-plain plus-who__list">
-					<li>コーディングの先に仕事の幅を広げたい</li><li>自分の判断にもう少し自信を持ちたい</li><li>ほかの制作者がどう考えているのか知りたい</li><li>制作だけでなく、案件の進め方やクライアント対応も学びたい</li><li>これからの自分の働き方を考えたい</li>
+					<li>コーディングの先に、仕事の幅を広げたい</li><li>自分の判断に、もう少し自信を持ちたい</li><li>ほかの制作者がどう考えているのか知りたい</li><li>制作だけでなく、案件の進め方やクライアント対応も学びたい</li><li>これからの自分の働き方を考えたい</li>
 				</ul>
 			</div>
 		</section>
@@ -232,7 +237,7 @@
 					<p>また、質問に対してすぐに正解だけをお渡しする場所でもありません。</p>
 					<p>「どうすればいいですか？」だけではなく、「私はこう考えたけれど、どう思いますか？」と、自分でも一度考えてみる。</p>
 					<p>そのうえで、一緒に考えたり、別の視点を知ったりすることを大切にしています。</p>
-					<p>職種を変えることや、短期間で仕事・収入を増やすことを目的としたサービスでもありません。</p>
+					<p>職種を変えることや、短期間で仕事や収入を増やすことを目的としたサービスでもありません。</p>
 					<p>今ある経験を土台に、できること、考えられることを少しずつ増やしていく場所です。</p>
 				</div>
 			</div>
@@ -240,36 +245,39 @@
 
 		<section class="section section--white plus-price">
 			<div class="container">
-				<div class="section-heading"><p class="eyebrow">PRICE & WHAT'S INCLUDED</p><h2 class="section-heading__title">料金と、含まれる内容</h2></div>
+				<div class="section-heading"><p class="eyebrow">PRICE & WHAT'S INCLUDED</p><h2 class="section-heading__title">月額3,300円で、学びと相談を日常に。</h2></div>
+				<div class="plus-price__lead">
+					<p>maroriri Plusは、月額3,300円（税込）のコミュニティです。</p>
+					<p>月1回のオンライン勉強会を中心に、実務の中で生まれる疑問や迷いを持ち寄りながら、自分なりの判断基準を少しずつ育てていきます。</p>
+				</div>
 				<div class="plus-price__wrap">
 					<div class="price-block">
 						<dl class="price-block__list"><div><dt>月額料金</dt><dd>月額 3,300円（税込）</dd></div></dl>
 					</div>
 				</div>
-				<p class="plus-price__included-lead">月額料金には、以下が含まれます。</p>
+				<p class="plus-price__included-lead">月額料金には、以下の内容が含まれます。</p>
 				<ul class="list-plain plus-price__included">
 					<li>月1回のオンライン勉強会</li><li>勉強会のアーカイブ</li><li>メンバー同士で交流・相談できるコミュニティ</li><li>コミュニティ内での軽い実務相談</li><li>実際の案件や疑問を題材にした考え方の共有</li>
 				</ul>
 
 				<div class="plus-price__excluded">
-					<p class="plus-compare__heading">Plus会員特典</p>
-					<p>案件チェックを会員価格で利用できます。</p>
+					<p class="plus-compare__heading">maroriri Plus会員特典</p>
+					<p>制作した案件を第三者の視点で確認してほしいときは、「案件チェック」を会員価格で利用できます。</p>
 					<div class="plus-price__addon-block">
 						<div class="price-block">
 							<dl class="price-block__list">
 								<div><dt>一般価格</dt><dd>10,000円（税込） ／ 1案件</dd></div>
-								<div><dt>maroriri Plus会員</dt><dd>5,000円（税込） ／ 1案件</dd></div>
+								<div><dt>maroriri Plus会員価格</dt><dd>5,000円（税込） ／ 1案件</dd></div>
 							</dl>
-							<p class="price-block__note">案件の規模や確認範囲によって、別途ご案内する場合があります。</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="plus-price__excluded">
-					<p class="plus-compare__heading">必要なときだけ利用できる個別相談</p>
-					<p>「実務・キャリア相談」は、事前予約制・60分5,000円（税込）の個別相談です。</p>
-					<p>実際の案件、クライアント対応、見積もり、進行、これからの働き方などについて、1対1でじっくり整理したいときにご利用いただけます。</p>
-					<p>こちらは月額料金には含まれません。</p>
+					<p class="plus-compare__heading">じっくり相談したいときは</p>
+					<p>案件の進め方、見積もり、クライアント対応、これからの働き方などを1対1で整理したい場合は、「実務・キャリア相談」を利用できます。</p>
+					<p>60分 5,000円（税込）</p>
+					<p>※実務・キャリア相談は、maroriri Plusの月額料金には含まれません。</p>
 					<a href="../consulting/" class="arrow-link"><span class="arrow-link__label">実務・キャリア相談について見る</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
 				</div>
 
@@ -335,11 +343,11 @@
 				</div>
 				<div class="plus-faq__list">
 					<div class="faq-accordion">
-						<details class="faq-item"><summary class="faq-item__question"><span>「コミュニティ内での軽い実務相談」と「実務・キャリア相談」は何が違いますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">「軽い実務相談」はコミュニティへの投稿形式で、日々の実務で生じた疑問に簡単なヒントや方向性をお伝えするものです。個別の時間予約はありません。「実務・キャリア相談」は事前予約制の個別相談で、60分間1対1で、案件やキャリアについて深く整理したいときにご利用いただけます。月額料金には含まれず、別料金（60分5,000円・税込）です。</div></details>
-						<details class="faq-item"><summary class="faq-item__question"><span>コーディング経験が浅くても参加できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">経験年数だけで判断するものではありませんが、HTML・CSSの基礎学習を終え、実案件または実案件に近い制作に取り組んでいる方を主な対象としています。これから初めてHTML・CSSを学ぶ方には、現在の内容が合わない可能性があります。</div></details>
-						<details class="faq-item"><summary class="faq-item__question"><span>勉強会ではどのような内容を扱いますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">HTMLの意味や文章構造、デザインの読み取り方、案件の進め方、クライアントへの伝え方など、コーダーとして判断するためのテーマを取り上げます。代表的な勉強会が「デザイン料理教室」です。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>「コミュニティ内での軽い実務相談」と「実務・キャリア相談」は何が違いますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">「軽い実務相談」は、コミュニティへの投稿形式で、日々の実務で生じた疑問について簡単なヒントや方向性をお伝えするものです。個別の時間予約はありません。「実務・キャリア相談」は、事前予約制の個別相談です。60分間1対1で、案件やキャリアについてじっくり整理したいときにご利用いただけます。月額料金には含まれず、60分5,000円（税込）の別料金です。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>コーディング経験が浅くても参加できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">経験年数だけで判断するものではありません。HTML・CSSの基礎学習を終え、実案件または実案件に近い制作に取り組んでいる方を主な対象としています。これから初めてHTML・CSSを学ぶ方には、現在の内容が合わない可能性があります。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>勉強会ではどのような内容を扱いますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">HTMLの意味や文章構造、デザインの読み取り方、案件の進め方、クライアントへの伝え方など、コーダー・Web制作者として自分で判断するためのテーマを取り上げます。</div></details>
 						<details class="faq-item"><summary class="faq-item__question"><span>デザイン料理教室だけに参加できますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">デザイン料理教室は、maroriri Plusの会員向け勉強会です。現在、デザイン料理教室だけの単独申込みは受け付けていません。</div></details>
-						<details class="faq-item"><summary class="faq-item__question"><span>勉強会に参加できなかった場合はどうなりますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">勉強会のアーカイブを月額料金に含めてご提供します。配信方法の詳細は、正式な運用が決まり次第お知らせします。</div></details>
+						<details class="faq-item"><summary class="faq-item__question"><span>勉強会に参加できなかった場合はどうなりますか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">リアルタイムで参加できなかった場合も、勉強会のアーカイブをご覧いただけます。アーカイブは、maroriri Plusの月額料金に含まれています。</div></details>
 						<details class="faq-item"><summary class="faq-item__question"><span>案件の内容やクライアント情報は外部に公開されませんか？</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">コミュニティへ投稿した内容は、参加メンバーが閲覧できます。クライアント名、会社名、個人情報、非公開情報などは伏せ、契約上共有できない情報を投稿しないようお願いいたします。実務・キャリア相談で個別にお聞きした内容を、許可なくコミュニティや外部へ公開することはありません。</div></details>
 						<details class="faq-item"><summary class="faq-item__question"><span>退会方法を教えてください。</span><span class="faq-item__icon" aria-hidden="true"></span></summary><div class="faq-item__answer">退会方法と手続き期限については、決済方法の確定後にmaroriri Plusの案内ページへ掲載します。</div></details>
 					</div>
