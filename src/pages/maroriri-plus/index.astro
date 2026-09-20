@@ -124,7 +124,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 
 	<section class="section section--white plus-concerns">
 		<div class="container">
-			<SectionHeading eyebrow="SOUND FAMILIAR?">こんなことに、<br />心当たりはありませんか。</SectionHeading>
+			<SectionHeading eyebrow="SOUND FAMILIAR?">こんなことに、心当たりはありませんか。</SectionHeading>
 			<p class="plus-concerns__lead">制作の仕事を続けていると、コードの書き方だけでは解決できないことが少しずつ増えていきます。</p>
 			<ul class="list-plain plus-concerns__list">
 				{concerns.map((t) => <li>{t}</li>)}
@@ -332,6 +332,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 <style>
 	.hero-cta {
 		margin-top: 32px;
+		margin-bottom: 40px;
 	}
 
 	.hero-sub {
@@ -341,7 +342,6 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 
 	.plus-concerns__lead {
 		margin-top: 32px;
-		max-width: 38em;
 	}
 
 	.plus-concerns__list {
