@@ -19,8 +19,13 @@
 	.hero-cta { margin-top: 32px; margin-bottom: 40px; }
 	.hero-sub { margin-top: 4px; opacity: 0.85; }
 	.plus-concerns__lead { margin-top: 32px; }
-	.plus-concerns__list { margin-top: 32px; }
-	.plus-about__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; max-width: 38em; }
+	.plus-concerns__list { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px 24px; max-width: none; }
+	.plus-concerns__list li { flex: 1 1 260px; max-width: 340px; padding: 20px 22px; background: var(--color-highlight); color: var(--color-text); border-radius: var(--radius-sm); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); font-size: 0.92rem; line-height: 1.6; }
+	.plus-concerns__list li::before { content: none; }
+	.plus-concerns__list li:nth-child(3n + 1) { transform: rotate(-1.5deg); }
+	.plus-concerns__list li:nth-child(3n + 2) { transform: rotate(1deg); }
+	.plus-concerns__list li:nth-child(3n + 3) { transform: rotate(-0.5deg); }
+	.plus-about__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
 	.plus-get__wrap { margin-top: 40px; }
 	.plus-get__note { margin-top: 24px; font-size: 0.9rem; opacity: 0.7; max-width: 36em; }
 	.plus-themes__lead { margin-top: 32px; max-width: 38em; }
