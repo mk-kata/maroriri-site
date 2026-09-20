@@ -28,16 +28,29 @@
 	.plus-about__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
 	.plus-get__wrap { margin-top: 40px; }
 	.plus-get__note { margin-top: 24px; font-size: 0.9rem; opacity: 0.7; max-width: 36em; }
+	@media (min-width: 1024px) {
+		.plus-get__wrap ol.service-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+	}
 	.plus-themes__lead { margin-top: 32px; max-width: 38em; }
 	.plus-themes__list { margin-top: 40px; display: flex; flex-direction: column; }
-	.plus-themes__list li { padding-block: 24px; border-top: 1px solid var(--color-border); }
+	.plus-themes__list li { display: flex; gap: 24px; align-items: flex-start; padding-block: 24px; border-top: 1px solid var(--color-border); }
 	.plus-themes__list li:last-child { border-bottom: 1px solid var(--color-border); }
+	.plus-themes__visual { flex: 0 0 96px; width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-border); }
+	.plus-themes__body { flex: 1; }
 	.plus-themes__list h3 { font-size: 1.05rem; font-weight: 500; }
-	.plus-themes__list p { margin-top: 10px; opacity: 0.85; max-width: 38em; }
-	.plus-change__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; max-width: 38em; }
-	.plus-who__lead { margin-top: 32px; max-width: 38em; }
-	.plus-who__list { margin-top: 24px; }
-	.plus-not-for__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; max-width: 38em; }
+	.plus-themes__list p { margin-top: 10px; opacity: 0.85; }
+	@media (max-width: 480px) {
+		.plus-themes__list li { flex-direction: column; }
+	}
+	.plus-change__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+	.plus-who__lead { margin-top: 32px; }
+	.plus-who__list { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px 24px; max-width: none; }
+	.plus-who__list li { flex: 1 1 260px; max-width: 340px; padding: 20px 22px; background: var(--color-highlight); color: var(--color-text); border-radius: var(--radius-sm); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); font-size: 0.92rem; line-height: 1.6; }
+	.plus-who__list li::before { content: none; }
+	.plus-who__list li:nth-child(3n + 1) { transform: rotate(-1.5deg); }
+	.plus-who__list li:nth-child(3n + 2) { transform: rotate(1deg); }
+	.plus-who__list li:nth-child(3n + 3) { transform: rotate(-0.5deg); }
+	.plus-not-for__body { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
 	.plus-price__wrap { margin-top: 32px; max-width: 24em; }
 	.plus-price__included-lead { margin-top: 40px; }
 	.plus-price__included { margin-top: 16px; }
@@ -179,11 +192,11 @@
 				<div class="section-heading"><p class="eyebrow">TOPICS WE COVER</p><h2 class="section-heading__title">コーディングだけでは終わらない、<br />制作の仕事を考える。</h2></div>
 				<p class="plus-themes__lead">maroriri Plusで扱うのは、コードの書き方だけではありません。コーダー・Web制作者として仕事を続けていく中で必要になる、さまざまな「判断」をテーマにします。</p>
 				<ul class="plus-themes__list">
-					<li><h3>HTML・文章構造</h3><p>デザインをそのまま再現するのではなく、文章の意味や情報の関係を読み取り、どのようなHTML構造にするかを考えます。</p></li>
-					<li><h3>デザインの読み取り</h3><p>余白、強弱、まとまり、視線の流れなどから、デザイナーが何を意図しているのかを読み取り、実装へ落とし込む方法を考えます。</p></li>
-					<li><h3>案件の進め方</h3><p>工数、納期、修正範囲、確認方法など、制作を仕事として進めるために必要な判断を扱います。</p></li>
-					<li><h3>クライアント対応</h3><p>「できる・できない」だけではなく、なぜそう判断したのかを相手に伝える力を身につけます。</p></li>
-					<li><h3>キャリアとこれからの働き方</h3><p>AIでコードが書ける時代に、これまでの経験をどう活かし、どんな仕事へ領域を広げていくのかを一緒に考えます。</p></li>
+					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>HTML・文章構造</h3><p>デザインをそのまま再現するのではなく、文章の意味や情報の関係を読み取り、どのようなHTML構造にするかを考えます。</p></div></li>
+					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>デザインの読み取り</h3><p>余白、強弱、まとまり、視線の流れなどから、デザイナーが何を意図しているのかを読み取り、実装へ落とし込む方法を考えます。</p></div></li>
+					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>案件の進め方</h3><p>工数、納期、修正範囲、確認方法など、制作を仕事として進めるために必要な判断を扱います。</p></div></li>
+					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>クライアント対応</h3><p>「できる・できない」だけではなく、なぜそう判断したのかを相手に伝える力を身につけます。</p></div></li>
+					<li><div class="plus-themes__visual" aria-hidden="true"><span>イラスト</span></div><div class="plus-themes__body"><h3>キャリアとこれからの働き方</h3><p>AIでコードが書ける時代に、これまでの経験をどう活かし、どんな仕事へ領域を広げていくのかを一緒に考えます。</p></div></li>
 				</ul>
 			</div>
 		</section>

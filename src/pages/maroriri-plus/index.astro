@@ -166,8 +166,13 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 				{
 					themes.map((t) => (
 						<li>
-							<h3>{t.title}</h3>
-							<p>{t.body}</p>
+							<div class="plus-themes__visual" aria-hidden="true">
+								<span>イラスト</span>
+							</div>
+							<div class="plus-themes__body">
+								<h3>{t.title}</h3>
+								<p>{t.body}</p>
+							</div>
 						</li>
 					))
 				}
@@ -391,6 +396,14 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 		margin-top: 40px;
 	}
 
+	@media (min-width: 1024px) {
+		.plus-get__wrap :global(ol.service-flow) {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 40px;
+		}
+	}
+
 	.plus-get__note {
 		margin-top: 24px;
 		font-size: 0.9rem;
@@ -410,12 +423,33 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 	}
 
 	.plus-themes__list li {
+		display: flex;
+		gap: 24px;
+		align-items: flex-start;
 		padding-block: 24px;
 		border-top: 1px solid var(--color-border);
 	}
 
 	.plus-themes__list li:last-child {
 		border-bottom: 1px solid var(--color-border);
+	}
+
+	.plus-themes__visual {
+		flex: 0 0 96px;
+		width: 96px;
+		height: 96px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		color: var(--color-border);
+	}
+
+	.plus-themes__body {
+		flex: 1;
 	}
 
 	.plus-themes__list h3 {
@@ -426,7 +460,12 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 	.plus-themes__list p {
 		margin-top: 10px;
 		opacity: 0.85;
-		max-width: 38em;
+	}
+
+	@media (max-width: 480px) {
+		.plus-themes__list li {
+			flex-direction: column;
+		}
 	}
 
 	.plus-change__body {
@@ -434,16 +473,46 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 		display: flex;
 		flex-direction: column;
 		gap: 14px;
-		max-width: 38em;
 	}
 
 	.plus-who__lead {
 		margin-top: 32px;
-		max-width: 38em;
 	}
 
 	.plus-who__list {
-		margin-top: 24px;
+		margin-top: 40px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px 24px;
+		max-width: none;
+	}
+
+	.plus-who__list li {
+		flex: 1 1 260px;
+		max-width: 340px;
+		padding: 20px 22px;
+		background: var(--color-highlight);
+		color: var(--color-text);
+		border-radius: var(--radius-sm);
+		box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+		font-size: 0.92rem;
+		line-height: 1.6;
+	}
+
+	.plus-who__list li::before {
+		content: none;
+	}
+
+	.plus-who__list li:nth-child(3n + 1) {
+		transform: rotate(-1.5deg);
+	}
+
+	.plus-who__list li:nth-child(3n + 2) {
+		transform: rotate(1deg);
+	}
+
+	.plus-who__list li:nth-child(3n + 3) {
+		transform: rotate(-0.5deg);
 	}
 
 	.plus-not-for__body {
@@ -451,7 +520,6 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 		display: flex;
 		flex-direction: column;
 		gap: 14px;
-		max-width: 38em;
 	}
 
 	.plus-price__wrap {
