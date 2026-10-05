@@ -1,22 +1,14 @@
-## Development
+## Structure
 
-When starting the dev server, use background mode:
+This site is maintained as static HTML. There is no build step.
 
-```
-astro dev --background
-```
+- `preview/` — all page HTML and page-specific CSS. This is the source of truth.
+- `public/` — shared images and other assets referenced by the pages (e.g. `/assets/img/...`).
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+## Editing
 
-## Documentation
+Edit files under `preview/` and `public/` directly. Check the change by opening the HTML file in a browser, or by viewing it on the live preview URL after upload.
 
-Full documentation: https://docs.astro.build
+## Publishing
 
-Consult these guides before working on related tasks:
-
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+After a change is finished: commit, `git push origin main`, then upload `preview/` to the server over SSH. Connection details live in `.deploy/lolipop.env`, which is gitignored and must never be committed or copied into this file.
