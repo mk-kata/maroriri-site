@@ -15,7 +15,7 @@ const concerns = [
 	"指示どおりには作れるが、自分で判断する場面になると迷う",
 	"デザインの意図を、どうHTMLやCSSに落とし込むか悩むことがある",
 	"工数・納期・修正・クライアント対応など、制作以外の判断に迷う",
-	"AIでコードが書ける時代に、自分は何を強みにすればよいのかわからない",
+	"AIでコードが書ける時代に、自分は何を強みにすればよいかわからない",
 	"実務の疑問を、気軽に相談できる相手がいない",
 ];
 
@@ -62,7 +62,7 @@ const themes = [
 	},
 	{
 		title: "クライアント対応",
-		body: "「できる・できない」だけではなく、なぜそう判断したのかを相手に伝える力を身につけます。",
+		body: "「できる・できない」だけではなく、なぜそう判断したのかを相手に伝えるための考え方を扱います。",
 	},
 	{
 		title: "キャリアとこれからの働き方",
@@ -71,8 +71,8 @@ const themes = [
 ];
 
 const whoItsFor = [
-	"コーディングの先に仕事の幅を広げたい",
-	"自分の判断にもう少し自信を持ちたい",
+	"コーディングの先に、仕事の幅を広げたい",
+	"自分の判断に、もう少し自信を持ちたい",
 	"ほかの制作者がどう考えているのか知りたい",
 	"制作だけでなく、案件の進め方やクライアント対応も学びたい",
 	"これからの自分の働き方を考えたい",
@@ -151,7 +151,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 				<ServiceFlow steps={included} />
 			</div>
 			<p class="plus-get__note">
-				※事前予約制の60分個別相談「実務・キャリア相談」は月額料金には含まれません。
+				※事前予約制の60分個別相談「実務・キャリア相談」は、月額料金には含まれません。
 			</p>
 		</div>
 	</section>
@@ -215,7 +215,7 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 					「どうすればいいですか？」だけではなく、「私はこう考えたけれど、どう思いますか？」と、自分でも一度考えてみる。
 				</p>
 				<p>そのうえで、一緒に考えたり、別の視点を知ったりすることを大切にしています。</p>
-				<p>職種を変えることや、短期間で仕事・収入を増やすことを目的としたサービスでもありません。</p>
+				<p>職種を変えることや、短期間で仕事や収入を増やすことを目的としたサービスでもありません。</p>
 				<p>今ある経験を土台に、できること、考えられることを少しずつ増やしていく場所です。</p>
 			</div>
 		</div>
@@ -223,38 +223,40 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 
 	<section class="section section--white plus-price">
 		<div class="container">
-			<SectionHeading eyebrow="PRICE & WHAT'S INCLUDED">料金と、含まれる内容</SectionHeading>
+			<SectionHeading eyebrow="PRICE & WHAT'S INCLUDED">月額3,300円で、学びと相談を日常に。</SectionHeading>
+			<div class="plus-price__lead">
+				<p>maroriri Plusは、月額3,300円（税込）のコミュニティです。</p>
+				<p>月1回のオンライン勉強会を中心に、実務の中で生まれる疑問や迷いを持ち寄りながら、自分なりの判断基準を少しずつ育てていきます。</p>
+			</div>
 			<div class="plus-price__wrap">
 				<PriceBlock items={[{ label: "月額料金", value: coderClub.monthlyFee }]} />
 			</div>
 
-			<p class="plus-price__included-lead">月額料金には、以下が含まれます。</p>
+			<p class="plus-price__included-lead">月額料金には、以下の内容が含まれます。</p>
 			<ul class="list-plain plus-price__included">
 				{included.map((t) => <li>{t.title}</li>)}
 			</ul>
 
 			<div class="plus-price__excluded">
-				<p class="plus-compare__heading">Plus会員特典</p>
-				<p>案件チェックを会員価格で利用できます。</p>
+				<p class="plus-compare__heading">maroriri Plus会員特典</p>
+				<p>制作した案件を第三者の視点で確認してほしいときは、「案件チェック」を会員価格で利用できます。</p>
 				<div class="plus-price__addon-block">
 					<PriceBlock
 						items={[
 							{ label: "一般価格", value: `${caseCheck.priceGeneral} ／ ${caseCheck.unit}` },
-							{ label: "maroriri Plus会員", value: `${caseCheck.priceMember} ／ ${caseCheck.unit}` },
+							{ label: "maroriri Plus会員価格", value: `${caseCheck.priceMember} ／ ${caseCheck.unit}` },
 						]}
-						note="案件の規模や確認範囲によって、別途ご案内する場合があります。"
 					/>
 				</div>
 			</div>
 
 			<div class="plus-price__excluded">
-				<p class="plus-compare__heading">必要なときだけ利用できる個別相談</p>
+				<p class="plus-compare__heading">じっくり相談したいときは</p>
+				<p>案件の進め方、見積もり、クライアント対応、これからの働き方などを1対1で整理したい場合は、「実務・キャリア相談」を利用できます。</p>
 				<p>
-					「実務・キャリア相談」は、事前予約制・{consulting.duration}
-					{consulting.price}の個別相談です。
+					{consulting.duration} {consulting.price}
 				</p>
-				<p>実際の案件、クライアント対応、見積もり、進行、これからの働き方などについて、1対1でじっくり整理したいときにご利用いただけます。</p>
-				<p>こちらは月額料金には含まれません。</p>
+				<p>※実務・キャリア相談は、maroriri Plusの月額料金には含まれません。</p>
 				<ArrowLink href="/consulting/">実務・キャリア相談について見る</ArrowLink>
 			</div>
 
@@ -351,23 +353,33 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 
 	.plus-concerns__list {
 		margin-top: 40px;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 20px 24px;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px 20px;
 		max-width: none;
 	}
 
 	.plus-concerns__list li {
-		flex: 1 1 260px;
-		max-width: 340px;
-		padding: 20px 22px;
+		padding: 14px 16px;
 		background: var(--color-bg-white);
 		border: 1px solid var(--color-border);
 		color: var(--color-text);
 		border-radius: var(--radius-sm);
-		box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-		font-size: 0.92rem;
-		line-height: 1.6;
+		box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	@media (min-width: 640px) {
+		.plus-concerns__list {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.plus-concerns__list {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
 	.plus-concerns__list li::before {
@@ -482,23 +494,33 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 
 	.plus-who__list {
 		margin-top: 40px;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 20px 24px;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px 20px;
 		max-width: none;
 	}
 
 	.plus-who__list li {
-		flex: 1 1 260px;
-		max-width: 340px;
-		padding: 20px 22px;
+		padding: 14px 16px;
 		background: var(--color-bg-white);
 		border: 1px solid var(--color-border);
 		color: var(--color-text);
 		border-radius: var(--radius-sm);
-		box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-		font-size: 0.92rem;
-		line-height: 1.6;
+		box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	@media (min-width: 640px) {
+		.plus-who__list {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.plus-who__list {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
 	.plus-who__list li::before {
@@ -518,6 +540,13 @@ const faqItems = faqCategories.find((c) => c.id === "coder-club")!.items;
 	}
 
 	.plus-not-for__body {
+		margin-top: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.plus-price__lead {
 		margin-top: 32px;
 		display: flex;
 		flex-direction: column;
